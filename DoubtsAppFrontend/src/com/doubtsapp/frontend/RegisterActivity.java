@@ -13,14 +13,12 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -90,15 +88,15 @@ public class RegisterActivity extends ActionBarActivity {
 			params.put("email", emailId);
 			params.put("role", mode);
 			intent = new Intent(this, LoginActivity.class);
+			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			invokeWS(params);
 		}
 	}
 
 	public void invokeWS(RequestParams params) {
 		AsyncHttpClient client = new AsyncHttpClient();
-		client.get(
-				"http://10.13.7.44:8082/DoubtsAppBackend/register/doregister/",
-				params, new AsyncHttpResponseHandler() {
+		client.get(GlobalVariables.appURL + "register/doregister", params,
+				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(String response) {
 						try {
