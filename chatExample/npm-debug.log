@@ -1,0 +1,2158 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'jade',
+1 verbose cli   '-g' ]
+2 info using npm@1.2.24
+3 info using node@v0.10.9
+4 verbose read json /usr/local/lib/package.json
+5 verbose read json /usr/local/lib/package.json
+6 verbose cache add [ 'jade', null ]
+7 verbose cache add name=undefined spec="jade" args=["jade",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'jade',
+8 verbose parsed url   path: 'jade',
+8 verbose parsed url   href: 'jade' }
+9 silly lockFile 5bd60fae-jade jade
+10 verbose lock jade /home/vivek/.npm/5bd60fae-jade.lock
+11 silly lockFile 5bd60fae-jade jade
+12 silly lockFile 5bd60fae-jade jade
+13 verbose addNamed [ 'jade', '' ]
+14 verbose addNamed [ null, '' ]
+15 silly lockFile 51d481b2-jade jade@
+16 verbose lock jade@ /home/vivek/.npm/51d481b2-jade.lock
+17 silly addNameRange { name: 'jade', range: '', hasData: false }
+18 verbose url raw jade
+19 verbose url resolving [ 'https://registry.npmjs.org/', './jade' ]
+20 verbose url resolved https://registry.npmjs.org/jade
+21 info trying registry request attempt 1 at 19:22:19
+22 verbose etag "EVII91IKMC20BIYQ5QIR80XNG"
+23 http GET https://registry.npmjs.org/jade
+24 http 304 https://registry.npmjs.org/jade
+25 silly registry.get cb [ 304,
+25 silly registry.get   { date: 'Sat, 07 Feb 2015 13:53:35 GMT',
+25 silly registry.get     server: 'Apache',
+25 silly registry.get     via: '1.1 varnish',
+25 silly registry.get     'last-modified': 'Sat, 07 Feb 2015 13:53:32 GMT',
+25 silly registry.get     'cache-control': 'max-age=60',
+25 silly registry.get     etag: '"EVII91IKMC20BIYQ5QIR80XNG"',
+25 silly registry.get     age: '31',
+25 silly registry.get     'x-served-by': 'cache-fra1246-FRA',
+25 silly registry.get     'x-cache': 'HIT',
+25 silly registry.get     'x-cache-hits': '2',
+25 silly registry.get     'x-timer': 'S1423317215.462383,VS0,VE0',
+25 silly registry.get     vary: 'Accept',
+25 silly registry.get     'content-length': '0',
+25 silly registry.get     'keep-alive': 'timeout=10, max=50',
+25 silly registry.get     connection: 'Keep-Alive' } ]
+26 verbose etag jade from cache
+27 silly addNameRange number 2 { name: 'jade', range: '', hasData: true }
+28 silly addNameRange versions [ 'jade',
+28 silly addNameRange   [ '0.0.1',
+28 silly addNameRange     '0.0.2',
+28 silly addNameRange     '0.1.0',
+28 silly addNameRange     '0.2.0',
+28 silly addNameRange     '0.2.1',
+28 silly addNameRange     '0.2.2',
+28 silly addNameRange     '0.2.3',
+28 silly addNameRange     '0.2.4',
+28 silly addNameRange     '0.3.0',
+28 silly addNameRange     '0.4.0',
+28 silly addNameRange     '0.4.1',
+28 silly addNameRange     '0.5.0',
+28 silly addNameRange     '0.5.1',
+28 silly addNameRange     '0.5.2',
+28 silly addNameRange     '0.5.3',
+28 silly addNameRange     '0.5.4',
+28 silly addNameRange     '0.5.5',
+28 silly addNameRange     '0.5.6',
+28 silly addNameRange     '0.5.7',
+28 silly addNameRange     '0.6.0',
+28 silly addNameRange     '0.6.1',
+28 silly addNameRange     '0.6.3',
+28 silly addNameRange     '0.7.0',
+28 silly addNameRange     '0.7.1',
+28 silly addNameRange     '0.8.0',
+28 silly addNameRange     '0.8.1',
+28 silly addNameRange     '0.8.2',
+28 silly addNameRange     '0.8.3',
+28 silly addNameRange     '0.8.4',
+28 silly addNameRange     '0.8.5',
+28 silly addNameRange     '0.8.6',
+28 silly addNameRange     '0.8.7',
+28 silly addNameRange     '0.8.8',
+28 silly addNameRange     '0.8.9',
+28 silly addNameRange     '0.9.0',
+28 silly addNameRange     '0.9.1',
+28 silly addNameRange     '0.9.2',
+28 silly addNameRange     '0.9.3',
+28 silly addNameRange     '0.10.0',
+28 silly addNameRange     '0.10.1',
+28 silly addNameRange     '0.10.2',
+28 silly addNameRange     '0.10.3',
+28 silly addNameRange     '0.10.4',
+28 silly addNameRange     '0.10.5',
+28 silly addNameRange     '0.10.6',
+28 silly addNameRange     '0.10.7',
+28 silly addNameRange     '0.11.0',
+28 silly addNameRange     '0.11.1',
+28 silly addNameRange     '0.12.0',
+28 silly addNameRange     '0.12.1',
+28 silly addNameRange     '0.12.2',
+28 silly addNameRange     '0.12.3',
+28 silly addNameRange     '0.12.4',
+28 silly addNameRange     '0.13.0',
+28 silly addNameRange     '0.14.0',
+28 silly addNameRange     '0.14.1',
+28 silly addNameRange     '0.14.2',
+28 silly addNameRange     '0.15.0',
+28 silly addNameRange     '0.15.1',
+28 silly addNameRange     '0.15.2',
+28 silly addNameRange     '0.15.3',
+28 silly addNameRange     '0.15.4',
+28 silly addNameRange     '0.16.0',
+28 silly addNameRange     '0.16.1',
+28 silly addNameRange     '0.16.2',
+28 silly addNameRange     '0.16.3',
+28 silly addNameRange     '0.16.4',
+28 silly addNameRange     '0.17.0',
+28 silly addNameRange     '0.18.0',
+28 silly addNameRange     '0.19.0',
+28 silly addNameRange     '0.20.0',
+28 silly addNameRange     '0.20.1',
+28 silly addNameRange     '0.20.2',
+28 silly addNameRange     '0.20.3',
+28 silly addNameRange     '0.21.0',
+28 silly addNameRange     '0.22.0',
+28 silly addNameRange     '0.22.1',
+28 silly addNameRange     '0.23.0',
+28 silly addNameRange     '0.24.0',
+28 silly addNameRange     '0.25.0',
+28 silly addNameRange     '0.26.0',
+28 silly addNameRange     '0.26.1',
+28 silly addNameRange     '0.26.2',
+28 silly addNameRange     '0.26.3',
+28 silly addNameRange     '0.27.0',
+28 silly addNameRange     '0.27.1',
+28 silly addNameRange     '0.27.2',
+28 silly addNameRange     '0.27.3',
+28 silly addNameRange     '0.27.4',
+28 silly addNameRange     '0.27.5',
+28 silly addNameRange     '0.27.6',
+28 silly addNameRange     '0.27.7',
+28 silly addNameRange     '0.28.0',
+28 silly addNameRange     '0.28.1',
+28 silly addNameRange     '0.28.2',
+28 silly addNameRange     '0.29.0',
+28 silly addNameRange     '0.30.0',
+28 silly addNameRange     '0.31.0',
+28 silly addNameRange     '0.31.1',
+28 silly addNameRange     '0.31.2',
+28 silly addNameRange     '0.32.0',
+28 silly addNameRange     '0.33.0',
+28 silly addNameRange     '0.34.0',
+28 silly addNameRange     '0.34.1',
+28 silly addNameRange     '0.35.0',
+28 silly addNameRange     '1.0.0',
+28 silly addNameRange     '1.0.1',
+28 silly addNameRange     '1.0.2',
+28 silly addNameRange     '1.1.0',
+28 silly addNameRange     '1.1.1',
+28 silly addNameRange     '1.1.2',
+28 silly addNameRange     '1.1.3',
+28 silly addNameRange     '1.1.4',
+28 silly addNameRange     '1.1.5',
+28 silly addNameRange     '1.2.0',
+28 silly addNameRange     '1.3.0',
+28 silly addNameRange     '1.3.1',
+28 silly addNameRange     '1.4.0',
+28 silly addNameRange     '1.4.1',
+28 silly addNameRange     '1.4.2',
+28 silly addNameRange     '1.5.0',
+28 silly addNameRange     '1.6.0',
+28 silly addNameRange     '1.7.0',
+28 silly addNameRange     '1.8.0',
+28 silly addNameRange     '1.8.1',
+28 silly addNameRange     '1.8.2',
+28 silly addNameRange     '1.9.0',
+28 silly addNameRange     '1.9.1',
+28 silly addNameRange     '1.9.2' ] ]
+29 verbose addNamed [ 'jade', '1.9.2' ]
+30 verbose addNamed [ '1.9.2', '1.9.2' ]
+31 silly lockFile 20e0e06b-jade-1-9-2 jade@1.9.2
+32 verbose lock jade@1.9.2 /home/vivek/.npm/20e0e06b-jade-1-9-2.lock
+33 verbose read json /home/vivek/.npm/jade/1.9.2/package/package.json
+34 silly lockFile 20e0e06b-jade-1-9-2 jade@1.9.2
+35 silly lockFile 20e0e06b-jade-1-9-2 jade@1.9.2
+36 silly lockFile 51d481b2-jade jade@
+37 silly lockFile 51d481b2-jade jade@
+38 silly resolved [ { name: 'jade',
+38 silly resolved     description: 'A clean, whitespace-sensitive template language for writing HTML',
+38 silly resolved     version: '1.9.2',
+38 silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+38 silly resolved     maintainers:
+38 silly resolved      [ [Object],
+38 silly resolved        [Object],
+38 silly resolved        [Object],
+38 silly resolved        [Object],
+38 silly resolved        [Object],
+38 silly resolved        [Object],
+38 silly resolved        [Object] ],
+38 silly resolved     license: 'MIT',
+38 silly resolved     repository: { type: 'git', url: 'git://github.com/jadejs/jade' },
+38 silly resolved     main: 'lib',
+38 silly resolved     bin: { jade: './bin/jade.js' },
+38 silly resolved     dependencies:
+38 silly resolved      { 'character-parser': '1.2.1',
+38 silly resolved        commander: '~2.6.0',
+38 silly resolved        constantinople: '~3.0.1',
+38 silly resolved        mkdirp: '~0.5.0',
+38 silly resolved        transformers: '2.1.0',
+38 silly resolved        'void-elements': '~2.0.1',
+38 silly resolved        with: '~4.0.0' },
+38 silly resolved     devDependencies:
+38 silly resolved      { 'coffee-script': '*',
+38 silly resolved        coveralls: '^2.11.2',
+38 silly resolved        mocha: '*',
+38 silly resolved        istanbul: '*',
+38 silly resolved        markdown: '*',
+38 silly resolved        stylus: '*',
+38 silly resolved        should: '*',
+38 silly resolved        less: '<2.0.0',
+38 silly resolved        'uglify-js': '*',
+38 silly resolved        browserify: '*',
+38 silly resolved        linify: '*',
+38 silly resolved        'less-file': '0.0.9',
+38 silly resolved        express: '~4.10.4',
+38 silly resolved        'browserify-middleware': '~4.1.0',
+38 silly resolved        twbs: '0.0.6',
+38 silly resolved        'highlight-codemirror': '~4.1.0',
+38 silly resolved        inconsolata: '0.0.2',
+38 silly resolved        'jade-code-mirror': '~1.0.5',
+38 silly resolved        'code-mirror': '~3.22.0',
+38 silly resolved        handle: '~1.0.0',
+38 silly resolved        'jade-highlighter': '~1.0.5',
+38 silly resolved        marked: '~0.3.2',
+38 silly resolved        stop: '^3.0.0-rc1',
+38 silly resolved        opener: '^1.3.0',
+38 silly resolved        'github-basic': '^4.1.2',
+38 silly resolved        'pull-request': '^3.0.0',
+38 silly resolved        lsr: '^1.0.0',
+38 silly resolved        rimraf: '^2.2.8' },
+38 silly resolved     component: { scripts: [Object] },
+38 silly resolved     scripts:
+38 silly resolved      { test: 'mocha -R spec',
+38 silly resolved        precoverage: 'rimraf coverage && rimraf cov-pt*',
+38 silly resolved        coverage: 'istanbul cover --report none --dir cov-pt0 node_modules/mocha/bin/_mocha -- -R dot',
+38 silly resolved        postcoverage: 'istanbul report --include cov-pt\\*/coverage.json && rimraf cov-pt*',
+38 silly resolved        coveralls: 'npm run coverage && cat ./coverage/lcov.info | coveralls',
+38 silly resolved        prepublish: 'npm prune && linify transform bin && npm run build',
+38 silly resolved        build: 'npm run compile',
+38 silly resolved        compile: 'npm run compile-full && npm run compile-runtime',
+38 silly resolved        'compile-full': 'browserify ./lib/index.js --standalone jade -x ./node_modules/transformers > jade.js',
+38 silly resolved        'compile-runtime': 'browserify ./lib/runtime.js --standalone jade > runtime.js' },
+38 silly resolved     browser: { fs: false, './lib/filters.js': './lib/filters-client.js' },
+38 silly resolved     homepage: 'http://jade-lang.com',
+38 silly resolved     readme: '# [![Jade - Node Template Engine](http://jade-lang.com/logos/JadeBlack.svg)](http://jade-lang.com/)\n\nFull documentation is at [jade-lang.com](http://jade-lang.com/)\n\n Jade is a high performance template engine heavily influenced by [Haml](http://haml-lang.com)\n and implemented with JavaScript for [node](http://nodejs.org) and browsers. For bug reports,\n feature requests and questions, [open an issue](https://github.com/jadejs/jade/issues/new).\n For discussion join the [chat room](https://gitter.im/jadejs/jade).\n\n You can test drive Jade online [here](http://naltatis.github.com/jade-syntax-docs).\n\n [![Build Status](https://img.shields.io/travis/jadejs/jade/master.svg?style=flat)](https://travis-ci.org/jadejs/jade)\n [![Coverage Status](https://img.shields.io/coveralls/jadejs/jade/master.svg?style=flat)](https://coveralls.io/r/jadejs/jade?branch=master)\n [![Dependency Status](https://img.shields.io/david/jadejs/jade.svg?style=flat)](https://david-dm.org/jadejs/jade)\n [![devDependencies Status](https://img.shields.io/david/dev/jadejs/jade.svg?style=flat)](https://david-dm.org/jadejs/jade#info=devDependencies)\n [![NPM version](https://img.shields.io/npm/v/jade.svg?style=flat)](http://badge.fury.io/js/jade)\n [![Join Gitter Chat](https://img.shields.io/badge/gitter-join%20chat%20%E2%86%92-brightgreen.svg?style=flat)](https://gitter.im/jadejs/jade?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)\n\n## Installation\n\nvia npm:\n\n```bash\n$ npm install jade\n```\n\n## Syntax\n\nJade is a clean, whitespace sensitive syntax for writing html.  Here is a simple example:\n\n```jade\ndoctype html\nhtml(lang="en")\n  head\n    title= pageTitle\n    script(type=\'text/javascript\').\n      if (foo) bar(1 + 5)\n  body\n    h1 Jade - node template engine\n    #container.col\n      if youAreUsingJade\n        p You are amazing\n      else\n        p Get on it!\n      p.\n        Jade is a terse and simple templating language with a\n        strong focus on performance and powerful features.\n```\n\nbecomes\n\n\n```html\n<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <title>Jade</title>\n    <script type="text/javascript">\n      if (foo) bar(1 + 5)\n    </script>\n  </head>\n  <body>\n    <h1>Jade - node template engine</h1>\n    <div id="container" class="col">\n      <p>You are amazing</p>\n      <p>Jade is a terse and simple templating language with a strong focus on performance and powerful features.</p>\n    </div>\n  </body>\n</html>\n```\n\nThe official [jade tutorial](http://jade-lang.com/tutorial/) is a great place to start.  While that (and the syntax documentation) is being finished, you can view some of the old documentation [here](https://github.com/jadejs/jade/blob/master/jade.md) and [here](https://github.com/jadejs/jade/blob/master/jade-language.md)\n\n## API\n\nFor full API, see [jade-lang.com/api](http://jade-lang.com/api/)\n\n```js\nvar jade = require(\'jade\');\n\n// compile\nvar fn = jade.compile(\'string of jade\', options);\nvar html = fn(locals);\n\n// render\nvar html = jade.render(\'string of jade\', merge(options, locals));\n\n// renderFile\nvar html = jade.renderFile(\'filename.jade\', merge(options, locals));\n```\n\n### Options\n\n - `filename`  Used in exceptions, and required when using includes\n - `compileDebug`  When `false` no debug instrumentation is compiled\n - `pretty`    Add pretty-indentation whitespace to output _(false by default)_\n\n## Browser Support\n\n The latest version of jade can be download for the browser in standalone form from [here](https://github.com/jadejs/jade/raw/master/jade.js).  It only supports the very latest browsers though, and is a large file.  It is recommended that you pre-compile your jade templates to JavaScript and then just use the [runtime.js](https://github.com/jadejs/jade/raw/master/runtime.js) library on the client.\n\n To compile a template for use on the client using the command line, do:\n\n```console\n$ jade --client --no-debug filename.jade\n```\n\nwhich will produce `filename.js` containing the compiled template.\n\n## Command Line\n\nAfter installing the latest version of [node](http://nodejs.org/), install with:\n\n```console\n$ npm install jade -g\n```\n\nand run with\n\n```console\n$ jade --help\n```\n\n## Additional Resources\n\nTutorials:\n\n  - cssdeck interactive [Jade syntax tutorial](http://cssdeck.com/labs/learning-the-jade-templating-engine-syntax)\n  - cssdeck interactive [Jade logic tutorial](http://cssdeck.com/labs/jade-templating-tutorial-codecast-part-2)\n  - [Jade について。](https://gist.github.com/japboy/5402844) (A Japanese Tutorial)\n  - [Jade - 模板引擎](https://github.com/jadejs/jade/blob/master/Readme_zh-cn.md)\n\nImplementations in other languages:\n\n  - [php](http://github.com/everzet/jade.php)\n  - [scala](http://scalate.fusesource.org/versions/snapshot/documentation/scaml-reference.html)\n  - [ruby](https://github.com/slim-template/slim)\n  - [python](https://github.com/SyrusAkbary/pyjade)\n  - [java](https://github.com/neuland/jade4j)\n\nOther:\n\n  - [Emacs Mode](https://github.com/brianc/jade-mode)\n  - [Vim Syntax](https://github.com/digitaltoad/vim-jade)\n  - [TextMate Bundle](http://github.com/miksago/jade-tmbundle)\n  - [Coda/SubEtha syntax Mode](https://github.com/aaronmccall/jade.mode)\n  - [Screencasts](http://tjholowaychuk.com/post/1004255394/jade-screencast-template-engine-for-nodejs)\n  - [html2jade](https://github.com/donpark/html2jade) converter\n  - [Jade Server](https://github.com/ded/jade-server)  Ideal for building local prototypes apart from any application\n\n## License\n\nMIT\n',
+38 silly resolved     readmeFilename: 'README.md',
+38 silly resolved     bugs: { url: 'https://github.com/jadejs/jade/issues' },
+38 silly resolved     _id: 'jade@1.9.2',
+38 silly resolved     _from: 'jade@' } ]
+39 info install jade@1.9.2 into /usr/local/lib
+40 info installOne jade@1.9.2
+41 verbose from cache /home/vivek/.npm/jade/1.9.2/package/package.json
+42 info /usr/local/lib/node_modules/jade unbuild
+43 verbose read json /usr/local/lib/node_modules/jade/package.json
+44 verbose tar unpack /home/vivek/.npm/jade/1.9.2/package.tgz
+45 silly lockFile a5bf0277-usr-local-lib-node-modules-jade /usr/local/lib/node_modules/jade
+46 verbose lock /usr/local/lib/node_modules/jade /home/vivek/.npm/a5bf0277-usr-local-lib-node-modules-jade.lock
+47 silly lockFile 93ca637a-vivek-npm-jade-1-9-2-package-tgz /home/vivek/.npm/jade/1.9.2/package.tgz
+48 verbose lock /home/vivek/.npm/jade/1.9.2/package.tgz /home/vivek/.npm/93ca637a-vivek-npm-jade-1-9-2-package-tgz.lock
+49 silly gunzTarPerm modes [ '755', '644' ]
+50 silly gunzTarPerm extractEntry package.json
+51 silly gunzTarPerm extractEntry .npmignore
+52 silly gunzTarPerm extractEntry README.md
+53 silly gunzTarPerm extractEntry LICENSE
+54 silly gunzTarPerm extractEntry release.js
+55 silly gunzTarPerm extractEntry jade.js
+56 silly gunzTarPerm extractEntry runtime.js
+57 silly gunzTarPerm extractEntry .release.json
+58 silly gunzTarPerm extractEntry lib/compiler.js
+59 silly gunzTarPerm extractEntry lib/filters-client.js
+60 silly gunzTarPerm extractEntry lib/filters.js
+61 silly gunzTarPerm extractEntry lib/index.js
+62 silly gunzTarPerm extractEntry lib/doctypes.js
+63 silly gunzTarPerm extractEntry lib/lexer.js
+64 silly gunzTarPerm extractEntry lib/runtime.js
+65 silly gunzTarPerm extractEntry lib/parser.js
+66 silly gunzTarPerm extractEntry lib/utils.js
+67 silly gunzTarPerm extractEntry lib/inline-tags.js
+68 silly gunzTarPerm extractEntry lib/nodes/attrs.js
+69 silly gunzTarPerm extractEntry lib/nodes/code.js
+70 silly gunzTarPerm extractEntry lib/nodes/comment.js
+71 silly gunzTarPerm extractEntry lib/nodes/doctype.js
+72 silly gunzTarPerm extractEntry lib/nodes/each.js
+73 silly gunzTarPerm extractEntry lib/nodes/case.js
+74 silly gunzTarPerm extractEntry lib/nodes/index.js
+75 silly gunzTarPerm extractEntry lib/nodes/literal.js
+76 silly gunzTarPerm extractEntry lib/nodes/mixin-block.js
+77 silly gunzTarPerm extractEntry lib/nodes/mixin.js
+78 silly gunzTarPerm extractEntry lib/nodes/node.js
+79 silly gunzTarPerm extractEntry lib/nodes/block.js
+80 silly gunzTarPerm extractEntry lib/nodes/tag.js
+81 silly gunzTarPerm extractEntry lib/nodes/block-comment.js
+82 silly gunzTarPerm extractEntry lib/nodes/text.js
+83 silly gunzTarPerm extractEntry lib/nodes/filter.js
+84 silly gunzTarPerm extractEntry bin/jade.js
+85 silly gunzTarPerm extractEntry Readme_zh-cn.md
+86 silly gunzTarPerm extractEntry component.json
+87 verbose read json /usr/local/lib/node_modules/jade/package.json
+88 silly lockFile a5bf0277-usr-local-lib-node-modules-jade /usr/local/lib/node_modules/jade
+89 silly lockFile a5bf0277-usr-local-lib-node-modules-jade /usr/local/lib/node_modules/jade
+90 silly lockFile 93ca637a-vivek-npm-jade-1-9-2-package-tgz /home/vivek/.npm/jade/1.9.2/package.tgz
+91 silly lockFile 93ca637a-vivek-npm-jade-1-9-2-package-tgz /home/vivek/.npm/jade/1.9.2/package.tgz
+92 info preinstall jade@1.9.2
+93 verbose from cache /usr/local/lib/node_modules/jade/package.json
+94 verbose readDependencies using package.json deps
+95 verbose from cache /usr/local/lib/node_modules/jade/package.json
+96 verbose readDependencies using package.json deps
+97 verbose cache add [ 'constantinople@~3.0.1', null ]
+98 verbose cache add name=undefined spec="constantinople@~3.0.1" args=["constantinople@~3.0.1",null]
+99 verbose parsed url { protocol: null,
+99 verbose parsed url   slashes: null,
+99 verbose parsed url   auth: null,
+99 verbose parsed url   host: null,
+99 verbose parsed url   port: null,
+99 verbose parsed url   hostname: null,
+99 verbose parsed url   hash: null,
+99 verbose parsed url   search: null,
+99 verbose parsed url   query: null,
+99 verbose parsed url   pathname: 'constantinople@~3.0.1',
+99 verbose parsed url   path: 'constantinople@~3.0.1',
+99 verbose parsed url   href: 'constantinople@~3.0.1' }
+100 verbose cache add name="constantinople" spec="~3.0.1" args=["constantinople","~3.0.1"]
+101 verbose parsed url { protocol: null,
+101 verbose parsed url   slashes: null,
+101 verbose parsed url   auth: null,
+101 verbose parsed url   host: null,
+101 verbose parsed url   port: null,
+101 verbose parsed url   hostname: null,
+101 verbose parsed url   hash: null,
+101 verbose parsed url   search: null,
+101 verbose parsed url   query: null,
+101 verbose parsed url   pathname: '~3.0.1',
+101 verbose parsed url   path: '~3.0.1',
+101 verbose parsed url   href: '~3.0.1' }
+102 verbose addNamed [ 'constantinople', '~3.0.1' ]
+103 verbose addNamed [ null, '>=3.0.1- <3.1.0-' ]
+104 silly lockFile 92b3c765-constantinople-3-0-1 constantinople@~3.0.1
+105 verbose lock constantinople@~3.0.1 /home/vivek/.npm/92b3c765-constantinople-3-0-1.lock
+106 verbose cache add [ 'character-parser@1.2.1', null ]
+107 verbose cache add name=undefined spec="character-parser@1.2.1" args=["character-parser@1.2.1",null]
+108 verbose parsed url { protocol: null,
+108 verbose parsed url   slashes: null,
+108 verbose parsed url   auth: null,
+108 verbose parsed url   host: null,
+108 verbose parsed url   port: null,
+108 verbose parsed url   hostname: null,
+108 verbose parsed url   hash: null,
+108 verbose parsed url   search: null,
+108 verbose parsed url   query: null,
+108 verbose parsed url   pathname: 'character-parser@1.2.1',
+108 verbose parsed url   path: 'character-parser@1.2.1',
+108 verbose parsed url   href: 'character-parser@1.2.1' }
+109 verbose cache add name="character-parser" spec="1.2.1" args=["character-parser","1.2.1"]
+110 verbose parsed url { protocol: null,
+110 verbose parsed url   slashes: null,
+110 verbose parsed url   auth: null,
+110 verbose parsed url   host: null,
+110 verbose parsed url   port: null,
+110 verbose parsed url   hostname: null,
+110 verbose parsed url   hash: null,
+110 verbose parsed url   search: null,
+110 verbose parsed url   query: null,
+110 verbose parsed url   pathname: '1.2.1',
+110 verbose parsed url   path: '1.2.1',
+110 verbose parsed url   href: '1.2.1' }
+111 verbose addNamed [ 'character-parser', '1.2.1' ]
+112 verbose addNamed [ '1.2.1', '1.2.1' ]
+113 silly lockFile 91ff6256-character-parser-1-2-1 character-parser@1.2.1
+114 verbose lock character-parser@1.2.1 /home/vivek/.npm/91ff6256-character-parser-1-2-1.lock
+115 verbose cache add [ 'commander@~2.6.0', null ]
+116 verbose cache add name=undefined spec="commander@~2.6.0" args=["commander@~2.6.0",null]
+117 verbose parsed url { protocol: null,
+117 verbose parsed url   slashes: null,
+117 verbose parsed url   auth: null,
+117 verbose parsed url   host: null,
+117 verbose parsed url   port: null,
+117 verbose parsed url   hostname: null,
+117 verbose parsed url   hash: null,
+117 verbose parsed url   search: null,
+117 verbose parsed url   query: null,
+117 verbose parsed url   pathname: 'commander@~2.6.0',
+117 verbose parsed url   path: 'commander@~2.6.0',
+117 verbose parsed url   href: 'commander@~2.6.0' }
+118 verbose cache add name="commander" spec="~2.6.0" args=["commander","~2.6.0"]
+119 verbose parsed url { protocol: null,
+119 verbose parsed url   slashes: null,
+119 verbose parsed url   auth: null,
+119 verbose parsed url   host: null,
+119 verbose parsed url   port: null,
+119 verbose parsed url   hostname: null,
+119 verbose parsed url   hash: null,
+119 verbose parsed url   search: null,
+119 verbose parsed url   query: null,
+119 verbose parsed url   pathname: '~2.6.0',
+119 verbose parsed url   path: '~2.6.0',
+119 verbose parsed url   href: '~2.6.0' }
+120 verbose addNamed [ 'commander', '~2.6.0' ]
+121 verbose addNamed [ null, '>=2.6.0- <2.7.0-' ]
+122 silly lockFile 45671e7d-commander-2-6-0 commander@~2.6.0
+123 verbose lock commander@~2.6.0 /home/vivek/.npm/45671e7d-commander-2-6-0.lock
+124 silly addNameRange { name: 'constantinople',
+124 silly addNameRange   range: '>=3.0.1- <3.1.0-',
+124 silly addNameRange   hasData: false }
+125 verbose cache add [ 'mkdirp@~0.5.0', null ]
+126 verbose cache add name=undefined spec="mkdirp@~0.5.0" args=["mkdirp@~0.5.0",null]
+127 verbose parsed url { protocol: null,
+127 verbose parsed url   slashes: null,
+127 verbose parsed url   auth: null,
+127 verbose parsed url   host: null,
+127 verbose parsed url   port: null,
+127 verbose parsed url   hostname: null,
+127 verbose parsed url   hash: null,
+127 verbose parsed url   search: null,
+127 verbose parsed url   query: null,
+127 verbose parsed url   pathname: 'mkdirp@~0.5.0',
+127 verbose parsed url   path: 'mkdirp@~0.5.0',
+127 verbose parsed url   href: 'mkdirp@~0.5.0' }
+128 verbose cache add name="mkdirp" spec="~0.5.0" args=["mkdirp","~0.5.0"]
+129 verbose parsed url { protocol: null,
+129 verbose parsed url   slashes: null,
+129 verbose parsed url   auth: null,
+129 verbose parsed url   host: null,
+129 verbose parsed url   port: null,
+129 verbose parsed url   hostname: null,
+129 verbose parsed url   hash: null,
+129 verbose parsed url   search: null,
+129 verbose parsed url   query: null,
+129 verbose parsed url   pathname: '~0.5.0',
+129 verbose parsed url   path: '~0.5.0',
+129 verbose parsed url   href: '~0.5.0' }
+130 verbose addNamed [ 'mkdirp', '~0.5.0' ]
+131 verbose addNamed [ null, '>=0.5.0- <0.6.0-' ]
+132 silly lockFile 3880d7a6-mkdirp-0-5-0 mkdirp@~0.5.0
+133 verbose lock mkdirp@~0.5.0 /home/vivek/.npm/3880d7a6-mkdirp-0-5-0.lock
+134 verbose cache add [ 'transformers@2.1.0', null ]
+135 verbose cache add name=undefined spec="transformers@2.1.0" args=["transformers@2.1.0",null]
+136 verbose parsed url { protocol: null,
+136 verbose parsed url   slashes: null,
+136 verbose parsed url   auth: null,
+136 verbose parsed url   host: null,
+136 verbose parsed url   port: null,
+136 verbose parsed url   hostname: null,
+136 verbose parsed url   hash: null,
+136 verbose parsed url   search: null,
+136 verbose parsed url   query: null,
+136 verbose parsed url   pathname: 'transformers@2.1.0',
+136 verbose parsed url   path: 'transformers@2.1.0',
+136 verbose parsed url   href: 'transformers@2.1.0' }
+137 verbose cache add name="transformers" spec="2.1.0" args=["transformers","2.1.0"]
+138 verbose parsed url { protocol: null,
+138 verbose parsed url   slashes: null,
+138 verbose parsed url   auth: null,
+138 verbose parsed url   host: null,
+138 verbose parsed url   port: null,
+138 verbose parsed url   hostname: null,
+138 verbose parsed url   hash: null,
+138 verbose parsed url   search: null,
+138 verbose parsed url   query: null,
+138 verbose parsed url   pathname: '2.1.0',
+138 verbose parsed url   path: '2.1.0',
+138 verbose parsed url   href: '2.1.0' }
+139 verbose addNamed [ 'transformers', '2.1.0' ]
+140 verbose addNamed [ '2.1.0', '2.1.0' ]
+141 silly lockFile 8f87aaee-transformers-2-1-0 transformers@2.1.0
+142 verbose lock transformers@2.1.0 /home/vivek/.npm/8f87aaee-transformers-2-1-0.lock
+143 verbose cache add [ 'void-elements@~2.0.1', null ]
+144 verbose cache add name=undefined spec="void-elements@~2.0.1" args=["void-elements@~2.0.1",null]
+145 verbose parsed url { protocol: null,
+145 verbose parsed url   slashes: null,
+145 verbose parsed url   auth: null,
+145 verbose parsed url   host: null,
+145 verbose parsed url   port: null,
+145 verbose parsed url   hostname: null,
+145 verbose parsed url   hash: null,
+145 verbose parsed url   search: null,
+145 verbose parsed url   query: null,
+145 verbose parsed url   pathname: 'void-elements@~2.0.1',
+145 verbose parsed url   path: 'void-elements@~2.0.1',
+145 verbose parsed url   href: 'void-elements@~2.0.1' }
+146 verbose cache add name="void-elements" spec="~2.0.1" args=["void-elements","~2.0.1"]
+147 verbose parsed url { protocol: null,
+147 verbose parsed url   slashes: null,
+147 verbose parsed url   auth: null,
+147 verbose parsed url   host: null,
+147 verbose parsed url   port: null,
+147 verbose parsed url   hostname: null,
+147 verbose parsed url   hash: null,
+147 verbose parsed url   search: null,
+147 verbose parsed url   query: null,
+147 verbose parsed url   pathname: '~2.0.1',
+147 verbose parsed url   path: '~2.0.1',
+147 verbose parsed url   href: '~2.0.1' }
+148 verbose addNamed [ 'void-elements', '~2.0.1' ]
+149 verbose addNamed [ null, '>=2.0.1- <2.1.0-' ]
+150 silly lockFile c684dd2b-void-elements-2-0-1 void-elements@~2.0.1
+151 verbose lock void-elements@~2.0.1 /home/vivek/.npm/c684dd2b-void-elements-2-0-1.lock
+152 verbose cache add [ 'with@~4.0.0', null ]
+153 verbose cache add name=undefined spec="with@~4.0.0" args=["with@~4.0.0",null]
+154 verbose parsed url { protocol: null,
+154 verbose parsed url   slashes: null,
+154 verbose parsed url   auth: null,
+154 verbose parsed url   host: null,
+154 verbose parsed url   port: null,
+154 verbose parsed url   hostname: null,
+154 verbose parsed url   hash: null,
+154 verbose parsed url   search: null,
+154 verbose parsed url   query: null,
+154 verbose parsed url   pathname: 'with@~4.0.0',
+154 verbose parsed url   path: 'with@~4.0.0',
+154 verbose parsed url   href: 'with@~4.0.0' }
+155 verbose cache add name="with" spec="~4.0.0" args=["with","~4.0.0"]
+156 verbose parsed url { protocol: null,
+156 verbose parsed url   slashes: null,
+156 verbose parsed url   auth: null,
+156 verbose parsed url   host: null,
+156 verbose parsed url   port: null,
+156 verbose parsed url   hostname: null,
+156 verbose parsed url   hash: null,
+156 verbose parsed url   search: null,
+156 verbose parsed url   query: null,
+156 verbose parsed url   pathname: '~4.0.0',
+156 verbose parsed url   path: '~4.0.0',
+156 verbose parsed url   href: '~4.0.0' }
+157 verbose addNamed [ 'with', '~4.0.0' ]
+158 verbose addNamed [ null, '>=4.0.0- <4.1.0-' ]
+159 silly lockFile 092b1cc1-with-4-0-0 with@~4.0.0
+160 verbose lock with@~4.0.0 /home/vivek/.npm/092b1cc1-with-4-0-0.lock
+161 silly addNameRange { name: 'commander', range: '>=2.6.0- <2.7.0-', hasData: false }
+162 silly addNameRange { name: 'mkdirp', range: '>=0.5.0- <0.6.0-', hasData: false }
+163 silly addNameRange { name: 'void-elements',
+163 silly addNameRange   range: '>=2.0.1- <2.1.0-',
+163 silly addNameRange   hasData: false }
+164 silly addNameRange { name: 'with', range: '>=4.0.0- <4.1.0-', hasData: false }
+165 verbose url raw void-elements
+166 verbose url resolving [ 'https://registry.npmjs.org/', './void-elements' ]
+167 verbose url resolved https://registry.npmjs.org/void-elements
+168 info trying registry request attempt 1 at 19:22:51
+169 http GET https://registry.npmjs.org/void-elements
+170 verbose url raw transformers/2.1.0
+171 verbose url resolving [ 'https://registry.npmjs.org/', './transformers/2.1.0' ]
+172 verbose url resolved https://registry.npmjs.org/transformers/2.1.0
+173 info trying registry request attempt 1 at 19:22:51
+174 http GET https://registry.npmjs.org/transformers/2.1.0
+175 verbose url raw character-parser/1.2.1
+176 verbose url resolving [ 'https://registry.npmjs.org/', './character-parser/1.2.1' ]
+177 verbose url resolved https://registry.npmjs.org/character-parser/1.2.1
+178 info trying registry request attempt 1 at 19:22:51
+179 http GET https://registry.npmjs.org/character-parser/1.2.1
+180 verbose url raw constantinople
+181 verbose url resolving [ 'https://registry.npmjs.org/', './constantinople' ]
+182 verbose url resolved https://registry.npmjs.org/constantinople
+183 info trying registry request attempt 1 at 19:22:51
+184 verbose etag "4NUL5L3OWOFHO0UANIFT8290N"
+185 http GET https://registry.npmjs.org/constantinople
+186 verbose url raw with
+187 verbose url resolving [ 'https://registry.npmjs.org/', './with' ]
+188 verbose url resolved https://registry.npmjs.org/with
+189 info trying registry request attempt 1 at 19:22:51
+190 verbose etag "AS7JKW2R7FLLVGMED4C8WWQBP"
+191 http GET https://registry.npmjs.org/with
+192 verbose url raw commander
+193 verbose url resolving [ 'https://registry.npmjs.org/', './commander' ]
+194 verbose url resolved https://registry.npmjs.org/commander
+195 info trying registry request attempt 1 at 19:22:51
+196 verbose etag "BM3G1FHV8SMEAGQA7YO9P70R9"
+197 http GET https://registry.npmjs.org/commander
+198 verbose url raw mkdirp
+199 verbose url resolving [ 'https://registry.npmjs.org/', './mkdirp' ]
+200 verbose url resolved https://registry.npmjs.org/mkdirp
+201 info trying registry request attempt 1 at 19:22:51
+202 verbose etag "9ZCRRPI96BH1I59BKUXVFU1ZC"
+203 http GET https://registry.npmjs.org/mkdirp
+204 http 200 https://registry.npmjs.org/character-parser/1.2.1
+205 silly registry.get cb [ 200,
+205 silly registry.get   { date: 'Sat, 07 Feb 2015 13:54:07 GMT',
+205 silly registry.get     server: 'CouchDB/1.6.1 (Erlang OTP/R14B04)',
+205 silly registry.get     etag: '"1BOJT1VIJ9ZGHDK9PD04XZK88"',
+205 silly registry.get     'content-type': 'application/json',
+205 silly registry.get     'cache-control': 'max-age=60',
+205 silly registry.get     'content-length': '1117',
+205 silly registry.get     'accept-ranges': 'bytes',
+205 silly registry.get     via: '1.1 varnish',
+205 silly registry.get     age: '56',
+205 silly registry.get     'x-served-by': 'cache-fra1229-FRA',
+205 silly registry.get     'x-cache': 'HIT',
+205 silly registry.get     'x-cache-hits': '1',
+205 silly registry.get     'x-timer': 'S1423317247.187791,VS0,VE0',
+205 silly registry.get     vary: 'Accept',
+205 silly registry.get     'keep-alive': 'timeout=10, max=50',
+205 silly registry.get     connection: 'Keep-Alive' } ]
+206 http 200 https://registry.npmjs.org/void-elements
+207 silly registry.get cb [ 200,
+207 silly registry.get   { date: 'Sat, 07 Feb 2015 13:54:07 GMT',
+207 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+207 silly registry.get     etag: '"78NZXHW6MTNFDJNK06RSAXH1B"',
+207 silly registry.get     'content-type': 'application/json',
+207 silly registry.get     'cache-control': 'max-age=60',
+207 silly registry.get     'content-length': '7245',
+207 silly registry.get     'accept-ranges': 'bytes',
+207 silly registry.get     via: '1.1 varnish',
+207 silly registry.get     age: '56',
+207 silly registry.get     'x-served-by': 'cache-fra1240-FRA',
+207 silly registry.get     'x-cache': 'HIT',
+207 silly registry.get     'x-cache-hits': '1',
+207 silly registry.get     'x-timer': 'S1423317247.196838,VS0,VE0',
+207 silly registry.get     vary: 'Accept',
+207 silly registry.get     'keep-alive': 'timeout=10, max=50',
+207 silly registry.get     connection: 'Keep-Alive' } ]
+208 silly addNameRange number 2 { name: 'void-elements',
+208 silly addNameRange   range: '>=2.0.1- <2.1.0-',
+208 silly addNameRange   hasData: true }
+209 silly addNameRange versions [ 'void-elements',
+209 silly addNameRange   [ '0.1.0', '0.1.1', '1.0.0', '2.0.0', '2.0.1' ] ]
+210 verbose addNamed [ 'void-elements', '2.0.1' ]
+211 verbose addNamed [ '2.0.1', '2.0.1' ]
+212 silly lockFile 412d2189-void-elements-2-0-1 void-elements@2.0.1
+213 verbose lock void-elements@2.0.1 /home/vivek/.npm/412d2189-void-elements-2-0-1.lock
+214 silly lockFile 75459f09-elements-void-elements-2-0-1-tgz https://registry.npmjs.org/void-elements/-/void-elements-2.0.1.tgz
+215 verbose lock https://registry.npmjs.org/void-elements/-/void-elements-2.0.1.tgz /home/vivek/.npm/75459f09-elements-void-elements-2-0-1-tgz.lock
+216 verbose addRemoteTarball [ 'https://registry.npmjs.org/void-elements/-/void-elements-2.0.1.tgz',
+216 verbose addRemoteTarball   'c066afb582bb1cb4128d60ea92392e94d5e9dbec' ]
+217 info retry fetch attempt 1 at 19:22:51
+218 verbose fetch to= /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/tmp.tgz
+219 http 200 https://registry.npmjs.org/transformers/2.1.0
+220 silly registry.get cb [ 200,
+220 silly registry.get   { date: 'Sat, 07 Feb 2015 13:54:07 GMT',
+220 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+220 silly registry.get     etag: '"A36INBBVBUNNV356BXZ37UCOO"',
+220 silly registry.get     'content-type': 'application/json',
+220 silly registry.get     'cache-control': 'max-age=60',
+220 silly registry.get     'content-length': '1540',
+220 silly registry.get     'accept-ranges': 'bytes',
+220 silly registry.get     via: '1.1 varnish',
+220 silly registry.get     age: '56',
+220 silly registry.get     'x-served-by': 'cache-fra1225-FRA',
+220 silly registry.get     'x-cache': 'HIT',
+220 silly registry.get     'x-cache-hits': '1',
+220 silly registry.get     'x-timer': 'S1423317247.210487,VS0,VE0',
+220 silly registry.get     vary: 'Accept',
+220 silly registry.get     'keep-alive': 'timeout=10, max=50',
+220 silly registry.get     connection: 'Keep-Alive' } ]
+221 http GET https://registry.npmjs.org/void-elements/-/void-elements-2.0.1.tgz
+222 silly lockFile f9de2ea7-arser-character-parser-1-2-1-tgz https://registry.npmjs.org/character-parser/-/character-parser-1.2.1.tgz
+223 verbose lock https://registry.npmjs.org/character-parser/-/character-parser-1.2.1.tgz /home/vivek/.npm/f9de2ea7-arser-character-parser-1-2-1-tgz.lock
+224 silly lockFile 1cfed429-nsformers-transformers-2-1-0-tgz https://registry.npmjs.org/transformers/-/transformers-2.1.0.tgz
+225 verbose lock https://registry.npmjs.org/transformers/-/transformers-2.1.0.tgz /home/vivek/.npm/1cfed429-nsformers-transformers-2-1-0-tgz.lock
+226 verbose addRemoteTarball [ 'https://registry.npmjs.org/character-parser/-/character-parser-1.2.1.tgz',
+226 verbose addRemoteTarball   'c0dde4ab182713b919b970959a123ecc1a30fcd6' ]
+227 verbose addRemoteTarball [ 'https://registry.npmjs.org/transformers/-/transformers-2.1.0.tgz',
+227 verbose addRemoteTarball   '5d23cb35561dd85dc67fb8482309b47d53cce9a7' ]
+228 info retry fetch attempt 1 at 19:22:51
+229 verbose fetch to= /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/tmp.tgz
+230 info retry fetch attempt 1 at 19:22:51
+231 verbose fetch to= /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/tmp.tgz
+232 http GET https://registry.npmjs.org/character-parser/-/character-parser-1.2.1.tgz
+233 http GET https://registry.npmjs.org/transformers/-/transformers-2.1.0.tgz
+234 http 200 https://registry.npmjs.org/constantinople
+235 silly registry.get cb [ 200,
+235 silly registry.get   { date: 'Sat, 07 Feb 2015 13:54:07 GMT',
+235 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+235 silly registry.get     etag: '"65TLYICT98HGCJ56GS4FWFFPH"',
+235 silly registry.get     'content-type': 'application/json',
+235 silly registry.get     'cache-control': 'max-age=60',
+235 silly registry.get     'content-length': '9595',
+235 silly registry.get     'accept-ranges': 'bytes',
+235 silly registry.get     via: '1.1 varnish',
+235 silly registry.get     age: '54',
+235 silly registry.get     'x-served-by': 'cache-fra1226-FRA',
+235 silly registry.get     'x-cache': 'HIT',
+235 silly registry.get     'x-cache-hits': '1',
+235 silly registry.get     'x-timer': 'S1423317247.246301,VS0,VE0',
+235 silly registry.get     vary: 'Accept',
+235 silly registry.get     'keep-alive': 'timeout=10, max=50',
+235 silly registry.get     connection: 'Keep-Alive' } ]
+236 http 200 https://registry.npmjs.org/with
+237 silly registry.get cb [ 200,
+237 silly registry.get   { date: 'Sat, 07 Feb 2015 13:54:07 GMT',
+237 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+237 silly registry.get     etag: '"DSLHZZ6Y9YMO6J9OCJK0QF6CO"',
+237 silly registry.get     'content-type': 'application/json',
+237 silly registry.get     'cache-control': 'max-age=60',
+237 silly registry.get     'content-length': '12371',
+237 silly registry.get     'accept-ranges': 'bytes',
+237 silly registry.get     via: '1.1 varnish',
+237 silly registry.get     age: '56',
+237 silly registry.get     'x-served-by': 'cache-fra1227-FRA',
+237 silly registry.get     'x-cache': 'HIT',
+237 silly registry.get     'x-cache-hits': '1',
+237 silly registry.get     'x-timer': 'S1423317247.249330,VS0,VE0',
+237 silly registry.get     vary: 'Accept',
+237 silly registry.get     'keep-alive': 'timeout=10, max=50',
+237 silly registry.get     connection: 'Keep-Alive' } ]
+238 silly addNameRange number 2 { name: 'with', range: '>=4.0.0- <4.1.0-', hasData: true }
+239 silly addNameRange versions [ 'with',
+239 silly addNameRange   [ '1.0.0',
+239 silly addNameRange     '1.0.1',
+239 silly addNameRange     '1.0.2',
+239 silly addNameRange     '1.0.3',
+239 silly addNameRange     '1.0.4',
+239 silly addNameRange     '1.1.0',
+239 silly addNameRange     '1.1.1',
+239 silly addNameRange     '2.0.0',
+239 silly addNameRange     '3.0.0',
+239 silly addNameRange     '3.0.1',
+239 silly addNameRange     '4.0.0' ] ]
+240 verbose addNamed [ 'with', '4.0.0' ]
+241 verbose addNamed [ '4.0.0', '4.0.0' ]
+242 silly lockFile dd2924cf-with-4-0-0 with@4.0.0
+243 verbose lock with@4.0.0 /home/vivek/.npm/dd2924cf-with-4-0-0.lock
+244 silly addNameRange number 2 { name: 'constantinople',
+244 silly addNameRange   range: '>=3.0.1- <3.1.0-',
+244 silly addNameRange   hasData: true }
+245 silly addNameRange versions [ 'constantinople',
+245 silly addNameRange   [ '1.0.0', '1.0.1', '1.0.2', '2.0.0', '2.0.1', '3.0.0', '3.0.1' ] ]
+246 verbose addNamed [ 'constantinople', '3.0.1' ]
+247 verbose addNamed [ '3.0.1', '3.0.1' ]
+248 silly lockFile b9c88df7-constantinople-3-0-1 constantinople@3.0.1
+249 verbose lock constantinople@3.0.1 /home/vivek/.npm/b9c88df7-constantinople-3-0-1.lock
+250 silly lockFile 013c241f-ry-npmjs-org-with-with-4-0-0-tgz https://registry.npmjs.org/with/-/with-4.0.0.tgz
+251 verbose lock https://registry.npmjs.org/with/-/with-4.0.0.tgz /home/vivek/.npm/013c241f-ry-npmjs-org-with-with-4-0-0-tgz.lock
+252 silly lockFile 598ae2b4-tinople-constantinople-3-0-1-tgz https://registry.npmjs.org/constantinople/-/constantinople-3.0.1.tgz
+253 verbose lock https://registry.npmjs.org/constantinople/-/constantinople-3.0.1.tgz /home/vivek/.npm/598ae2b4-tinople-constantinople-3-0-1-tgz.lock
+254 verbose addRemoteTarball [ 'https://registry.npmjs.org/with/-/with-4.0.0.tgz',
+254 verbose addRemoteTarball   '7a78d6642d9b72960a71d1c0c45fd6dd1b878dc7' ]
+255 verbose addRemoteTarball [ 'https://registry.npmjs.org/constantinople/-/constantinople-3.0.1.tgz',
+255 verbose addRemoteTarball   '1ddf9deac0d14c4367c1d5b3f16fb2763f123108' ]
+256 info retry fetch attempt 1 at 19:22:51
+257 verbose fetch to= /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/tmp.tgz
+258 info retry fetch attempt 1 at 19:22:51
+259 verbose fetch to= /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/tmp.tgz
+260 http GET https://registry.npmjs.org/with/-/with-4.0.0.tgz
+261 http GET https://registry.npmjs.org/constantinople/-/constantinople-3.0.1.tgz
+262 http 200 https://registry.npmjs.org/mkdirp
+263 silly registry.get cb [ 200,
+263 silly registry.get   { date: 'Sat, 07 Feb 2015 13:54:07 GMT',
+263 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+263 silly registry.get     etag: '"2O32QG3WVFCBJ727A19HAE6FJ"',
+263 silly registry.get     'content-type': 'application/json',
+263 silly registry.get     'cache-control': 'max-age=60',
+263 silly registry.get     'content-length': '21846',
+263 silly registry.get     'accept-ranges': 'bytes',
+263 silly registry.get     via: '1.1 varnish',
+263 silly registry.get     age: '44',
+263 silly registry.get     'x-served-by': 'cache-fra1240-FRA',
+263 silly registry.get     'x-cache': 'HIT',
+263 silly registry.get     'x-cache-hits': '1',
+263 silly registry.get     'x-timer': 'S1423317247.349013,VS0,VE0',
+263 silly registry.get     vary: 'Accept',
+263 silly registry.get     'keep-alive': 'timeout=10, max=49',
+263 silly registry.get     connection: 'Keep-Alive' } ]
+264 silly addNameRange number 2 { name: 'mkdirp', range: '>=0.5.0- <0.6.0-', hasData: true }
+265 silly addNameRange versions [ 'mkdirp',
+265 silly addNameRange   [ '0.0.1',
+265 silly addNameRange     '0.0.2',
+265 silly addNameRange     '0.0.3',
+265 silly addNameRange     '0.0.4',
+265 silly addNameRange     '0.0.5',
+265 silly addNameRange     '0.0.6',
+265 silly addNameRange     '0.0.7',
+265 silly addNameRange     '0.1.0',
+265 silly addNameRange     '0.2.0',
+265 silly addNameRange     '0.2.1',
+265 silly addNameRange     '0.2.2',
+265 silly addNameRange     '0.3.0',
+265 silly addNameRange     '0.3.1',
+265 silly addNameRange     '0.3.2',
+265 silly addNameRange     '0.3.3',
+265 silly addNameRange     '0.3.4',
+265 silly addNameRange     '0.3.5',
+265 silly addNameRange     '0.4.0',
+265 silly addNameRange     '0.4.1',
+265 silly addNameRange     '0.4.2',
+265 silly addNameRange     '0.5.0' ] ]
+266 verbose addNamed [ 'mkdirp', '0.5.0' ]
+267 verbose addNamed [ '0.5.0', '0.5.0' ]
+268 silly lockFile bf9ae38d-mkdirp-0-5-0 mkdirp@0.5.0
+269 verbose lock mkdirp@0.5.0 /home/vivek/.npm/bf9ae38d-mkdirp-0-5-0.lock
+270 silly lockFile f26a2ada-pmjs-org-mkdirp-mkdirp-0-5-0-tgz https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.0.tgz
+271 verbose lock https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.0.tgz /home/vivek/.npm/f26a2ada-pmjs-org-mkdirp-mkdirp-0-5-0-tgz.lock
+272 verbose addRemoteTarball [ 'https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.0.tgz',
+272 verbose addRemoteTarball   '1d73076a6df986cd9344e15e71fcc05a4c9abf12' ]
+273 info retry fetch attempt 1 at 19:22:52
+274 verbose fetch to= /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/tmp.tgz
+275 http GET https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.0.tgz
+276 http 200 https://registry.npmjs.org/commander
+277 silly registry.get cb [ 200,
+277 silly registry.get   { date: 'Sat, 07 Feb 2015 13:54:07 GMT',
+277 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+277 silly registry.get     etag: '"BJCKFQD85QWCBY7VRN01XEWWJ"',
+277 silly registry.get     'content-type': 'application/json',
+277 silly registry.get     'cache-control': 'max-age=60',
+277 silly registry.get     'content-length': '50638',
+277 silly registry.get     'accept-ranges': 'bytes',
+277 silly registry.get     via: '1.1 varnish',
+277 silly registry.get     age: '18',
+277 silly registry.get     'x-served-by': 'cache-fra1229-FRA',
+277 silly registry.get     'x-cache': 'HIT',
+277 silly registry.get     'x-cache-hits': '1',
+277 silly registry.get     'x-timer': 'S1423317247.343139,VS0,VE0',
+277 silly registry.get     vary: 'Accept',
+277 silly registry.get     'keep-alive': 'timeout=10, max=49',
+277 silly registry.get     connection: 'Keep-Alive' } ]
+278 silly addNameRange number 2 { name: 'commander', range: '>=2.6.0- <2.7.0-', hasData: true }
+279 silly addNameRange versions [ 'commander',
+279 silly addNameRange   [ '0.0.1',
+279 silly addNameRange     '0.0.3',
+279 silly addNameRange     '0.0.4',
+279 silly addNameRange     '0.0.5',
+279 silly addNameRange     '0.1.0',
+279 silly addNameRange     '0.2.0',
+279 silly addNameRange     '0.2.1',
+279 silly addNameRange     '0.3.0',
+279 silly addNameRange     '0.3.1',
+279 silly addNameRange     '0.3.2',
+279 silly addNameRange     '0.3.3',
+279 silly addNameRange     '0.4.0',
+279 silly addNameRange     '0.4.1',
+279 silly addNameRange     '0.4.2',
+279 silly addNameRange     '0.4.3',
+279 silly addNameRange     '0.5.0',
+279 silly addNameRange     '0.5.1',
+279 silly addNameRange     '0.6.0',
+279 silly addNameRange     '0.6.1',
+279 silly addNameRange     '0.5.2',
+279 silly addNameRange     '1.0.0',
+279 silly addNameRange     '1.0.1',
+279 silly addNameRange     '1.0.2',
+279 silly addNameRange     '1.0.3',
+279 silly addNameRange     '1.0.4',
+279 silly addNameRange     '1.0.5',
+279 silly addNameRange     '1.1.0',
+279 silly addNameRange     '1.1.1',
+279 silly addNameRange     '1.2.0',
+279 silly addNameRange     '1.3.0',
+279 silly addNameRange     '1.3.1',
+279 silly addNameRange     '1.3.2',
+279 silly addNameRange     '2.0.0',
+279 silly addNameRange     '2.1.0',
+279 silly addNameRange     '2.2.0',
+279 silly addNameRange     '2.3.0',
+279 silly addNameRange     '2.4.0',
+279 silly addNameRange     '2.5.0',
+279 silly addNameRange     '2.5.1',
+279 silly addNameRange     '2.6.0' ] ]
+280 verbose addNamed [ 'commander', '2.6.0' ]
+281 verbose addNamed [ '2.6.0', '2.6.0' ]
+282 silly lockFile 4a88e42c-commander-2-6-0 commander@2.6.0
+283 verbose lock commander@2.6.0 /home/vivek/.npm/4a88e42c-commander-2-6-0.lock
+284 silly lockFile 6a37c0f5-rg-commander-commander-2-6-0-tgz https://registry.npmjs.org/commander/-/commander-2.6.0.tgz
+285 verbose lock https://registry.npmjs.org/commander/-/commander-2.6.0.tgz /home/vivek/.npm/6a37c0f5-rg-commander-commander-2-6-0-tgz.lock
+286 verbose addRemoteTarball [ 'https://registry.npmjs.org/commander/-/commander-2.6.0.tgz',
+286 verbose addRemoteTarball   '9df7e52fb2a0cb0fb89058ee80c3104225f37e1d' ]
+287 info retry fetch attempt 1 at 19:22:52
+288 verbose fetch to= /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/tmp.tgz
+289 http GET https://registry.npmjs.org/commander/-/commander-2.6.0.tgz
+290 http 200 https://registry.npmjs.org/character-parser/-/character-parser-1.2.1.tgz
+291 http 200 https://registry.npmjs.org/with/-/with-4.0.0.tgz
+292 verbose tar unpack /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/tmp.tgz
+293 silly lockFile 34559f67-71838-0-8820869075134397-package /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package
+294 verbose lock /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package /home/vivek/.npm/34559f67-71838-0-8820869075134397-package.lock
+295 silly lockFile c4c56eb6-71838-0-8820869075134397-tmp-tgz /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/tmp.tgz
+296 verbose lock /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/tmp.tgz /home/vivek/.npm/c4c56eb6-71838-0-8820869075134397-tmp-tgz.lock
+297 silly gunzTarPerm modes [ '755', '644' ]
+298 verbose tar unpack /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/tmp.tgz
+299 silly lockFile 84adebe8-171885-0-871945783495903-package /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package
+300 verbose lock /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package /home/vivek/.npm/84adebe8-171885-0-871945783495903-package.lock
+301 silly lockFile 5646289d-171885-0-871945783495903-tmp-tgz /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/tmp.tgz
+302 verbose lock /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/tmp.tgz /home/vivek/.npm/5646289d-171885-0-871945783495903-tmp-tgz.lock
+303 silly gunzTarPerm modes [ '755', '644' ]
+304 silly gunzTarPerm extractEntry package.json
+305 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+306 silly gunzTarPerm extractEntry package.json
+307 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+308 silly gunzTarPerm extractEntry .npmignore
+309 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+310 silly gunzTarPerm extractEntry README.md
+311 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+312 silly gunzTarPerm extractEntry .npmignore
+313 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+314 silly gunzTarPerm extractEntry README.md
+315 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+316 silly gunzTarPerm extractEntry LICENSE
+317 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+318 silly gunzTarPerm extractEntry index.js
+319 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+320 silly gunzTarPerm extractEntry LICENSE
+321 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+322 silly gunzTarPerm extractEntry index.js
+323 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+324 verbose read json /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package/package.json
+325 silly lockFile 84adebe8-171885-0-871945783495903-package /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package
+326 silly lockFile 84adebe8-171885-0-871945783495903-package /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package
+327 silly lockFile 5646289d-171885-0-871945783495903-tmp-tgz /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/tmp.tgz
+328 silly lockFile 5646289d-171885-0-871945783495903-tmp-tgz /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/tmp.tgz
+329 verbose read json /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package/package.json
+330 verbose from cache /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package/package.json
+331 verbose tar pack [ '/home/vivek/.npm/with/4.0.0/package.tgz',
+331 verbose tar pack   '/home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package' ]
+332 verbose tarball /home/vivek/.npm/with/4.0.0/package.tgz
+333 verbose folder /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package
+334 silly lockFile 84adebe8-171885-0-871945783495903-package /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package
+335 verbose lock /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package /home/vivek/.npm/84adebe8-171885-0-871945783495903-package.lock
+336 silly lockFile 1d4e8e38-vivek-npm-with-4-0-0-package-tgz /home/vivek/.npm/with/4.0.0/package.tgz
+337 verbose lock /home/vivek/.npm/with/4.0.0/package.tgz /home/vivek/.npm/1d4e8e38-vivek-npm-with-4-0-0-package-tgz.lock
+338 silly lockFile 34559f67-71838-0-8820869075134397-package /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package
+339 silly lockFile 34559f67-71838-0-8820869075134397-package /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package
+340 silly lockFile c4c56eb6-71838-0-8820869075134397-tmp-tgz /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/tmp.tgz
+341 silly lockFile c4c56eb6-71838-0-8820869075134397-tmp-tgz /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/tmp.tgz
+342 verbose from cache /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package/package.json
+343 verbose tar pack [ '/home/vivek/.npm/character-parser/1.2.1/package.tgz',
+343 verbose tar pack   '/home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package' ]
+344 verbose tarball /home/vivek/.npm/character-parser/1.2.1/package.tgz
+345 verbose folder /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package
+346 silly lockFile 34559f67-71838-0-8820869075134397-package /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package
+347 verbose lock /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package /home/vivek/.npm/34559f67-71838-0-8820869075134397-package.lock
+348 silly lockFile 389290fe-aracter-parser-1-2-1-package-tgz /home/vivek/.npm/character-parser/1.2.1/package.tgz
+349 verbose lock /home/vivek/.npm/character-parser/1.2.1/package.tgz /home/vivek/.npm/389290fe-aracter-parser-1-2-1-package-tgz.lock
+350 silly lockFile 84adebe8-171885-0-871945783495903-package /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package
+351 silly lockFile 84adebe8-171885-0-871945783495903-package /home/vivek/tmp/npm-14657/1423317171885-0.871945783495903/package
+352 silly lockFile 1d4e8e38-vivek-npm-with-4-0-0-package-tgz /home/vivek/.npm/with/4.0.0/package.tgz
+353 silly lockFile 1d4e8e38-vivek-npm-with-4-0-0-package-tgz /home/vivek/.npm/with/4.0.0/package.tgz
+354 silly lockFile ef616ebd-ome-vivek-npm-with-4-0-0-package /home/vivek/.npm/with/4.0.0/package
+355 verbose lock /home/vivek/.npm/with/4.0.0/package /home/vivek/.npm/ef616ebd-ome-vivek-npm-with-4-0-0-package.lock
+356 silly lockFile ef616ebd-ome-vivek-npm-with-4-0-0-package /home/vivek/.npm/with/4.0.0/package
+357 silly lockFile ef616ebd-ome-vivek-npm-with-4-0-0-package /home/vivek/.npm/with/4.0.0/package
+358 verbose tar unpack /home/vivek/.npm/with/4.0.0/package.tgz
+359 silly lockFile ef616ebd-ome-vivek-npm-with-4-0-0-package /home/vivek/.npm/with/4.0.0/package
+360 verbose lock /home/vivek/.npm/with/4.0.0/package /home/vivek/.npm/ef616ebd-ome-vivek-npm-with-4-0-0-package.lock
+361 silly lockFile 1d4e8e38-vivek-npm-with-4-0-0-package-tgz /home/vivek/.npm/with/4.0.0/package.tgz
+362 verbose lock /home/vivek/.npm/with/4.0.0/package.tgz /home/vivek/.npm/1d4e8e38-vivek-npm-with-4-0-0-package-tgz.lock
+363 silly gunzTarPerm modes [ '755', '644' ]
+364 silly gunzTarPerm extractEntry package.json
+365 silly lockFile 34559f67-71838-0-8820869075134397-package /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package
+366 silly lockFile 34559f67-71838-0-8820869075134397-package /home/vivek/tmp/npm-14657/1423317171838-0.8820869075134397/package
+367 silly gunzTarPerm extractEntry .npmignore
+368 silly gunzTarPerm extractEntry README.md
+369 silly lockFile 389290fe-aracter-parser-1-2-1-package-tgz /home/vivek/.npm/character-parser/1.2.1/package.tgz
+370 silly lockFile 389290fe-aracter-parser-1-2-1-package-tgz /home/vivek/.npm/character-parser/1.2.1/package.tgz
+371 silly lockFile 61c94218-m-character-parser-1-2-1-package /home/vivek/.npm/character-parser/1.2.1/package
+372 verbose lock /home/vivek/.npm/character-parser/1.2.1/package /home/vivek/.npm/61c94218-m-character-parser-1-2-1-package.lock
+373 silly lockFile 61c94218-m-character-parser-1-2-1-package /home/vivek/.npm/character-parser/1.2.1/package
+374 silly lockFile 61c94218-m-character-parser-1-2-1-package /home/vivek/.npm/character-parser/1.2.1/package
+375 silly gunzTarPerm extractEntry LICENSE
+376 silly gunzTarPerm extractEntry index.js
+377 verbose tar unpack /home/vivek/.npm/character-parser/1.2.1/package.tgz
+378 silly lockFile 61c94218-m-character-parser-1-2-1-package /home/vivek/.npm/character-parser/1.2.1/package
+379 verbose lock /home/vivek/.npm/character-parser/1.2.1/package /home/vivek/.npm/61c94218-m-character-parser-1-2-1-package.lock
+380 silly lockFile 389290fe-aracter-parser-1-2-1-package-tgz /home/vivek/.npm/character-parser/1.2.1/package.tgz
+381 verbose lock /home/vivek/.npm/character-parser/1.2.1/package.tgz /home/vivek/.npm/389290fe-aracter-parser-1-2-1-package-tgz.lock
+382 silly gunzTarPerm modes [ '755', '644' ]
+383 silly gunzTarPerm extractEntry package.json
+384 silly gunzTarPerm extractEntry .npmignore
+385 silly gunzTarPerm extractEntry README.md
+386 silly gunzTarPerm extractEntry LICENSE
+387 silly gunzTarPerm extractEntry index.js
+388 verbose read json /home/vivek/.npm/with/4.0.0/package/package.json
+389 silly lockFile ef616ebd-ome-vivek-npm-with-4-0-0-package /home/vivek/.npm/with/4.0.0/package
+390 silly lockFile ef616ebd-ome-vivek-npm-with-4-0-0-package /home/vivek/.npm/with/4.0.0/package
+391 silly lockFile 1d4e8e38-vivek-npm-with-4-0-0-package-tgz /home/vivek/.npm/with/4.0.0/package.tgz
+392 silly lockFile 1d4e8e38-vivek-npm-with-4-0-0-package-tgz /home/vivek/.npm/with/4.0.0/package.tgz
+393 verbose from cache /home/vivek/.npm/with/4.0.0/package/package.json
+394 verbose chmod /home/vivek/.npm/with/4.0.0/package.tgz 644
+395 verbose chown /home/vivek/.npm/with/4.0.0/package.tgz [ 1000, 1000 ]
+396 silly lockFile 013c241f-ry-npmjs-org-with-with-4-0-0-tgz https://registry.npmjs.org/with/-/with-4.0.0.tgz
+397 silly lockFile 013c241f-ry-npmjs-org-with-with-4-0-0-tgz https://registry.npmjs.org/with/-/with-4.0.0.tgz
+398 silly lockFile dd2924cf-with-4-0-0 with@4.0.0
+399 silly lockFile dd2924cf-with-4-0-0 with@4.0.0
+400 silly lockFile 092b1cc1-with-4-0-0 with@~4.0.0
+401 silly lockFile 092b1cc1-with-4-0-0 with@~4.0.0
+402 verbose read json /home/vivek/.npm/character-parser/1.2.1/package/package.json
+403 silly lockFile 61c94218-m-character-parser-1-2-1-package /home/vivek/.npm/character-parser/1.2.1/package
+404 silly lockFile 61c94218-m-character-parser-1-2-1-package /home/vivek/.npm/character-parser/1.2.1/package
+405 silly lockFile 389290fe-aracter-parser-1-2-1-package-tgz /home/vivek/.npm/character-parser/1.2.1/package.tgz
+406 silly lockFile 389290fe-aracter-parser-1-2-1-package-tgz /home/vivek/.npm/character-parser/1.2.1/package.tgz
+407 verbose from cache /home/vivek/.npm/character-parser/1.2.1/package/package.json
+408 verbose chmod /home/vivek/.npm/character-parser/1.2.1/package.tgz 644
+409 verbose chown /home/vivek/.npm/character-parser/1.2.1/package.tgz [ 1000, 1000 ]
+410 silly lockFile f9de2ea7-arser-character-parser-1-2-1-tgz https://registry.npmjs.org/character-parser/-/character-parser-1.2.1.tgz
+411 silly lockFile f9de2ea7-arser-character-parser-1-2-1-tgz https://registry.npmjs.org/character-parser/-/character-parser-1.2.1.tgz
+412 silly lockFile 91ff6256-character-parser-1-2-1 character-parser@1.2.1
+413 silly lockFile 91ff6256-character-parser-1-2-1 character-parser@1.2.1
+414 http 200 https://registry.npmjs.org/commander/-/commander-2.6.0.tgz
+415 verbose tar unpack /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/tmp.tgz
+416 silly lockFile 938293cb-72265-0-8532326279673725-package /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package
+417 verbose lock /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package /home/vivek/.npm/938293cb-72265-0-8532326279673725-package.lock
+418 silly lockFile 87cc2d99-72265-0-8532326279673725-tmp-tgz /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/tmp.tgz
+419 verbose lock /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/tmp.tgz /home/vivek/.npm/87cc2d99-72265-0-8532326279673725-tmp-tgz.lock
+420 silly gunzTarPerm modes [ '755', '644' ]
+421 http 200 https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.0.tgz
+422 verbose tar unpack /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/tmp.tgz
+423 silly lockFile 83312cc8-2132-0-25043140398338437-package /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package
+424 verbose lock /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package /home/vivek/.npm/83312cc8-2132-0-25043140398338437-package.lock
+425 silly lockFile 5ccd2e98-2132-0-25043140398338437-tmp-tgz /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/tmp.tgz
+426 verbose lock /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/tmp.tgz /home/vivek/.npm/5ccd2e98-2132-0-25043140398338437-tmp-tgz.lock
+427 silly gunzTarPerm extractEntry package.json
+428 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+429 silly gunzTarPerm modes [ '755', '644' ]
+430 silly gunzTarPerm extractEntry index.js
+431 silly gunzTarPerm modified mode [ 'index.js', 436, 420 ]
+432 silly gunzTarPerm extractEntry Readme.md
+433 silly gunzTarPerm modified mode [ 'Readme.md', 436, 420 ]
+434 silly gunzTarPerm extractEntry History.md
+435 silly gunzTarPerm modified mode [ 'History.md', 436, 420 ]
+436 silly gunzTarPerm extractEntry package.json
+437 silly gunzTarPerm extractEntry .npmignore
+438 silly gunzTarPerm extractEntry LICENSE
+439 silly gunzTarPerm extractEntry index.js
+440 silly gunzTarPerm extractEntry .travis.yml
+441 silly gunzTarPerm extractEntry bin/cmd.js
+442 silly gunzTarPerm extractEntry bin/usage.txt
+443 silly gunzTarPerm extractEntry examples/pow.js
+444 silly gunzTarPerm extractEntry readme.markdown
+445 silly gunzTarPerm extractEntry test/chmod.js
+446 silly gunzTarPerm extractEntry test/opts_fs_sync.js
+447 silly gunzTarPerm extractEntry test/perm.js
+448 silly gunzTarPerm extractEntry test/perm_sync.js
+449 silly gunzTarPerm extractEntry test/opts_fs.js
+450 silly gunzTarPerm extractEntry test/rel.js
+451 silly gunzTarPerm extractEntry test/return.js
+452 silly gunzTarPerm extractEntry test/return_sync.js
+453 silly gunzTarPerm extractEntry test/root.js
+454 silly gunzTarPerm extractEntry test/sync.js
+455 silly gunzTarPerm extractEntry test/mkdirp.js
+456 silly gunzTarPerm extractEntry test/umask.js
+457 silly gunzTarPerm extractEntry test/clobber.js
+458 silly gunzTarPerm extractEntry test/umask_sync.js
+459 silly gunzTarPerm extractEntry test/race.js
+460 verbose read json /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package/package.json
+461 silly lockFile 938293cb-72265-0-8532326279673725-package /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package
+462 silly lockFile 938293cb-72265-0-8532326279673725-package /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package
+463 silly lockFile 87cc2d99-72265-0-8532326279673725-tmp-tgz /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/tmp.tgz
+464 silly lockFile 87cc2d99-72265-0-8532326279673725-tmp-tgz /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/tmp.tgz
+465 verbose from cache /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package/package.json
+466 verbose read json /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package/package.json
+467 silly lockFile 83312cc8-2132-0-25043140398338437-package /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package
+468 silly lockFile 83312cc8-2132-0-25043140398338437-package /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package
+469 silly lockFile 5ccd2e98-2132-0-25043140398338437-tmp-tgz /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/tmp.tgz
+470 silly lockFile 5ccd2e98-2132-0-25043140398338437-tmp-tgz /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/tmp.tgz
+471 verbose from cache /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package/package.json
+472 verbose tar pack [ '/home/vivek/.npm/commander/2.6.0/package.tgz',
+472 verbose tar pack   '/home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package' ]
+473 verbose tarball /home/vivek/.npm/commander/2.6.0/package.tgz
+474 verbose folder /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package
+475 silly lockFile 938293cb-72265-0-8532326279673725-package /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package
+476 verbose lock /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package /home/vivek/.npm/938293cb-72265-0-8532326279673725-package.lock
+477 silly lockFile 3d1019ad--npm-commander-2-6-0-package-tgz /home/vivek/.npm/commander/2.6.0/package.tgz
+478 verbose lock /home/vivek/.npm/commander/2.6.0/package.tgz /home/vivek/.npm/3d1019ad--npm-commander-2-6-0-package-tgz.lock
+479 verbose tar pack [ '/home/vivek/.npm/mkdirp/0.5.0/package.tgz',
+479 verbose tar pack   '/home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package' ]
+480 verbose tarball /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+481 verbose folder /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package
+482 silly lockFile 83312cc8-2132-0-25043140398338437-package /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package
+483 verbose lock /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package /home/vivek/.npm/83312cc8-2132-0-25043140398338437-package.lock
+484 silly lockFile 826b1506-vek-npm-mkdirp-0-5-0-package-tgz /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+485 verbose lock /home/vivek/.npm/mkdirp/0.5.0/package.tgz /home/vivek/.npm/826b1506-vek-npm-mkdirp-0-5-0-package-tgz.lock
+486 silly lockFile 938293cb-72265-0-8532326279673725-package /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package
+487 silly lockFile 938293cb-72265-0-8532326279673725-package /home/vivek/tmp/npm-14657/1423317172265-0.8532326279673725/package
+488 silly lockFile 3d1019ad--npm-commander-2-6-0-package-tgz /home/vivek/.npm/commander/2.6.0/package.tgz
+489 silly lockFile 3d1019ad--npm-commander-2-6-0-package-tgz /home/vivek/.npm/commander/2.6.0/package.tgz
+490 silly lockFile a1a56fed-ivek-npm-commander-2-6-0-package /home/vivek/.npm/commander/2.6.0/package
+491 verbose lock /home/vivek/.npm/commander/2.6.0/package /home/vivek/.npm/a1a56fed-ivek-npm-commander-2-6-0-package.lock
+492 silly lockFile a1a56fed-ivek-npm-commander-2-6-0-package /home/vivek/.npm/commander/2.6.0/package
+493 silly lockFile a1a56fed-ivek-npm-commander-2-6-0-package /home/vivek/.npm/commander/2.6.0/package
+494 verbose tar unpack /home/vivek/.npm/commander/2.6.0/package.tgz
+495 silly lockFile a1a56fed-ivek-npm-commander-2-6-0-package /home/vivek/.npm/commander/2.6.0/package
+496 verbose lock /home/vivek/.npm/commander/2.6.0/package /home/vivek/.npm/a1a56fed-ivek-npm-commander-2-6-0-package.lock
+497 silly lockFile 3d1019ad--npm-commander-2-6-0-package-tgz /home/vivek/.npm/commander/2.6.0/package.tgz
+498 verbose lock /home/vivek/.npm/commander/2.6.0/package.tgz /home/vivek/.npm/3d1019ad--npm-commander-2-6-0-package-tgz.lock
+499 silly gunzTarPerm modes [ '755', '644' ]
+500 silly gunzTarPerm extractEntry package.json
+501 silly gunzTarPerm extractEntry index.js
+502 silly gunzTarPerm extractEntry Readme.md
+503 silly lockFile 83312cc8-2132-0-25043140398338437-package /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package
+504 silly lockFile 83312cc8-2132-0-25043140398338437-package /home/vivek/tmp/npm-14657/1423317172132-0.25043140398338437/package
+505 silly lockFile 826b1506-vek-npm-mkdirp-0-5-0-package-tgz /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+506 silly lockFile 826b1506-vek-npm-mkdirp-0-5-0-package-tgz /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+507 silly lockFile 11f7e97c-e-vivek-npm-mkdirp-0-5-0-package /home/vivek/.npm/mkdirp/0.5.0/package
+508 verbose lock /home/vivek/.npm/mkdirp/0.5.0/package /home/vivek/.npm/11f7e97c-e-vivek-npm-mkdirp-0-5-0-package.lock
+509 silly lockFile 11f7e97c-e-vivek-npm-mkdirp-0-5-0-package /home/vivek/.npm/mkdirp/0.5.0/package
+510 silly lockFile 11f7e97c-e-vivek-npm-mkdirp-0-5-0-package /home/vivek/.npm/mkdirp/0.5.0/package
+511 verbose tar unpack /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+512 silly lockFile 11f7e97c-e-vivek-npm-mkdirp-0-5-0-package /home/vivek/.npm/mkdirp/0.5.0/package
+513 verbose lock /home/vivek/.npm/mkdirp/0.5.0/package /home/vivek/.npm/11f7e97c-e-vivek-npm-mkdirp-0-5-0-package.lock
+514 silly lockFile 826b1506-vek-npm-mkdirp-0-5-0-package-tgz /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+515 verbose lock /home/vivek/.npm/mkdirp/0.5.0/package.tgz /home/vivek/.npm/826b1506-vek-npm-mkdirp-0-5-0-package-tgz.lock
+516 silly gunzTarPerm modes [ '755', '644' ]
+517 silly gunzTarPerm extractEntry package.json
+518 silly gunzTarPerm extractEntry .npmignore
+519 silly gunzTarPerm extractEntry LICENSE
+520 verbose read json /home/vivek/.npm/commander/2.6.0/package/package.json
+521 silly gunzTarPerm extractEntry index.js
+522 silly gunzTarPerm extractEntry .travis.yml
+523 silly lockFile a1a56fed-ivek-npm-commander-2-6-0-package /home/vivek/.npm/commander/2.6.0/package
+524 silly lockFile a1a56fed-ivek-npm-commander-2-6-0-package /home/vivek/.npm/commander/2.6.0/package
+525 silly lockFile 3d1019ad--npm-commander-2-6-0-package-tgz /home/vivek/.npm/commander/2.6.0/package.tgz
+526 silly lockFile 3d1019ad--npm-commander-2-6-0-package-tgz /home/vivek/.npm/commander/2.6.0/package.tgz
+527 silly gunzTarPerm extractEntry bin/cmd.js
+528 silly gunzTarPerm extractEntry bin/usage.txt
+529 verbose from cache /home/vivek/.npm/commander/2.6.0/package/package.json
+530 verbose chmod /home/vivek/.npm/commander/2.6.0/package.tgz 644
+531 verbose chown /home/vivek/.npm/commander/2.6.0/package.tgz [ 1000, 1000 ]
+532 silly lockFile 6a37c0f5-rg-commander-commander-2-6-0-tgz https://registry.npmjs.org/commander/-/commander-2.6.0.tgz
+533 silly lockFile 6a37c0f5-rg-commander-commander-2-6-0-tgz https://registry.npmjs.org/commander/-/commander-2.6.0.tgz
+534 silly lockFile 4a88e42c-commander-2-6-0 commander@2.6.0
+535 silly lockFile 4a88e42c-commander-2-6-0 commander@2.6.0
+536 silly lockFile 45671e7d-commander-2-6-0 commander@~2.6.0
+537 silly lockFile 45671e7d-commander-2-6-0 commander@~2.6.0
+538 silly gunzTarPerm extractEntry examples/pow.js
+539 silly gunzTarPerm extractEntry readme.markdown
+540 silly gunzTarPerm extractEntry test/chmod.js
+541 silly gunzTarPerm extractEntry test/opts_fs_sync.js
+542 silly gunzTarPerm extractEntry test/perm.js
+543 silly gunzTarPerm extractEntry test/perm_sync.js
+544 silly gunzTarPerm extractEntry test/opts_fs.js
+545 silly gunzTarPerm extractEntry test/rel.js
+546 silly gunzTarPerm extractEntry test/return.js
+547 silly gunzTarPerm extractEntry test/return_sync.js
+548 silly gunzTarPerm extractEntry test/root.js
+549 silly gunzTarPerm extractEntry test/sync.js
+550 silly gunzTarPerm extractEntry test/mkdirp.js
+551 silly gunzTarPerm extractEntry test/umask.js
+552 silly gunzTarPerm extractEntry test/clobber.js
+553 silly gunzTarPerm extractEntry test/umask_sync.js
+554 silly gunzTarPerm extractEntry test/race.js
+555 verbose read json /home/vivek/.npm/mkdirp/0.5.0/package/package.json
+556 silly lockFile 11f7e97c-e-vivek-npm-mkdirp-0-5-0-package /home/vivek/.npm/mkdirp/0.5.0/package
+557 silly lockFile 11f7e97c-e-vivek-npm-mkdirp-0-5-0-package /home/vivek/.npm/mkdirp/0.5.0/package
+558 silly lockFile 826b1506-vek-npm-mkdirp-0-5-0-package-tgz /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+559 silly lockFile 826b1506-vek-npm-mkdirp-0-5-0-package-tgz /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+560 verbose from cache /home/vivek/.npm/mkdirp/0.5.0/package/package.json
+561 verbose chmod /home/vivek/.npm/mkdirp/0.5.0/package.tgz 644
+562 verbose chown /home/vivek/.npm/mkdirp/0.5.0/package.tgz [ 1000, 1000 ]
+563 silly lockFile f26a2ada-pmjs-org-mkdirp-mkdirp-0-5-0-tgz https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.0.tgz
+564 silly lockFile f26a2ada-pmjs-org-mkdirp-mkdirp-0-5-0-tgz https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.0.tgz
+565 silly lockFile bf9ae38d-mkdirp-0-5-0 mkdirp@0.5.0
+566 silly lockFile bf9ae38d-mkdirp-0-5-0 mkdirp@0.5.0
+567 silly lockFile 3880d7a6-mkdirp-0-5-0 mkdirp@~0.5.0
+568 silly lockFile 3880d7a6-mkdirp-0-5-0 mkdirp@~0.5.0
+569 http 200 https://registry.npmjs.org/transformers/-/transformers-2.1.0.tgz
+570 verbose tar unpack /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/tmp.tgz
+571 silly lockFile 1fbe180e-71838-0-4911251896992326-package /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package
+572 verbose lock /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package /home/vivek/.npm/1fbe180e-71838-0-4911251896992326-package.lock
+573 silly lockFile f5ff3464-71838-0-4911251896992326-tmp-tgz /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/tmp.tgz
+574 verbose lock /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/tmp.tgz /home/vivek/.npm/f5ff3464-71838-0-4911251896992326-tmp-tgz.lock
+575 silly gunzTarPerm modes [ '755', '644' ]
+576 silly gunzTarPerm extractEntry package.json
+577 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+578 silly gunzTarPerm extractEntry .npmignore
+579 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+580 silly gunzTarPerm extractEntry README.md
+581 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+582 silly gunzTarPerm extractEntry history.md
+583 silly gunzTarPerm modified mode [ 'history.md', 438, 420 ]
+584 silly gunzTarPerm extractEntry lib/shared.js
+585 silly gunzTarPerm modified mode [ 'lib/shared.js', 438, 420 ]
+586 silly gunzTarPerm extractEntry lib/transformers.js
+587 silly gunzTarPerm modified mode [ 'lib/transformers.js', 438, 420 ]
+588 verbose read json /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package/package.json
+589 silly lockFile 1fbe180e-71838-0-4911251896992326-package /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package
+590 silly lockFile 1fbe180e-71838-0-4911251896992326-package /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package
+591 silly lockFile f5ff3464-71838-0-4911251896992326-tmp-tgz /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/tmp.tgz
+592 silly lockFile f5ff3464-71838-0-4911251896992326-tmp-tgz /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/tmp.tgz
+593 verbose from cache /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package/package.json
+594 verbose tar pack [ '/home/vivek/.npm/transformers/2.1.0/package.tgz',
+594 verbose tar pack   '/home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package' ]
+595 verbose tarball /home/vivek/.npm/transformers/2.1.0/package.tgz
+596 verbose folder /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package
+597 silly lockFile 1fbe180e-71838-0-4911251896992326-package /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package
+598 verbose lock /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package /home/vivek/.npm/1fbe180e-71838-0-4911251896992326-package.lock
+599 silly lockFile a6c4a1f6-m-transformers-2-1-0-package-tgz /home/vivek/.npm/transformers/2.1.0/package.tgz
+600 verbose lock /home/vivek/.npm/transformers/2.1.0/package.tgz /home/vivek/.npm/a6c4a1f6-m-transformers-2-1-0-package-tgz.lock
+601 silly lockFile 1fbe180e-71838-0-4911251896992326-package /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package
+602 silly lockFile 1fbe180e-71838-0-4911251896992326-package /home/vivek/tmp/npm-14657/1423317171838-0.4911251896992326/package
+603 silly lockFile a6c4a1f6-m-transformers-2-1-0-package-tgz /home/vivek/.npm/transformers/2.1.0/package.tgz
+604 silly lockFile a6c4a1f6-m-transformers-2-1-0-package-tgz /home/vivek/.npm/transformers/2.1.0/package.tgz
+605 silly lockFile 774dc805-k-npm-transformers-2-1-0-package /home/vivek/.npm/transformers/2.1.0/package
+606 verbose lock /home/vivek/.npm/transformers/2.1.0/package /home/vivek/.npm/774dc805-k-npm-transformers-2-1-0-package.lock
+607 silly lockFile 774dc805-k-npm-transformers-2-1-0-package /home/vivek/.npm/transformers/2.1.0/package
+608 silly lockFile 774dc805-k-npm-transformers-2-1-0-package /home/vivek/.npm/transformers/2.1.0/package
+609 verbose tar unpack /home/vivek/.npm/transformers/2.1.0/package.tgz
+610 silly lockFile 774dc805-k-npm-transformers-2-1-0-package /home/vivek/.npm/transformers/2.1.0/package
+611 verbose lock /home/vivek/.npm/transformers/2.1.0/package /home/vivek/.npm/774dc805-k-npm-transformers-2-1-0-package.lock
+612 silly lockFile a6c4a1f6-m-transformers-2-1-0-package-tgz /home/vivek/.npm/transformers/2.1.0/package.tgz
+613 verbose lock /home/vivek/.npm/transformers/2.1.0/package.tgz /home/vivek/.npm/a6c4a1f6-m-transformers-2-1-0-package-tgz.lock
+614 silly gunzTarPerm modes [ '755', '644' ]
+615 silly gunzTarPerm extractEntry package.json
+616 silly gunzTarPerm extractEntry .npmignore
+617 silly gunzTarPerm extractEntry README.md
+618 silly gunzTarPerm extractEntry history.md
+619 silly gunzTarPerm extractEntry lib/shared.js
+620 silly gunzTarPerm extractEntry lib/transformers.js
+621 verbose read json /home/vivek/.npm/transformers/2.1.0/package/package.json
+622 silly lockFile 774dc805-k-npm-transformers-2-1-0-package /home/vivek/.npm/transformers/2.1.0/package
+623 silly lockFile 774dc805-k-npm-transformers-2-1-0-package /home/vivek/.npm/transformers/2.1.0/package
+624 silly lockFile a6c4a1f6-m-transformers-2-1-0-package-tgz /home/vivek/.npm/transformers/2.1.0/package.tgz
+625 silly lockFile a6c4a1f6-m-transformers-2-1-0-package-tgz /home/vivek/.npm/transformers/2.1.0/package.tgz
+626 verbose from cache /home/vivek/.npm/transformers/2.1.0/package/package.json
+627 verbose chmod /home/vivek/.npm/transformers/2.1.0/package.tgz 644
+628 verbose chown /home/vivek/.npm/transformers/2.1.0/package.tgz [ 1000, 1000 ]
+629 silly lockFile 1cfed429-nsformers-transformers-2-1-0-tgz https://registry.npmjs.org/transformers/-/transformers-2.1.0.tgz
+630 silly lockFile 1cfed429-nsformers-transformers-2-1-0-tgz https://registry.npmjs.org/transformers/-/transformers-2.1.0.tgz
+631 silly lockFile 8f87aaee-transformers-2-1-0 transformers@2.1.0
+632 silly lockFile 8f87aaee-transformers-2-1-0 transformers@2.1.0
+633 http 200 https://registry.npmjs.org/void-elements/-/void-elements-2.0.1.tgz
+634 verbose tar unpack /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/tmp.tgz
+635 silly lockFile c6e31d31-171828-0-720778402639553-package /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package
+636 verbose lock /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package /home/vivek/.npm/c6e31d31-171828-0-720778402639553-package.lock
+637 silly lockFile d496f8f0-171828-0-720778402639553-tmp-tgz /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/tmp.tgz
+638 verbose lock /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/tmp.tgz /home/vivek/.npm/d496f8f0-171828-0-720778402639553-tmp-tgz.lock
+639 silly gunzTarPerm modes [ '755', '644' ]
+640 silly gunzTarPerm extractEntry package.json
+641 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+642 silly gunzTarPerm extractEntry .npmignore
+643 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+644 silly gunzTarPerm extractEntry README.md
+645 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+646 silly gunzTarPerm extractEntry LICENSE
+647 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+648 silly gunzTarPerm extractEntry index.js
+649 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+650 silly gunzTarPerm extractEntry pre-publish.js
+651 silly gunzTarPerm modified mode [ 'pre-publish.js', 438, 420 ]
+652 silly gunzTarPerm extractEntry .gitattributes
+653 silly gunzTarPerm modified mode [ '.gitattributes', 438, 420 ]
+654 silly gunzTarPerm extractEntry .travis.yml
+655 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+656 silly gunzTarPerm extractEntry test/index.js
+657 silly gunzTarPerm modified mode [ 'test/index.js', 438, 420 ]
+658 verbose read json /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package/package.json
+659 silly lockFile c6e31d31-171828-0-720778402639553-package /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package
+660 silly lockFile c6e31d31-171828-0-720778402639553-package /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package
+661 silly lockFile d496f8f0-171828-0-720778402639553-tmp-tgz /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/tmp.tgz
+662 silly lockFile d496f8f0-171828-0-720778402639553-tmp-tgz /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/tmp.tgz
+663 verbose from cache /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package/package.json
+664 verbose tar pack [ '/home/vivek/.npm/void-elements/2.0.1/package.tgz',
+664 verbose tar pack   '/home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package' ]
+665 verbose tarball /home/vivek/.npm/void-elements/2.0.1/package.tgz
+666 verbose folder /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package
+667 silly lockFile c6e31d31-171828-0-720778402639553-package /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package
+668 verbose lock /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package /home/vivek/.npm/c6e31d31-171828-0-720778402639553-package.lock
+669 silly lockFile 1f3c1a58--void-elements-2-0-1-package-tgz /home/vivek/.npm/void-elements/2.0.1/package.tgz
+670 verbose lock /home/vivek/.npm/void-elements/2.0.1/package.tgz /home/vivek/.npm/1f3c1a58--void-elements-2-0-1-package-tgz.lock
+671 silly lockFile c6e31d31-171828-0-720778402639553-package /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package
+672 silly lockFile c6e31d31-171828-0-720778402639553-package /home/vivek/tmp/npm-14657/1423317171828-0.720778402639553/package
+673 silly lockFile 1f3c1a58--void-elements-2-0-1-package-tgz /home/vivek/.npm/void-elements/2.0.1/package.tgz
+674 silly lockFile 1f3c1a58--void-elements-2-0-1-package-tgz /home/vivek/.npm/void-elements/2.0.1/package.tgz
+675 silly lockFile ac1bf6ed--npm-void-elements-2-0-1-package /home/vivek/.npm/void-elements/2.0.1/package
+676 verbose lock /home/vivek/.npm/void-elements/2.0.1/package /home/vivek/.npm/ac1bf6ed--npm-void-elements-2-0-1-package.lock
+677 silly lockFile ac1bf6ed--npm-void-elements-2-0-1-package /home/vivek/.npm/void-elements/2.0.1/package
+678 silly lockFile ac1bf6ed--npm-void-elements-2-0-1-package /home/vivek/.npm/void-elements/2.0.1/package
+679 verbose tar unpack /home/vivek/.npm/void-elements/2.0.1/package.tgz
+680 silly lockFile ac1bf6ed--npm-void-elements-2-0-1-package /home/vivek/.npm/void-elements/2.0.1/package
+681 verbose lock /home/vivek/.npm/void-elements/2.0.1/package /home/vivek/.npm/ac1bf6ed--npm-void-elements-2-0-1-package.lock
+682 silly lockFile 1f3c1a58--void-elements-2-0-1-package-tgz /home/vivek/.npm/void-elements/2.0.1/package.tgz
+683 verbose lock /home/vivek/.npm/void-elements/2.0.1/package.tgz /home/vivek/.npm/1f3c1a58--void-elements-2-0-1-package-tgz.lock
+684 silly gunzTarPerm modes [ '755', '644' ]
+685 silly gunzTarPerm extractEntry package.json
+686 silly gunzTarPerm extractEntry .npmignore
+687 silly gunzTarPerm extractEntry README.md
+688 silly gunzTarPerm extractEntry LICENSE
+689 silly gunzTarPerm extractEntry index.js
+690 silly gunzTarPerm extractEntry pre-publish.js
+691 silly gunzTarPerm extractEntry .gitattributes
+692 silly gunzTarPerm extractEntry .travis.yml
+693 silly gunzTarPerm extractEntry test/index.js
+694 verbose read json /home/vivek/.npm/void-elements/2.0.1/package/package.json
+695 silly lockFile ac1bf6ed--npm-void-elements-2-0-1-package /home/vivek/.npm/void-elements/2.0.1/package
+696 silly lockFile ac1bf6ed--npm-void-elements-2-0-1-package /home/vivek/.npm/void-elements/2.0.1/package
+697 silly lockFile 1f3c1a58--void-elements-2-0-1-package-tgz /home/vivek/.npm/void-elements/2.0.1/package.tgz
+698 silly lockFile 1f3c1a58--void-elements-2-0-1-package-tgz /home/vivek/.npm/void-elements/2.0.1/package.tgz
+699 verbose from cache /home/vivek/.npm/void-elements/2.0.1/package/package.json
+700 verbose chmod /home/vivek/.npm/void-elements/2.0.1/package.tgz 644
+701 verbose chown /home/vivek/.npm/void-elements/2.0.1/package.tgz [ 1000, 1000 ]
+702 silly lockFile 75459f09-elements-void-elements-2-0-1-tgz https://registry.npmjs.org/void-elements/-/void-elements-2.0.1.tgz
+703 silly lockFile 75459f09-elements-void-elements-2-0-1-tgz https://registry.npmjs.org/void-elements/-/void-elements-2.0.1.tgz
+704 silly lockFile 412d2189-void-elements-2-0-1 void-elements@2.0.1
+705 silly lockFile 412d2189-void-elements-2-0-1 void-elements@2.0.1
+706 silly lockFile c684dd2b-void-elements-2-0-1 void-elements@~2.0.1
+707 silly lockFile c684dd2b-void-elements-2-0-1 void-elements@~2.0.1
+708 http 200 https://registry.npmjs.org/constantinople/-/constantinople-3.0.1.tgz
+709 verbose tar unpack /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/tmp.tgz
+710 silly lockFile 3662fb90-1885-0-07895397511310875-package /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package
+711 verbose lock /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package /home/vivek/.npm/3662fb90-1885-0-07895397511310875-package.lock
+712 silly lockFile 7d0e6a6b-1885-0-07895397511310875-tmp-tgz /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/tmp.tgz
+713 verbose lock /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/tmp.tgz /home/vivek/.npm/7d0e6a6b-1885-0-07895397511310875-tmp-tgz.lock
+714 silly gunzTarPerm modes [ '755', '644' ]
+715 silly gunzTarPerm extractEntry package.json
+716 silly gunzTarPerm modified mode [ 'package.json', 438, 420 ]
+717 silly gunzTarPerm extractEntry .npmignore
+718 silly gunzTarPerm modified mode [ '.npmignore', 438, 420 ]
+719 silly gunzTarPerm extractEntry README.md
+720 silly gunzTarPerm modified mode [ 'README.md', 438, 420 ]
+721 silly gunzTarPerm extractEntry LICENSE
+722 silly gunzTarPerm modified mode [ 'LICENSE', 438, 420 ]
+723 silly gunzTarPerm extractEntry index.js
+724 silly gunzTarPerm modified mode [ 'index.js', 438, 420 ]
+725 silly gunzTarPerm extractEntry .gitattributes
+726 silly gunzTarPerm modified mode [ '.gitattributes', 438, 420 ]
+727 silly gunzTarPerm extractEntry .travis.yml
+728 silly gunzTarPerm modified mode [ '.travis.yml', 438, 420 ]
+729 silly gunzTarPerm extractEntry test/index.js
+730 silly gunzTarPerm modified mode [ 'test/index.js', 438, 420 ]
+731 verbose read json /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package/package.json
+732 silly lockFile 3662fb90-1885-0-07895397511310875-package /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package
+733 silly lockFile 3662fb90-1885-0-07895397511310875-package /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package
+734 silly lockFile 7d0e6a6b-1885-0-07895397511310875-tmp-tgz /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/tmp.tgz
+735 silly lockFile 7d0e6a6b-1885-0-07895397511310875-tmp-tgz /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/tmp.tgz
+736 verbose from cache /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package/package.json
+737 verbose tar pack [ '/home/vivek/.npm/constantinople/3.0.1/package.tgz',
+737 verbose tar pack   '/home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package' ]
+738 verbose tarball /home/vivek/.npm/constantinople/3.0.1/package.tgz
+739 verbose folder /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package
+740 silly lockFile 3662fb90-1885-0-07895397511310875-package /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package
+741 verbose lock /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package /home/vivek/.npm/3662fb90-1885-0-07895397511310875-package.lock
+742 silly lockFile 1c308b3a-constantinople-3-0-1-package-tgz /home/vivek/.npm/constantinople/3.0.1/package.tgz
+743 verbose lock /home/vivek/.npm/constantinople/3.0.1/package.tgz /home/vivek/.npm/1c308b3a-constantinople-3-0-1-package-tgz.lock
+744 silly lockFile 3662fb90-1885-0-07895397511310875-package /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package
+745 silly lockFile 3662fb90-1885-0-07895397511310875-package /home/vivek/tmp/npm-14657/1423317171885-0.07895397511310875/package
+746 silly lockFile 1c308b3a-constantinople-3-0-1-package-tgz /home/vivek/.npm/constantinople/3.0.1/package.tgz
+747 silly lockFile 1c308b3a-constantinople-3-0-1-package-tgz /home/vivek/.npm/constantinople/3.0.1/package.tgz
+748 silly lockFile 387ad96b-npm-constantinople-3-0-1-package /home/vivek/.npm/constantinople/3.0.1/package
+749 verbose lock /home/vivek/.npm/constantinople/3.0.1/package /home/vivek/.npm/387ad96b-npm-constantinople-3-0-1-package.lock
+750 silly lockFile 387ad96b-npm-constantinople-3-0-1-package /home/vivek/.npm/constantinople/3.0.1/package
+751 silly lockFile 387ad96b-npm-constantinople-3-0-1-package /home/vivek/.npm/constantinople/3.0.1/package
+752 verbose tar unpack /home/vivek/.npm/constantinople/3.0.1/package.tgz
+753 silly lockFile 387ad96b-npm-constantinople-3-0-1-package /home/vivek/.npm/constantinople/3.0.1/package
+754 verbose lock /home/vivek/.npm/constantinople/3.0.1/package /home/vivek/.npm/387ad96b-npm-constantinople-3-0-1-package.lock
+755 silly lockFile 1c308b3a-constantinople-3-0-1-package-tgz /home/vivek/.npm/constantinople/3.0.1/package.tgz
+756 verbose lock /home/vivek/.npm/constantinople/3.0.1/package.tgz /home/vivek/.npm/1c308b3a-constantinople-3-0-1-package-tgz.lock
+757 silly gunzTarPerm modes [ '755', '644' ]
+758 silly gunzTarPerm extractEntry package.json
+759 silly gunzTarPerm extractEntry .npmignore
+760 silly gunzTarPerm extractEntry README.md
+761 silly gunzTarPerm extractEntry LICENSE
+762 silly gunzTarPerm extractEntry index.js
+763 silly gunzTarPerm extractEntry .gitattributes
+764 silly gunzTarPerm extractEntry .travis.yml
+765 silly gunzTarPerm extractEntry test/index.js
+766 verbose read json /home/vivek/.npm/constantinople/3.0.1/package/package.json
+767 silly lockFile 387ad96b-npm-constantinople-3-0-1-package /home/vivek/.npm/constantinople/3.0.1/package
+768 silly lockFile 387ad96b-npm-constantinople-3-0-1-package /home/vivek/.npm/constantinople/3.0.1/package
+769 silly lockFile 1c308b3a-constantinople-3-0-1-package-tgz /home/vivek/.npm/constantinople/3.0.1/package.tgz
+770 silly lockFile 1c308b3a-constantinople-3-0-1-package-tgz /home/vivek/.npm/constantinople/3.0.1/package.tgz
+771 verbose from cache /home/vivek/.npm/constantinople/3.0.1/package/package.json
+772 verbose chmod /home/vivek/.npm/constantinople/3.0.1/package.tgz 644
+773 verbose chown /home/vivek/.npm/constantinople/3.0.1/package.tgz [ 1000, 1000 ]
+774 silly lockFile 598ae2b4-tinople-constantinople-3-0-1-tgz https://registry.npmjs.org/constantinople/-/constantinople-3.0.1.tgz
+775 silly lockFile 598ae2b4-tinople-constantinople-3-0-1-tgz https://registry.npmjs.org/constantinople/-/constantinople-3.0.1.tgz
+776 silly lockFile b9c88df7-constantinople-3-0-1 constantinople@3.0.1
+777 silly lockFile b9c88df7-constantinople-3-0-1 constantinople@3.0.1
+778 silly lockFile 92b3c765-constantinople-3-0-1 constantinople@~3.0.1
+779 silly lockFile 92b3c765-constantinople-3-0-1 constantinople@~3.0.1
+780 silly resolved [ { name: 'with',
+780 silly resolved     version: '4.0.0',
+780 silly resolved     description: 'Compile time `with` for strict mode JavaScript',
+780 silly resolved     main: 'index.js',
+780 silly resolved     scripts: { test: 'mocha test/index.js -R spec' },
+780 silly resolved     repository:
+780 silly resolved      { type: 'git',
+780 silly resolved        url: 'https://github.com/ForbesLindesay/with.git' },
+780 silly resolved     author: { name: 'ForbesLindesay' },
+780 silly resolved     license: 'MIT',
+780 silly resolved     dependencies: { acorn: '^0.8.0', 'acorn-globals': '^1.0.1' },
+780 silly resolved     devDependencies: { mocha: '~1.12.0', 'uglify-js': '^2.4.15' },
+780 silly resolved     readme: '# with\r\n\r\nCompile time `with` for strict mode JavaScript\r\n\r\n[![build status](https://secure.travis-ci.org/ForbesLindesay/with.png)](http://travis-ci.org/ForbesLindesay/with)\r\n[![Dependency Status](https://img.shields.io/gemnasium/ForbesLindesay/with.svg)](https://gemnasium.com/ForbesLindesay/with)\r\n[![NPM version](https://img.shields.io/npm/v/with.svg)](http://badge.fury.io/js/with)\r\n\r\n## Installation\r\n\r\n    $ npm install with\r\n\r\n## Usage\r\n\r\n```js\r\nvar addWith = require(\'with\')\r\n\r\naddWith(\'obj\', \'console.log(a)\')\r\n// => \';(function (console, a) {\r\n//       console.log(a)\r\n//     }("console" in obj ? obj.console :\r\n//                          typeof console!=="undefined" ? console : undefined,\r\n//       "a" in obj ? obj.a :\r\n//                    typeof a !== "undefined" ? a : undefined));\'\r\n\r\naddWith(\'obj\', \'console.log(a)\', [\'console\'])\r\n// => \';(function (console, a) {\r\n//       console.log(a)\r\n//     }("a" in obj ? obj.a :\r\n//                    typeof a !== "undefined" ? a : undefined));\'\r\n```\r\n\r\n## API\r\n\r\n### addWith(obj, src[, exclude])\r\n\r\nThe idea is that this is roughly equivallent to:\r\n\r\n```js\r\nwith (obj) {\r\n  src\r\n}\r\n```\r\n\r\nThere are a few differences though.  For starters, assignments to variables will always remain contained within the with block.\r\n\r\ne.g.\r\n\r\n```js\r\nvar foo = \'foo\'\r\nwith ({}) {\r\n  foo = \'bar\'\r\n}\r\nassert(foo === \'bar\')// => This fails for compile time with but passes for native with\r\n\r\nvar obj = {foo: \'foo\'}\r\nwith ({}) {\r\n  foo = \'bar\'\r\n}\r\nassert(obj.foo === \'bar\')// => This fails for compile time with but passes for native with\r\n```\r\n\r\nIt also makes everything be declared, so you can always do:\r\n\r\n```js\r\nif (foo === undefined)\r\n```\r\n\r\ninstead of\r\n\r\n```js\r\nif (typeof foo === \'undefined\')\r\n```\r\n\r\nThis is not the case if foo is in `exclude`.  If a variable is excluded, we ignore it entirely.  This is useful if you know a variable will be global as it can lead to efficiency improvements.\r\n\r\nIt is also safe to use in strict mode (unlike `with`) and it minifies properly (`with` disables virtually all minification).\r\n\r\n## License\r\n\r\n  MIT',
+780 silly resolved     readmeFilename: 'README.md',
+780 silly resolved     bugs: { url: 'https://github.com/ForbesLindesay/with/issues' },
+780 silly resolved     _id: 'with@4.0.0',
+780 silly resolved     dist: { shasum: '928b18fb7e951e44f24398117db8cd8560f335fd' },
+780 silly resolved     _from: 'with@~4.0.0',
+780 silly resolved     _resolved: 'https://registry.npmjs.org/with/-/with-4.0.0.tgz' },
+780 silly resolved   { name: 'character-parser',
+780 silly resolved     version: '1.2.1',
+780 silly resolved     description: 'Parse JavaScript one character at a time to look for snippets in Templates.  This is not a validator, it\'s just designed to allow you to have sections of JavaScript delimited by brackets robustly.',
+780 silly resolved     main: 'index.js',
+780 silly resolved     scripts: { test: 'mocha -R spec' },
+780 silly resolved     repository:
+780 silly resolved      { type: 'git',
+780 silly resolved        url: 'https://github.com/ForbesLindesay/character-parser.git' },
+780 silly resolved     keywords:
+780 silly resolved      [ 'parser',
+780 silly resolved        'JavaScript',
+780 silly resolved        'bracket',
+780 silly resolved        'nesting',
+780 silly resolved        'comment',
+780 silly resolved        'string',
+780 silly resolved        'escape',
+780 silly resolved        'escaping' ],
+780 silly resolved     author: { name: 'ForbesLindesay' },
+780 silly resolved     license: 'MIT',
+780 silly resolved     devDependencies: { 'better-assert': '~1.0.0', mocha: '~1.9.0' },
+780 silly resolved     readme: '# character-parser\r\n\r\nParse JavaScript one character at a time to look for snippets in Templates.  This is not a validator, it\'s just designed to allow you to have sections of JavaScript delimited by brackets robustly.\r\n\r\n[![Build Status](https://img.shields.io/travis/ForbesLindesay/character-parser/master.svg)](https://travis-ci.org/ForbesLindesay/character-parser)\r\n\r\n## Installation\r\n\r\n    npm install character-parser\r\n\r\n## Usage\r\n\r\nWork out how much depth changes:\r\n\r\n```js\r\nvar state = parse(\'foo(arg1, arg2, {\\n  foo: [a, b\\n\');\r\nassert(state.roundDepth === 1);\r\nassert(state.curlyDepth === 1);\r\nassert(state.squareDepth === 1);\r\nparse(\'    c, d]\\n  })\', state);\r\nassert(state.squareDepth === 0);\r\nassert(state.curlyDepth === 0);\r\nassert(state.roundDepth === 0);\r\n```\r\n\r\n### Bracketed Expressions\r\n\r\nFind all the contents of a bracketed expression:\r\n\r\n```js\r\nvar section = parser.parseMax(\'foo="(", bar="}") bing bong\');\r\nassert(section.start === 0);\r\nassert(section.end === 16);//exclusive end of string\r\nassert(section.src = \'foo="(", bar="}"\');\r\n\r\n\r\nvar section = parser.parseMax(\'{foo="(", bar="}"} bing bong\', {start: 1});\r\nassert(section.start === 1);\r\nassert(section.end === 17);//exclusive end of string\r\nassert(section.src = \'foo="(", bar="}"\');\r\n```\r\n\r\nThe bracketed expression parsing simply parses up to but excluding the first unmatched closed bracket (`)`, `}`, `]`).  It is clever enough to ignore brackets in comments or strings.\r\n\r\n\r\n### Custom Delimited Expressions\r\n\r\nFind code up to a custom delimiter:\r\n\r\n```js\r\nvar section = parser.parseUntil(\'foo.bar("%>").baz%> bing bong\', \'%>\');\r\nassert(section.start === 0);\r\nassert(section.end === 17);//exclusive end of string\r\nassert(section.src = \'foo.bar("%>").baz\');\r\n\r\nvar section = parser.parseUntil(\'<%foo.bar("%>").baz%> bing bong\', \'%>\', {start: 2});\r\nassert(section.start === 2);\r\nassert(section.end === 19);//exclusive end of string\r\nassert(section.src = \'foo.bar("%>").baz\');\r\n```\r\n\r\nDelimiters are ignored if they are inside strings or comments.\r\n\r\n## API\r\n\r\n### parse(str, state = defaultState(), options = {start: 0, end: src.length})\r\n\r\nParse a string starting at the index start, and return the state after parsing that string.\r\n\r\nIf you want to parse one string in multiple sections you should keep passing the resulting state to the next parse operation.\r\n\r\nReturns a `State` object.\r\n\r\n### parseMax(src, options = {start: 0})\r\n\r\nParses the source until the first unmatched close bracket (any of `)`, `}`, `]`).  It returns an object with the structure:\r\n\r\n```js\r\n{\r\n  start: 0,//index of first character of string\r\n  end: 13,//index of first character after the end of string\r\n  src: \'source string\'\r\n}\r\n```\r\n\r\n### parseUntil(src, delimiter, options = {start: 0, includeLineComment: false})\r\n\r\nParses the source until the first occurence of `delimiter` which is not in a string or a comment.  If `includeLineComment` is `true`, it will still count if the delimiter occurs in a line comment, but not in a block comment.  It returns an object with the structure:\r\n\r\n```js\r\n{\r\n  start: 0,//index of first character of string\r\n  end: 13,//index of first character after the end of string\r\n  src: \'source string\'\r\n}\r\n```\r\n\r\n### parseChar(character, state = defaultState())\r\n\r\nParses the single character and returns the state.  See `parse` for the structure of the returned state object.  N.B. character must be a single character not a multi character string.\r\n\r\n### defaultState()\r\n\r\nGet a default starting state.\r\n\r\n### isPunctuator(character)\r\n\r\nReturns `true` if `character` represents punctuation in JavaScript.\r\n\r\n### isKeyword(name)\r\n\r\nReturns `true` if `name` is a keyword in JavaScript.\r\n\r\n## State\r\n\r\nA state is an object with the following structure\r\n\r\n```js\r\n{\r\n  lineComment: false, //true if inside a line comment\r\n  blockComment: false, //true if inside a block comment\r\n\r\n  singleQuote: false, //true if inside a single quoted string\r\n  doubleQuote: false, //true if inside a double quoted string\r\n  regexp:      false, //true if inside a regular expression\r\n  escaped: false, //true if in a string and the last character was an escape character\r\n\r\n  roundDepth: 0, //number of un-closed open `(` brackets\r\n  curlyDepth: 0, //number of un-closed open `{` brackets\r\n  squareDepth: 0 //number of un-closed open `[` brackets\r\n}\r\n```\r\n\r\nIt also has the following useful methods:\r\n\r\n- `.isString()` returns `true` if the current location is inside a string.\r\n- `.isComment()` returns `true` if the current location is inside a comment.\r\n- `isNesting()` returns `true` if the current location is anything but at the top level, i.e. with no nesting.\r\n\r\n## License\r\n\r\nMIT',
+780 silly resolved     readmeFilename: 'README.md',
+780 silly resolved     bugs: { url: 'https://github.com/ForbesLindesay/character-parser/issues' },
+780 silly resolved     _id: 'character-parser@1.2.1',
+780 silly resolved     dist: { shasum: 'a35fe2f06e0d986a91d9f34ddb3a6fd3487b2723' },
+780 silly resolved     _from: 'character-parser@1.2.1',
+780 silly resolved     _resolved: 'https://registry.npmjs.org/character-parser/-/character-parser-1.2.1.tgz' },
+780 silly resolved   { name: 'commander',
+780 silly resolved     version: '2.6.0',
+780 silly resolved     description: 'the complete solution for node.js command-line programs',
+780 silly resolved     keywords: [ 'command', 'option', 'parser', 'prompt' ],
+780 silly resolved     author: { name: 'TJ Holowaychuk', email: 'tj@vision-media.ca' },
+780 silly resolved     license: 'MIT',
+780 silly resolved     repository: { type: 'git', url: 'https://github.com/tj/commander.js.git' },
+780 silly resolved     devDependencies: { should: '>= 0.0.1' },
+780 silly resolved     scripts: { test: 'make test' },
+780 silly resolved     main: 'index',
+780 silly resolved     engines: { node: '>= 0.6.x' },
+780 silly resolved     files: [ 'index.js' ],
+780 silly resolved     readme: '# Commander.js\n\n [![Build Status](https://api.travis-ci.org/tj/commander.js.svg)](http://travis-ci.org/tj/commander.js)\n[![NPM Version](http://img.shields.io/npm/v/commander.svg?style=flat)](https://www.npmjs.org/package/commander)\n[![NPM Downloads](https://img.shields.io/npm/dm/commander.svg?style=flat)](https://www.npmjs.org/package/commander)\n\n  The complete solution for [node.js](http://nodejs.org) command-line interfaces, inspired by Ruby\'s [commander](https://github.com/tj/commander).  \n  [API documentation](http://tj.github.com/commander.js/)\n\n\n## Installation\n\n    $ npm install commander\n\n## Option parsing\n\n Options with commander are defined with the `.option()` method, also serving as documentation for the options. The example below parses args and options from `process.argv`, leaving remaining args as the `program.args` array which were not consumed by options.\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-p, --peppers\', \'Add peppers\')\n  .option(\'-P, --pineapple\', \'Add pineapple\')\n  .option(\'-b, --bbq\', \'Add bbq sauce\')\n  .option(\'-c, --cheese [type]\', \'Add the specified type of cheese [marble]\', \'marble\')\n  .parse(process.argv);\n\nconsole.log(\'you ordered a pizza with:\');\nif (program.peppers) console.log(\'  - peppers\');\nif (program.pineapple) console.log(\'  - pineapple\');\nif (program.bbq) console.log(\'  - bbq\');\nconsole.log(\'  - %s cheese\', program.cheese);\n```\n\n Short flags may be passed as a single arg, for example `-abc` is equivalent to `-a -b -c`. Multi-word options such as "--template-engine" are camel-cased, becoming `program.templateEngine` etc.\n\n\n## Coercion\n\n```js\nfunction range(val) {\n  return val.split(\'..\').map(Number);\n}\n\nfunction list(val) {\n  return val.split(\',\');\n}\n\nfunction collect(val, memo) {\n  memo.push(val);\n  return memo;\n}\n\nfunction increaseVerbosity(v, total) {\n  return total + 1;\n}\n\nprogram\n  .version(\'0.0.1\')\n  .usage(\'[options] <file ...>\')\n  .option(\'-i, --integer <n>\', \'An integer argument\', parseInt)\n  .option(\'-f, --float <n>\', \'A float argument\', parseFloat)\n  .option(\'-r, --range <a>..<b>\', \'A range\', range)\n  .option(\'-l, --list <items>\', \'A list\', list)\n  .option(\'-o, --optional [value]\', \'An optional value\')\n  .option(\'-c, --collect [value]\', \'A repeatable value\', collect, [])\n  .option(\'-v, --verbose\', \'A value that can be increased\', increaseVerbosity, 0)\n  .parse(process.argv);\n\nconsole.log(\' int: %j\', program.integer);\nconsole.log(\' float: %j\', program.float);\nconsole.log(\' optional: %j\', program.optional);\nprogram.range = program.range || [];\nconsole.log(\' range: %j..%j\', program.range[0], program.range[1]);\nconsole.log(\' list: %j\', program.list);\nconsole.log(\' collect: %j\', program.collect);\nconsole.log(\' verbosity: %j\', program.verbose);\nconsole.log(\' args: %j\', program.args);\n```\n\n## Variadic arguments\n\n The last argument of a command can be variadic, and only the last argument.  To make an argument variadic you have to\n append `...` to the argument name.  Here is an example:\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'rmdir <dir> [otherDirs...]\')\n  .action(function (dir, otherDirs) {\n    console.log(\'rmdir %s\', dir);\n    if (otherDirs) {\n      otherDirs.forEach(function (oDir) {\n        console.log(\'rmdir %s\', oDir);\n      });\n    }\n  });\n\nprogram.parse(process.argv);\n```\n\n An `Array` is used for the value of a variadic argument.  This applies to `program.args` as well as the argument passed\n to your action as demonstrated above.\n\n## Git-style sub-commands\n\n```js\n// file: ./examples/pm\nvar program = require(\'..\');\n\nprogram\n  .version(\'0.0.1\')\n  .command(\'install [name]\', \'install one or more packages\')\n  .command(\'search [query]\', \'search with optional query\')\n  .command(\'list\', \'list packages installed\')\n  .parse(process.argv);\n```\n\nWhen `.command()` is invoked with a description argument, no `.action(callback)` should be called to handle sub-commands, otherwise there will be an error. This tells commander that you\'re going to use separate executables for sub-commands, much like `git(1)` and other popular tools.  \nThe commander will try to find the executable script in __current directory__ with the name `scriptBasename-subcommand`, like `pm-install`, `pm-search`.\n\n## Automated --help\n\n The help information is auto-generated based on the information commander already knows about your program, so the following `--help` info is for free:\n\n```  \n $ ./examples/pizza --help\n\n   Usage: pizza [options]\n\n   An application for pizzas ordering\n\n   Options:\n\n     -h, --help           output usage information\n     -V, --version        output the version number\n     -p, --peppers        Add peppers\n     -P, --pineapple      Add pineapple\n     -b, --bbq            Add bbq sauce\n     -c, --cheese <type>  Add the specified type of cheese [marble]\n     -C, --no-cheese      You do not want any cheese\n\n```\n\n## Custom help\n\n You can display arbitrary `-h, --help` information\n by listening for "--help". Commander will automatically\n exit once you are done so that the remainder of your program\n does not execute causing undesired behaviours, for example\n in the following executable "stuff" will not output when\n `--help` is used.\n\n```js\n#!/usr/bin/env node\n\n/**\n * Module dependencies.\n */\n\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-f, --foo\', \'enable some foo\')\n  .option(\'-b, --bar\', \'enable some bar\')\n  .option(\'-B, --baz\', \'enable some baz\');\n\n// must be before .parse() since\n// node\'s emit() is immediate\n\nprogram.on(\'--help\', function(){\n  console.log(\'  Examples:\');\n  console.log(\'\');\n  console.log(\'    $ custom-help --help\');\n  console.log(\'    $ custom-help -h\');\n  console.log(\'\');\n});\n\nprogram.parse(process.argv);\n\nconsole.log(\'stuff\');\n```\n\nYields the following help output when `node script-name.js -h` or `node script-name.js --help` are run:\n\n```\n\nUsage: custom-help [options]\n\nOptions:\n\n  -h, --help     output usage information\n  -V, --version  output the version number\n  -f, --foo      enable some foo\n  -b, --bar      enable some bar\n  -B, --baz      enable some baz\n\nExamples:\n\n  $ custom-help --help\n  $ custom-help -h\n\n```\n\n## .outputHelp()\n\n  Output help information without exiting.\n\n## .help()\n\n  Output help information and exit immediately.\n\n## Examples\n\n```js\nvar program = require(\'commander\');\n\nprogram\n  .version(\'0.0.1\')\n  .option(\'-C, --chdir <path>\', \'change the working directory\')\n  .option(\'-c, --config <path>\', \'set config path. defaults to ./deploy.conf\')\n  .option(\'-T, --no-tests\', \'ignore test hook\')\n\nprogram\n  .command(\'setup [env]\')\n  .description(\'run setup commands for all envs\')\n  .option("-s, --setup_mode [mode]", "Which setup mode to use")\n  .action(function(env, options){\n    var mode = options.setup_mode || "normal";\n    env = env || \'all\';\n    console.log(\'setup for %s env(s) with %s mode\', env, mode);\n  });\n\nprogram\n  .command(\'exec <cmd>\')\n  .alias(\'ex\')\n  .description(\'execute the given remote cmd\')\n  .option("-e, --exec_mode <mode>", "Which exec mode to use")\n  .action(function(cmd, options){\n    console.log(\'exec "%s" using %s mode\', cmd, options.exec_mode);\n  }).on(\'--help\', function() {\n    console.log(\'  Examples:\');\n    console.log();\n    console.log(\'    $ deploy exec sequential\');\n    console.log(\'    $ deploy exec async\');\n    console.log();\n  });\n\nprogram\n  .command(\'*\')\n  .action(function(env){\n    console.log(\'deploying "%s"\', env);\n  });\n\nprogram.parse(process.argv);\n```\n\nYou can see more Demos in the [examples](https://github.com/tj/commander.js/tree/master/examples) directory.\n\n## License\n\n(The MIT License)\n\nCopyright (c) 2011 TJ Holowaychuk &lt;tj@vision-media.ca&gt;\n\nPermission is hereby granted, free of charge, to any person obtaining\na copy of this software and associated documentation files (the\n\'Software\'), to deal in the Software without restriction, including\nwithout limitation the rights to use, copy, modify, merge, publish,\ndistribute, sublicense, and/or sell copies of the Software, and to\npermit persons to whom the Software is furnished to do so, subject to\nthe following conditions:\n\nThe above copyright notice and this permission notice shall be\nincluded in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \'AS IS\', WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\n',
+780 silly resolved     readmeFilename: 'Readme.md',
+780 silly resolved     bugs: { url: 'https://github.com/tj/commander.js/issues' },
+780 silly resolved     _id: 'commander@2.6.0',
+780 silly resolved     dist: { shasum: '9198a504d4312ac55764af42fa7936afe65d764a' },
+780 silly resolved     _from: 'commander@~2.6.0',
+780 silly resolved     _resolved: 'https://registry.npmjs.org/commander/-/commander-2.6.0.tgz' },
+780 silly resolved   { name: 'mkdirp',
+780 silly resolved     description: 'Recursively mkdir, like `mkdir -p`',
+780 silly resolved     version: '0.5.0',
+780 silly resolved     author:
+780 silly resolved      { name: 'James Halliday',
+780 silly resolved        email: 'mail@substack.net',
+780 silly resolved        url: 'http://substack.net' },
+780 silly resolved     main: './index',
+780 silly resolved     keywords: [ 'mkdir', 'directory' ],
+780 silly resolved     repository:
+780 silly resolved      { type: 'git',
+780 silly resolved        url: 'https://github.com/substack/node-mkdirp.git' },
+780 silly resolved     scripts: { test: 'tap test/*.js' },
+780 silly resolved     dependencies: { minimist: '0.0.8' },
+780 silly resolved     devDependencies: { tap: '~0.4.0', 'mock-fs': '~2.2.0' },
+780 silly resolved     bin: { mkdirp: 'bin/cmd.js' },
+780 silly resolved     license: 'MIT',
+780 silly resolved     readme: '# mkdirp\n\nLike `mkdir -p`, but in node.js!\n\n[![build status](https://secure.travis-ci.org/substack/node-mkdirp.png)](http://travis-ci.org/substack/node-mkdirp)\n\n# example\n\n## pow.js\n\n```js\nvar mkdirp = require(\'mkdirp\');\n    \nmkdirp(\'/tmp/foo/bar/baz\', function (err) {\n    if (err) console.error(err)\n    else console.log(\'pow!\')\n});\n```\n\nOutput\n\n```\npow!\n```\n\nAnd now /tmp/foo/bar/baz exists, huzzah!\n\n# methods\n\n```js\nvar mkdirp = require(\'mkdirp\');\n```\n\n## mkdirp(dir, opts, cb)\n\nCreate a new directory and any necessary subdirectories at `dir` with octal\npermission string `opts.mode`. If `opts` is a non-object, it will be treated as\nthe `opts.mode`.\n\nIf `opts.mode` isn\'t specified, it defaults to `0777 & (~process.umask())`.\n\n`cb(err, made)` fires with the error or the first directory `made`\nthat had to be created, if any.\n\nYou can optionally pass in an alternate `fs` implementation by passing in\n`opts.fs`. Your implementation should have `opts.fs.mkdir(path, mode, cb)` and\n`opts.fs.stat(path, cb)`.\n\n## mkdirp.sync(dir, opts)\n\nSynchronously create a new directory and any necessary subdirectories at `dir`\nwith octal permission string `opts.mode`. If `opts` is a non-object, it will be\ntreated as the `opts.mode`.\n\nIf `opts.mode` isn\'t specified, it defaults to `0777 & (~process.umask())`.\n\nReturns the first directory that had to be created, if any.\n\nYou can optionally pass in an alternate `fs` implementation by passing in\n`opts.fs`. Your implementation should have `opts.fs.mkdirSync(path, mode)` and\n`opts.fs.statSync(path)`.\n\n# usage\n\nThis package also ships with a `mkdirp` command.\n\n```\nusage: mkdirp [DIR1,DIR2..] {OPTIONS}\n\n  Create each supplied directory including any necessary parent directories that\n  don\'t yet exist.\n  \n  If the directory already exists, do nothing.\n\nOPTIONS are:\n\n  -m, --mode   If a directory needs to be created, set the mode as an octal\n               permission string.\n\n```\n\n# install\n\nWith [npm](http://npmjs.org) do:\n\n```\nnpm install mkdirp\n```\n\nto get the library, or\n\n```\nnpm install -g mkdirp\n```\n\nto get the command.\n\n# license\n\nMIT\n',
+780 silly resolved     readmeFilename: 'readme.markdown',
+780 silly resolved     bugs: { url: 'https://github.com/substack/node-mkdirp/issues' },
+780 silly resolved     _id: 'mkdirp@0.5.0',
+780 silly resolved     dist: { shasum: '1d73076a6df986cd9344e15e71fcc05a4c9abf12' },
+780 silly resolved     _from: 'mkdirp@~0.5.0',
+780 silly resolved     _resolved: 'https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.0.tgz' },
+780 silly resolved   { name: 'transformers',
+780 silly resolved     version: '2.1.0',
+780 silly resolved     description: 'String/Data transformations for use in templating libraries, static site generators and web frameworks',
+780 silly resolved     main: 'lib/transformers.js',
+780 silly resolved     scripts:
+780 silly resolved      { pretest: 'node test/update-package && npm install',
+780 silly resolved        test: 'mocha test/test.js -R spec' },
+780 silly resolved     repository:
+780 silly resolved      { type: 'git',
+780 silly resolved        url: 'https://github.com/ForbesLindesay/transformers.git' },
+780 silly resolved     author: { name: 'ForbesLindesay' },
+780 silly resolved     license: 'MIT',
+780 silly resolved     readmeFilename: 'README.md',
+780 silly resolved     gitHead: '4b46e72cba3ad3403fd5ed3802d5472dcfa77311',
+780 silly resolved     devDependencies:
+780 silly resolved      { mocha: '~1.8',
+780 silly resolved        'expect.js': '~0.2',
+780 silly resolved        swig: '*',
+780 silly resolved        atpl: '*',
+780 silly resolved        liquor: '*',
+780 silly resolved        ejs: '*',
+780 silly resolved        eco: '*',
+780 silly resolved        jqtpl: '*',
+780 silly resolved        hamljs: '*',
+780 silly resolved        'haml-coffee': '*',
+780 silly resolved        whiskers: '*',
+780 silly resolved        'hogan.js': '*',
+780 silly resolved        handlebars: '*',
+780 silly resolved        underscore: '*',
+780 silly resolved        walrus: '*',
+780 silly resolved        mustache: '*',
+780 silly resolved        mote: '*',
+780 silly resolved        toffee: '*',
+780 silly resolved        just: '*',
+780 silly resolved        ect: '*',
+780 silly resolved        jade: '*',
+780 silly resolved        'then-jade': '*',
+780 silly resolved        dust: '*',
+780 silly resolved        'dustjs-linkedin': '*',
+780 silly resolved        jazz: '*',
+780 silly resolved        qejs: '*',
+780 silly resolved        less: '*',
+780 silly resolved        stylus: '*',
+780 silly resolved        sass: '*',
+780 silly resolved        marked: '*',
+780 silly resolved        supermarked: '*',
+780 silly resolved        'markdown-js': '*',
+780 silly resolved        markdown: '*',
+780 silly resolved        'coffee-script': '*',
+780 silly resolved        cson: '*',
+780 silly resolved        coffeekup: '*',
+780 silly resolved        coffeecup: '*',
+780 silly resolved        templayed: '*',
+780 silly resolved        plates: '*',
+780 silly resolved        dot: '*',
+780 silly resolved        'component-builder': '*',
+780 silly resolved        html2jade: '*',
+780 silly resolved        'highlight.js': '*' },
+780 silly resolved     dependencies: { promise: '~2.0', css: '~1.0.8', 'uglify-js': '~2.2.5' },
+780 silly resolved     readme: '[![Build Status](https://travis-ci.org/ForbesLindesay/transformers.png?branch=master)](https://travis-ci.org/ForbesLindesay/transformers)\r\n# transformers\r\n\r\n  String/Data transformations for use in templating libraries, static site generators and web frameworks.  This gathers the most useful transformations you can apply to text or data into one library with a consistent API.  Transformations can be pretty much anything but most are either compilers or templating engines.\r\n\r\n## Supported transforms\r\n\r\n  To use each of these transforms you will also need to install the associated npm module for that transformer.\r\n\r\n### Template engines\r\n\r\n  - [atpl](http://documentup.com/soywiz/atpl.js) - Compatible with twig templates\r\n  - [coffeecup](http://documentup.com/gradus/coffeecup) - pure coffee-script templates (fork of coffeekup)\r\n  - [dot](http://documentup.com/olado/doT) [(website)](https://github.com/Katahdin/dot-packer) - focused on speed\r\n  - [dust](http://documentup.com/akdubya/dustjs) [(website)](http://akdubya.github.com/dustjs/) - asyncronous templates\r\n  - [eco](http://documentup.com/sstephenson/eco) - Embedded CoffeeScript templates\r\n  - [ect](http://documentup.com/baryshev/ect) [(website)](http://ectjs.com/) - Embedded CoffeeScript templates\r\n  - [ejs](http://documentup.com/visionmedia/ejs) - Embedded JavaScript templates\r\n  - [haml](http://documentup.com/visionmedia/haml.js) [(website)](http://haml-lang.com/) - dry indented markup\r\n  - [haml-coffee](http://documentup.com/netzpirat/haml-coffee/) [(website)](http://haml-lang.com/) - haml with embedded CoffeeScript\r\n  - [handlebars](http://documentup.com/wycats/handlebars.js/) [(website)](http://handlebarsjs.com/) - extension of mustache templates\r\n  - [hogan](http://documentup.com/twitter/hogan.js) [(website)](http://twitter.github.com/hogan.js/) - Mustache templates\r\n  - [jade](http://documentup.com/visionmedia/jade) [(website)](http://jade-lang.com/) - robust, elegant, feature rich template engine\r\n  - [jazz](http://documentup.com/shinetech/jazz)\r\n  - [jqtpl](http://documentup.com/kof/jqtpl) [(website)](http://api.jquery.com/category/plugins/templates/) - extensible logic-less templates\r\n  - [JUST](http://documentup.com/baryshev/just) - EJS style template with some special syntax for layouts/partials etc.\r\n  - [liquor](http://documentup.com/chjj/liquor) - extended EJS with significant white space\r\n  - [mustache](http://documentup.com/janl/mustache.js) - logic less templates\r\n  - [QEJS](http://documentup.com/jepso/QEJS) - Promises + EJS for async templating\r\n  - [swig](http://documentup.com/paularmstrong/swig) [(website)](http://paularmstrong.github.com/swig/) - Django-like templating engine\r\n  - [templayed](http://documentup.com/archan937/templayed.js/) [(website)](http://archan937.github.com/templayed.js/) - Mustache focused on performance\r\n  - [toffee](http://documentup.com/malgorithms/toffee) - templating language based on coffeescript\r\n  - [underscore](http://documentup.com/documentcloud/underscore) [(website)](http://documentcloud.github.com/underscore/)\r\n  - [walrus](http://documentup.com/jeremyruppel/walrus) - A bolder kind of mustache\r\n  - [whiskers](http://documentup.com/gsf/whiskers.js/tree/) - logic-less focused on readability\r\n\r\n### Stylesheet Languages\r\n\r\n  - [less](http://documentup.com/cloudhead/less.js) [(website)](http://lesscss.org/) - LESS extends CSS with dynamic behavior such as variables, mixins, operations and functions.\r\n  - [stylus](http://documentup.com/learnboost/stylus) [(website)](http://learnboost.github.com/stylus/) - revolutionary CSS generator making braces optional\r\n  - [sass](http://documentup.com/visionmedia/sass.js) [(website)](http://sass-lang.com/) - Sassy CSS\r\n\r\n### Minifiers\r\n\r\n  - [uglify-js](http://documentup.com/mishoo/UglifyJS2) - No need to install anything, just minifies/beautifies JavaScript\r\n  - [uglify-css](https://github.com/visionmedia/css) - No need to install anything, just minifies/beautifies CSS\r\n  - ugilify-json - No need to install anything, just minifies/beautifies JSON\r\n\r\n### Other\r\n\r\n  - cdata - No need to install anything, just wraps input as `<![CDATA[${INPUT_STRING]]>` with the standard escape for `]]>` (`]]]]><![CDATA[>`).\r\n  - cdata-js - as `cdata`, but with surrounding comments suitable for inclusion into a HTML/JavaScript `<script>` block: `//<![CDATA[\\n${INPUT_STRING\\n//]]>`.\r\n  - cdata-css - as `cdata`, but with surrounding comments suitable for inclusion into a HTML/CSS `<style>` block: `/*<![CDATA[*/\\n${INPUT_STRING\\n/*]]>*/`.\r\n  - verbatim - No need to install anything, acts as a verbatim passthrough `${INPUT_STRING}`\r\n  - [coffee-script](http://coffeescript.org/) - `npm install coffee-script`\r\n  - [cson](https://github.com/bevry/cson) - coffee-script based JSON format\r\n  - markdown - You can use `marked`, `supermarked`, `markdown-js` or `markdown`\r\n  - [component-js](http://documentup.com/component/component) [(website)](http://component.io) - `npm install component-builder` options: `{development: false}`\r\n  - [component-css](http://documentup.com/component/component) [(website)](http://component.io) - `npm install component-builder` options: `{development: false}`\r\n  - [html2jade](http://documentup.com/donpark/html2jade) [(website)](http://html2jade.aaron-powell.com/) - `npm install html2jade` - Converts HTML back into jade\r\n\r\nPull requests to add more transforms will always be accepted providing they are open-source, come with unit tests, and don\'t cause any of the tests to fail.\r\n\r\n## API\r\n\r\n  The exported object `transformers` is a collection of named transformers.  To access an individual transformer just do:\r\n\r\n  ```javascript\r\n  var transformer = require(\'transformers\')[\'transformer-name\']\r\n  ```\r\n\r\n### Transformer\r\n\r\n  The following options are given special meaning by `transformers`:\r\n\r\n   - `filename` is set by transformers automatically if using the `renderFile` APIs.  It is used if `cache` is enabled.\r\n   - `cache` if true, the template function will be cached where possible (templates are still updated if you provide new options, so this can be used in most live applications).\r\n   - `sudoSync` used internally to put some asyncronous transformers into "sudo syncronous" mode.  Don\'t touch this.\r\n   - `minify` if set to true on a transformer that isn\'t a minifier, it will cause the output to be minified.  e.g. `coffeeScript.renderSync(str, {minify: true})` will result in minified JavaScript.\r\n\r\n#### Transformer.engines\r\n\r\n  Returns an array of engines that can be used to power this transformer.  The first of these that\'s installed will be used for the transformation.\r\n\r\n  To enable a transformation just take `[engine] = Transformer.engines[0]` and then do `npm install [engine]`.  If `[engine]` is `.` there is no need to install an engine from npm to use the transformer.\r\n\r\n#### Transformer.render(str, options, cb)\r\n\r\n  Tranform the string `str` using the `Transformer` with the provided options and call the callback `cb(err, res)`.\r\n\r\n  If no `cb` is provided, this method returns a [promises/A+](http://promises-aplus.github.com/promises-spec/) promise.\r\n\r\n#### Transformer.renderSync(str, options)\r\n\r\n  Synchronous version of `Transformer.render`\r\n\r\n#### Transformer.renderFile(filename, options, cb)\r\n\r\n  Reads the file at filename into `str` and sets `options.filename = filename` then calls `Transform.render(str, options, cb)`.\r\n\r\n  If no `cb` is provided, this method returns a [promises/A+](http://promises-aplus.github.com/promises-spec/) promise.\r\n\r\n#### Tranformer.renderFileSync(filename, options)\r\n\r\n  Synchronous version of `Tranformer.renderFile`\r\n\r\n#### Transformer.outputFormat\r\n\r\n  A string, one of:\r\n\r\n   - `\'xml\'`\r\n   - `\'css\'`\r\n   - `\'js\'`\r\n   - `\'json\'`\r\n   - `\'text\'`\r\n\r\nAdding to this list will **not** result in a major version change, so you should handle unexpected types gracefully (I\'d suggest default to assuming `\'text\'`).\r\n\r\n#### Transformer.sync\r\n\r\n  `true` if the transformer can be used syncronously, `false` otherwise.\r\n\r\n## Libraries that don\'t work synchronously\r\n\r\n  The following transformations will always throw an exception if you attempt to run them synchronously:\r\n\r\n   1. dust\r\n   2. qejs\r\n   3. html2jade\r\n\r\nThe following transformations sometimes throw an exception if run syncronously, typically they only throw an exception if you are doing something like including another file.  If you are not doing the things that cause them to fail then they are consistently safe to use syncronously.\r\n\r\n   - jade (only when using `then-jade` instead of `jade`)\r\n   - less (when `@import` is used with a url instead of a filename)\r\n   - jazz (When one of the functions passed as locals is asyncronous)\r\n\r\nThe following libraries look like they might sometimes throw exceptions when used syncronously (if you read the source) but they never actually do so:\r\n\r\n   - just\r\n   - ect\r\n   - stylus',
+780 silly resolved     bugs: { url: 'https://github.com/ForbesLindesay/transformers/issues' },
+780 silly resolved     _id: 'transformers@2.1.0',
+780 silly resolved     dist: { shasum: '978c954be79e63c5f1af924a4b926676bd609d30' },
+780 silly resolved     _from: 'transformers@2.1.0',
+780 silly resolved     _resolved: 'https://registry.npmjs.org/transformers/-/transformers-2.1.0.tgz' },
+780 silly resolved   { name: 'void-elements',
+780 silly resolved     version: '2.0.1',
+780 silly resolved     description: 'Array of "void elements" defined by the HTML specification.',
+780 silly resolved     main: 'index.js',
+780 silly resolved     scripts:
+780 silly resolved      { test: 'node test',
+780 silly resolved        prepublish: 'node pre-publish.js > index.js' },
+780 silly resolved     keywords: [ 'html', 'void', 'elements' ],
+780 silly resolved     repository: { type: 'git', url: 'hemanth/void-elements' },
+780 silly resolved     author: { name: 'hemanth.hm' },
+780 silly resolved     engines: { node: '>=0.10.0' },
+780 silly resolved     license: 'MIT',
+780 silly resolved     bugs: { url: 'https://github.com/hemanth/void-elements/issues' },
+780 silly resolved     homepage: 'https://github.com/hemanth/void-elements',
+780 silly resolved     devDependencies: { cheerio: '^0.18.0' },
+780 silly resolved     readme: 'void-elements\r\n==============\r\n\r\n### Array of "void elements" defined by the HTML specification\r\n\r\nExports an Array of "void element" node names as defined by the HTML spec.\r\n\r\nThe list is programatically generated from the [latest W3C HTML draft](http://www.w3.org/html/wg/drafts/html/master/syntax.html#void-elements).\r\n\r\n[![Build Status](https://img.shields.io/travis/jadejs/void-elements/master.svg?style=flat)](https://travis-ci.org/jadejs/void-elements)\r\n[![Developing Dependency Status](https://img.shields.io/david/dev/jadejs/void-elements.svg?style=flat)](https://david-dm.org/jadejs/void-elements#info=devDependencies)\r\n[![NPM version](https://img.shields.io/npm/v/void-elements.svg?style=flat)](https://www.npmjs.org/package/void-elements)\r\n\r\nUsage\r\n-----\r\n\r\n```js\r\nvar voidElements = require(\'void-elements\');\r\n\r\nassert(voidElements.indexOf(\'span\') === -1, \'<span> is not a void element\');\r\nassert(voidElements.indexOf(\'img\') !== -1, \'<img> is a void element\');\r\n```\r\n\r\nLicense\r\n-------\r\n\r\nMIT\r\n',
+780 silly resolved     readmeFilename: 'README.md',
+780 silly resolved     _id: 'void-elements@2.0.1',
+780 silly resolved     dist: { shasum: 'e65d1ea54503cae3f05772476ee6b00f98f46570' },
+780 silly resolved     _from: 'void-elements@~2.0.1',
+780 silly resolved     _resolved: 'https://registry.npmjs.org/void-elements/-/void-elements-2.0.1.tgz' },
+780 silly resolved   { name: 'constantinople',
+780 silly resolved     version: '3.0.1',
+780 silly resolved     description: 'Determine whether a JavaScript expression evaluates to a constant (using UglifyJS)',
+780 silly resolved     keywords: [],
+780 silly resolved     dependencies: { 'acorn-globals': '^1.0.0' },
+780 silly resolved     devDependencies: { mocha: '*' },
+780 silly resolved     scripts: { test: 'mocha -R spec' },
+780 silly resolved     repository:
+780 silly resolved      { type: 'git',
+780 silly resolved        url: 'https://github.com/ForbesLindesay/constantinople.git' },
+780 silly resolved     author: { name: 'ForbesLindesay' },
+780 silly resolved     license: 'MIT',
+780 silly resolved     readme: '# constantinople\r\n\r\nDetermine whether a JavaScript expression evaluates to a constant (using acorn).  Here it is assumed to be safe to underestimate how constant something is.\r\n\r\n[![Build Status](https://img.shields.io/travis/ForbesLindesay/constantinople/master.svg)](https://travis-ci.org/ForbesLindesay/constantinople)\r\n[![Dependency Status](https://img.shields.io/gemnasium/ForbesLindesay/constantinople.svg)](https://gemnasium.com/ForbesLindesay/constantinople)\r\n[![NPM version](https://img.shields.io/npm/v/constantinople.svg)](https://www.npmjs.org/package/constantinople)\r\n\r\n## Installation\r\n\r\n    npm install constantinople\r\n\r\n## Usage\r\n\r\n```js\r\nvar isConstant = require(\'constantinople\')\r\n\r\nif (isConstant(\'"foo" + 5\')) {\r\n  console.dir(isConstant.toConstant(\'"foo" + 5\'))\r\n}\r\nif (isConstant(\'Math.floor(10.5)\', {Math: Math})) {\r\n  console.dir(isConstant.toConstant(\'Math.floor(10.5)\', {Math: Math}))\r\n}\r\n```\r\n\r\n## API\r\n\r\n### isConstant(src, [constants])\r\n\r\nReturns `true` if `src` evaluates to a constant, `false` otherwise.  It will also return `false` if there is a syntax error, which makes it safe to use on potentially ES6 code.\r\n\r\nConstants is an object mapping strings to values, where those values should be treated as constants.  Note that this makes it a pretty bad idea to have `Math` in there if the user might make use of `Math.random` and a pretty bad idea to have `Date` in there.\r\n\r\n### toConstant(src, [constants])\r\n\r\nReturns the value resulting from evaluating `src`.  This method throws an error if the expression is not constant.  e.g. `toConstant("Math.random()")` would throw an error.\r\n\r\nConstants is an object mapping strings to values, where those values should be treated as constants.  Note that this makes it a pretty bad idea to have `Math` in there if the user might make use of `Math.random` and a pretty bad idea to have `Date` in there.\r\n\r\n## License\r\n\r\n  MIT\r\n',
+780 silly resolved     readmeFilename: 'README.md',
+780 silly resolved     bugs: { url: 'https://github.com/ForbesLindesay/constantinople/issues' },
+780 silly resolved     _id: 'constantinople@3.0.1',
+780 silly resolved     dist: { shasum: '9412dbd80a62dd164fda875f9041aa0a3b9307a5' },
+780 silly resolved     _from: 'constantinople@~3.0.1',
+780 silly resolved     _resolved: 'https://registry.npmjs.org/constantinople/-/constantinople-3.0.1.tgz' } ]
+781 info install with@4.0.0 into /usr/local/lib/node_modules/jade
+782 info install character-parser@1.2.1 into /usr/local/lib/node_modules/jade
+783 info install commander@2.6.0 into /usr/local/lib/node_modules/jade
+784 info install mkdirp@0.5.0 into /usr/local/lib/node_modules/jade
+785 info install transformers@2.1.0 into /usr/local/lib/node_modules/jade
+786 info install void-elements@2.0.1 into /usr/local/lib/node_modules/jade
+787 info install constantinople@3.0.1 into /usr/local/lib/node_modules/jade
+788 info installOne with@4.0.0
+789 info installOne character-parser@1.2.1
+790 info installOne commander@2.6.0
+791 info installOne mkdirp@0.5.0
+792 info installOne transformers@2.1.0
+793 info installOne void-elements@2.0.1
+794 info installOne constantinople@3.0.1
+795 verbose from cache /home/vivek/.npm/with/4.0.0/package/package.json
+796 info /usr/local/lib/node_modules/jade/node_modules/with unbuild
+797 verbose read json /usr/local/lib/node_modules/jade/node_modules/with/package.json
+798 verbose from cache /home/vivek/.npm/character-parser/1.2.1/package/package.json
+799 info /usr/local/lib/node_modules/jade/node_modules/character-parser unbuild
+800 verbose read json /usr/local/lib/node_modules/jade/node_modules/character-parser/package.json
+801 verbose from cache /home/vivek/.npm/commander/2.6.0/package/package.json
+802 info /usr/local/lib/node_modules/jade/node_modules/commander unbuild
+803 verbose read json /usr/local/lib/node_modules/jade/node_modules/commander/package.json
+804 verbose from cache /home/vivek/.npm/mkdirp/0.5.0/package/package.json
+805 info /usr/local/lib/node_modules/jade/node_modules/mkdirp unbuild
+806 verbose read json /usr/local/lib/node_modules/jade/node_modules/mkdirp/package.json
+807 verbose from cache /home/vivek/.npm/transformers/2.1.0/package/package.json
+808 info /usr/local/lib/node_modules/jade/node_modules/transformers unbuild
+809 verbose read json /usr/local/lib/node_modules/jade/node_modules/transformers/package.json
+810 verbose from cache /home/vivek/.npm/void-elements/2.0.1/package/package.json
+811 info /usr/local/lib/node_modules/jade/node_modules/void-elements unbuild
+812 verbose read json /usr/local/lib/node_modules/jade/node_modules/void-elements/package.json
+813 verbose from cache /home/vivek/.npm/constantinople/3.0.1/package/package.json
+814 info /usr/local/lib/node_modules/jade/node_modules/constantinople unbuild
+815 verbose read json /usr/local/lib/node_modules/jade/node_modules/constantinople/package.json
+816 verbose tar unpack /home/vivek/.npm/with/4.0.0/package.tgz
+817 silly lockFile 3f28ac5e-e-modules-jade-node-modules-with /usr/local/lib/node_modules/jade/node_modules/with
+818 verbose lock /usr/local/lib/node_modules/jade/node_modules/with /home/vivek/.npm/3f28ac5e-e-modules-jade-node-modules-with.lock
+819 silly lockFile 1d4e8e38-vivek-npm-with-4-0-0-package-tgz /home/vivek/.npm/with/4.0.0/package.tgz
+820 verbose lock /home/vivek/.npm/with/4.0.0/package.tgz /home/vivek/.npm/1d4e8e38-vivek-npm-with-4-0-0-package-tgz.lock
+821 verbose tar unpack /home/vivek/.npm/character-parser/1.2.1/package.tgz
+822 silly lockFile a6401ecc-de-node-modules-character-parser /usr/local/lib/node_modules/jade/node_modules/character-parser
+823 verbose lock /usr/local/lib/node_modules/jade/node_modules/character-parser /home/vivek/.npm/a6401ecc-de-node-modules-character-parser.lock
+824 silly lockFile 389290fe-aracter-parser-1-2-1-package-tgz /home/vivek/.npm/character-parser/1.2.1/package.tgz
+825 verbose lock /home/vivek/.npm/character-parser/1.2.1/package.tgz /home/vivek/.npm/389290fe-aracter-parser-1-2-1-package-tgz.lock
+826 verbose tar unpack /home/vivek/.npm/commander/2.6.0/package.tgz
+827 silly lockFile f43831b7-ules-jade-node-modules-commander /usr/local/lib/node_modules/jade/node_modules/commander
+828 verbose lock /usr/local/lib/node_modules/jade/node_modules/commander /home/vivek/.npm/f43831b7-ules-jade-node-modules-commander.lock
+829 silly lockFile 3d1019ad--npm-commander-2-6-0-package-tgz /home/vivek/.npm/commander/2.6.0/package.tgz
+830 verbose lock /home/vivek/.npm/commander/2.6.0/package.tgz /home/vivek/.npm/3d1019ad--npm-commander-2-6-0-package-tgz.lock
+831 verbose tar unpack /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+832 silly lockFile 5fe7bdbc-modules-jade-node-modules-mkdirp /usr/local/lib/node_modules/jade/node_modules/mkdirp
+833 verbose lock /usr/local/lib/node_modules/jade/node_modules/mkdirp /home/vivek/.npm/5fe7bdbc-modules-jade-node-modules-mkdirp.lock
+834 silly lockFile 826b1506-vek-npm-mkdirp-0-5-0-package-tgz /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+835 verbose lock /home/vivek/.npm/mkdirp/0.5.0/package.tgz /home/vivek/.npm/826b1506-vek-npm-mkdirp-0-5-0-package-tgz.lock
+836 verbose tar unpack /home/vivek/.npm/transformers/2.1.0/package.tgz
+837 silly lockFile 860fc0f6-s-jade-node-modules-transformers /usr/local/lib/node_modules/jade/node_modules/transformers
+838 verbose lock /usr/local/lib/node_modules/jade/node_modules/transformers /home/vivek/.npm/860fc0f6-s-jade-node-modules-transformers.lock
+839 silly lockFile a6c4a1f6-m-transformers-2-1-0-package-tgz /home/vivek/.npm/transformers/2.1.0/package.tgz
+840 verbose lock /home/vivek/.npm/transformers/2.1.0/package.tgz /home/vivek/.npm/a6c4a1f6-m-transformers-2-1-0-package-tgz.lock
+841 verbose tar unpack /home/vivek/.npm/void-elements/2.0.1/package.tgz
+842 silly lockFile 67f7f4ba--jade-node-modules-void-elements /usr/local/lib/node_modules/jade/node_modules/void-elements
+843 verbose lock /usr/local/lib/node_modules/jade/node_modules/void-elements /home/vivek/.npm/67f7f4ba--jade-node-modules-void-elements.lock
+844 silly lockFile 1f3c1a58--void-elements-2-0-1-package-tgz /home/vivek/.npm/void-elements/2.0.1/package.tgz
+845 verbose lock /home/vivek/.npm/void-elements/2.0.1/package.tgz /home/vivek/.npm/1f3c1a58--void-elements-2-0-1-package-tgz.lock
+846 verbose tar unpack /home/vivek/.npm/constantinople/3.0.1/package.tgz
+847 silly lockFile 8b2755f7-jade-node-modules-constantinople /usr/local/lib/node_modules/jade/node_modules/constantinople
+848 verbose lock /usr/local/lib/node_modules/jade/node_modules/constantinople /home/vivek/.npm/8b2755f7-jade-node-modules-constantinople.lock
+849 silly lockFile 1c308b3a-constantinople-3-0-1-package-tgz /home/vivek/.npm/constantinople/3.0.1/package.tgz
+850 verbose lock /home/vivek/.npm/constantinople/3.0.1/package.tgz /home/vivek/.npm/1c308b3a-constantinople-3-0-1-package-tgz.lock
+851 silly gunzTarPerm modes [ '755', '644' ]
+852 silly gunzTarPerm modes [ '755', '644' ]
+853 silly gunzTarPerm modes [ '755', '644' ]
+854 silly gunzTarPerm modes [ '755', '644' ]
+855 silly gunzTarPerm modes [ '755', '644' ]
+856 silly gunzTarPerm modes [ '755', '644' ]
+857 silly gunzTarPerm modes [ '755', '644' ]
+858 silly gunzTarPerm extractEntry package.json
+859 silly gunzTarPerm extractEntry package.json
+860 silly gunzTarPerm extractEntry package.json
+861 silly gunzTarPerm extractEntry package.json
+862 silly gunzTarPerm extractEntry package.json
+863 silly gunzTarPerm extractEntry package.json
+864 silly gunzTarPerm extractEntry package.json
+865 silly gunzTarPerm extractEntry .npmignore
+866 silly gunzTarPerm extractEntry README.md
+867 silly gunzTarPerm extractEntry .npmignore
+868 silly gunzTarPerm extractEntry README.md
+869 silly gunzTarPerm extractEntry index.js
+870 silly gunzTarPerm extractEntry Readme.md
+871 silly gunzTarPerm extractEntry .npmignore
+872 silly gunzTarPerm extractEntry LICENSE
+873 silly gunzTarPerm extractEntry .npmignore
+874 silly gunzTarPerm extractEntry README.md
+875 silly gunzTarPerm extractEntry .npmignore
+876 silly gunzTarPerm extractEntry README.md
+877 silly gunzTarPerm extractEntry .npmignore
+878 silly gunzTarPerm extractEntry README.md
+879 silly gunzTarPerm extractEntry LICENSE
+880 silly gunzTarPerm extractEntry index.js
+881 silly gunzTarPerm extractEntry LICENSE
+882 silly gunzTarPerm extractEntry index.js
+883 silly gunzTarPerm extractEntry LICENSE
+884 silly gunzTarPerm extractEntry index.js
+885 silly gunzTarPerm extractEntry index.js
+886 silly gunzTarPerm extractEntry .travis.yml
+887 silly gunzTarPerm extractEntry LICENSE
+888 silly gunzTarPerm extractEntry index.js
+889 silly gunzTarPerm extractEntry history.md
+890 silly gunzTarPerm extractEntry lib/shared.js
+891 silly gunzTarPerm extractEntry .gitattributes
+892 silly gunzTarPerm extractEntry .travis.yml
+893 silly gunzTarPerm extractEntry bin/cmd.js
+894 silly gunzTarPerm extractEntry bin/usage.txt
+895 silly gunzTarPerm extractEntry pre-publish.js
+896 silly gunzTarPerm extractEntry .gitattributes
+897 silly gunzTarPerm extractEntry lib/transformers.js
+898 silly gunzTarPerm extractEntry .travis.yml
+899 silly gunzTarPerm extractEntry test/index.js
+900 silly gunzTarPerm extractEntry examples/pow.js
+901 silly gunzTarPerm extractEntry readme.markdown
+902 silly gunzTarPerm extractEntry test/index.js
+903 silly gunzTarPerm extractEntry test/chmod.js
+904 silly gunzTarPerm extractEntry test/opts_fs_sync.js
+905 silly gunzTarPerm extractEntry test/perm.js
+906 silly gunzTarPerm extractEntry test/perm_sync.js
+907 silly gunzTarPerm extractEntry test/opts_fs.js
+908 silly gunzTarPerm extractEntry test/rel.js
+909 silly gunzTarPerm extractEntry test/return.js
+910 silly gunzTarPerm extractEntry test/return_sync.js
+911 silly gunzTarPerm extractEntry test/root.js
+912 silly gunzTarPerm extractEntry test/sync.js
+913 silly gunzTarPerm extractEntry test/mkdirp.js
+914 silly gunzTarPerm extractEntry test/umask.js
+915 silly gunzTarPerm extractEntry test/clobber.js
+916 silly gunzTarPerm extractEntry test/umask_sync.js
+917 silly gunzTarPerm extractEntry test/race.js
+918 verbose read json /usr/local/lib/node_modules/jade/node_modules/with/package.json
+919 silly lockFile 3f28ac5e-e-modules-jade-node-modules-with /usr/local/lib/node_modules/jade/node_modules/with
+920 silly lockFile 3f28ac5e-e-modules-jade-node-modules-with /usr/local/lib/node_modules/jade/node_modules/with
+921 silly lockFile 1d4e8e38-vivek-npm-with-4-0-0-package-tgz /home/vivek/.npm/with/4.0.0/package.tgz
+922 silly lockFile 1d4e8e38-vivek-npm-with-4-0-0-package-tgz /home/vivek/.npm/with/4.0.0/package.tgz
+923 verbose read json /usr/local/lib/node_modules/jade/node_modules/character-parser/package.json
+924 info preinstall with@4.0.0
+925 verbose from cache /usr/local/lib/node_modules/jade/node_modules/with/package.json
+926 verbose readDependencies using package.json deps
+927 verbose from cache /usr/local/lib/node_modules/jade/node_modules/with/package.json
+928 verbose readDependencies using package.json deps
+929 silly lockFile a6401ecc-de-node-modules-character-parser /usr/local/lib/node_modules/jade/node_modules/character-parser
+930 silly lockFile a6401ecc-de-node-modules-character-parser /usr/local/lib/node_modules/jade/node_modules/character-parser
+931 verbose read json /usr/local/lib/node_modules/jade/node_modules/constantinople/package.json
+932 silly lockFile 389290fe-aracter-parser-1-2-1-package-tgz /home/vivek/.npm/character-parser/1.2.1/package.tgz
+933 silly lockFile 389290fe-aracter-parser-1-2-1-package-tgz /home/vivek/.npm/character-parser/1.2.1/package.tgz
+934 verbose read json /usr/local/lib/node_modules/jade/node_modules/void-elements/package.json
+935 verbose cache add [ 'acorn@^0.8.0', null ]
+936 verbose cache add name=undefined spec="acorn@^0.8.0" args=["acorn@^0.8.0",null]
+937 verbose parsed url { protocol: null,
+937 verbose parsed url   slashes: null,
+937 verbose parsed url   auth: null,
+937 verbose parsed url   host: null,
+937 verbose parsed url   port: null,
+937 verbose parsed url   hostname: null,
+937 verbose parsed url   hash: null,
+937 verbose parsed url   search: null,
+937 verbose parsed url   query: null,
+937 verbose parsed url   pathname: 'acorn@^0.8.0',
+937 verbose parsed url   path: 'acorn@^0.8.0',
+937 verbose parsed url   href: 'acorn@^0.8.0' }
+938 verbose cache add name="acorn" spec="^0.8.0" args=["acorn","^0.8.0"]
+939 verbose parsed url { protocol: null,
+939 verbose parsed url   slashes: null,
+939 verbose parsed url   auth: null,
+939 verbose parsed url   host: null,
+939 verbose parsed url   port: null,
+939 verbose parsed url   hostname: null,
+939 verbose parsed url   hash: null,
+939 verbose parsed url   search: null,
+939 verbose parsed url   query: null,
+939 verbose parsed url   pathname: '^0.8.0',
+939 verbose parsed url   path: '^0.8.0',
+939 verbose parsed url   href: '^0.8.0' }
+940 verbose addNamed [ 'acorn', '^0.8.0' ]
+941 verbose addNamed [ null, null ]
+942 silly lockFile d1b390cc-acorn-0-8-0 acorn@^0.8.0
+943 verbose lock acorn@^0.8.0 /home/vivek/.npm/d1b390cc-acorn-0-8-0.lock
+944 verbose cache add [ 'acorn-globals@^1.0.1', null ]
+945 verbose cache add name=undefined spec="acorn-globals@^1.0.1" args=["acorn-globals@^1.0.1",null]
+946 verbose parsed url { protocol: null,
+946 verbose parsed url   slashes: null,
+946 verbose parsed url   auth: null,
+946 verbose parsed url   host: null,
+946 verbose parsed url   port: null,
+946 verbose parsed url   hostname: null,
+946 verbose parsed url   hash: null,
+946 verbose parsed url   search: null,
+946 verbose parsed url   query: null,
+946 verbose parsed url   pathname: 'acorn-globals@^1.0.1',
+946 verbose parsed url   path: 'acorn-globals@^1.0.1',
+946 verbose parsed url   href: 'acorn-globals@^1.0.1' }
+947 verbose cache add name="acorn-globals" spec="^1.0.1" args=["acorn-globals","^1.0.1"]
+948 verbose parsed url { protocol: null,
+948 verbose parsed url   slashes: null,
+948 verbose parsed url   auth: null,
+948 verbose parsed url   host: null,
+948 verbose parsed url   port: null,
+948 verbose parsed url   hostname: null,
+948 verbose parsed url   hash: null,
+948 verbose parsed url   search: null,
+948 verbose parsed url   query: null,
+948 verbose parsed url   pathname: '^1.0.1',
+948 verbose parsed url   path: '^1.0.1',
+948 verbose parsed url   href: '^1.0.1' }
+949 verbose addNamed [ 'acorn-globals', '^1.0.1' ]
+950 verbose addNamed [ null, null ]
+951 silly lockFile 0de8441d-acorn-globals-1-0-1 acorn-globals@^1.0.1
+952 verbose lock acorn-globals@^1.0.1 /home/vivek/.npm/0de8441d-acorn-globals-1-0-1.lock
+953 info addNameTag [ 'acorn', '^0.8.0' ]
+954 info addNameTag [ 'acorn-globals', '^1.0.1' ]
+955 verbose url raw acorn
+956 verbose url resolving [ 'https://registry.npmjs.org/', './acorn' ]
+957 verbose url resolved https://registry.npmjs.org/acorn
+958 info trying registry request attempt 1 at 19:22:53
+959 http GET https://registry.npmjs.org/acorn
+960 verbose url raw acorn-globals
+961 verbose url resolving [ 'https://registry.npmjs.org/', './acorn-globals' ]
+962 verbose url resolved https://registry.npmjs.org/acorn-globals
+963 info trying registry request attempt 1 at 19:22:53
+964 http GET https://registry.npmjs.org/acorn-globals
+965 info preinstall character-parser@1.2.1
+966 verbose read json /usr/local/lib/node_modules/jade/node_modules/commander/package.json
+967 verbose from cache /usr/local/lib/node_modules/jade/node_modules/character-parser/package.json
+968 verbose readDependencies using package.json deps
+969 verbose from cache /usr/local/lib/node_modules/jade/node_modules/character-parser/package.json
+970 silly lockFile 8b2755f7-jade-node-modules-constantinople /usr/local/lib/node_modules/jade/node_modules/constantinople
+971 silly lockFile 8b2755f7-jade-node-modules-constantinople /usr/local/lib/node_modules/jade/node_modules/constantinople
+972 verbose readDependencies using package.json deps
+973 silly resolved []
+974 verbose about to build /usr/local/lib/node_modules/jade/node_modules/character-parser
+975 info build /usr/local/lib/node_modules/jade/node_modules/character-parser
+976 verbose from cache /usr/local/lib/node_modules/jade/node_modules/character-parser/package.json
+977 verbose linkStuff [ true,
+977 verbose linkStuff   '/usr/local/lib/node_modules',
+977 verbose linkStuff   false,
+977 verbose linkStuff   '/usr/local/lib/node_modules/jade/node_modules' ]
+978 info linkStuff character-parser@1.2.1
+979 verbose read json /home/vivek/Desktop/chatApp/chatExample/package.json
+980 silly lockFile 67f7f4ba--jade-node-modules-void-elements /usr/local/lib/node_modules/jade/node_modules/void-elements
+981 silly lockFile 67f7f4ba--jade-node-modules-void-elements /usr/local/lib/node_modules/jade/node_modules/void-elements
+982 silly lockFile 1c308b3a-constantinople-3-0-1-package-tgz /home/vivek/.npm/constantinople/3.0.1/package.tgz
+983 silly lockFile 1c308b3a-constantinople-3-0-1-package-tgz /home/vivek/.npm/constantinople/3.0.1/package.tgz
+984 verbose linkBins character-parser@1.2.1
+985 verbose linkMans character-parser@1.2.1
+986 verbose rebuildBundles character-parser@1.2.1
+987 silly lockFile 1f3c1a58--void-elements-2-0-1-package-tgz /home/vivek/.npm/void-elements/2.0.1/package.tgz
+988 silly lockFile 1f3c1a58--void-elements-2-0-1-package-tgz /home/vivek/.npm/void-elements/2.0.1/package.tgz
+989 info install character-parser@1.2.1
+990 info postinstall character-parser@1.2.1
+991 silly lockFile f43831b7-ules-jade-node-modules-commander /usr/local/lib/node_modules/jade/node_modules/commander
+992 silly lockFile f43831b7-ules-jade-node-modules-commander /usr/local/lib/node_modules/jade/node_modules/commander
+993 info preinstall constantinople@3.0.1
+994 info preinstall void-elements@2.0.1
+995 silly lockFile 3d1019ad--npm-commander-2-6-0-package-tgz /home/vivek/.npm/commander/2.6.0/package.tgz
+996 silly lockFile 3d1019ad--npm-commander-2-6-0-package-tgz /home/vivek/.npm/commander/2.6.0/package.tgz
+997 verbose from cache /usr/local/lib/node_modules/jade/node_modules/constantinople/package.json
+998 verbose from cache /usr/local/lib/node_modules/jade/node_modules/void-elements/package.json
+999 verbose readDependencies using package.json deps
+1000 verbose from cache /usr/local/lib/node_modules/jade/node_modules/constantinople/package.json
+1001 verbose readDependencies using package.json deps
+1002 verbose from cache /usr/local/lib/node_modules/jade/node_modules/void-elements/package.json
+1003 verbose readDependencies using package.json deps
+1004 verbose readDependencies using package.json deps
+1005 silly resolved []
+1006 verbose about to build /usr/local/lib/node_modules/jade/node_modules/void-elements
+1007 info build /usr/local/lib/node_modules/jade/node_modules/void-elements
+1008 verbose from cache /usr/local/lib/node_modules/jade/node_modules/void-elements/package.json
+1009 verbose linkStuff [ true,
+1009 verbose linkStuff   '/usr/local/lib/node_modules',
+1009 verbose linkStuff   false,
+1009 verbose linkStuff   '/usr/local/lib/node_modules/jade/node_modules' ]
+1010 info linkStuff void-elements@2.0.1
+1011 verbose read json /home/vivek/Desktop/chatApp/chatExample/package.json
+1012 verbose cache add [ 'acorn-globals@^1.0.0', null ]
+1013 verbose cache add name=undefined spec="acorn-globals@^1.0.0" args=["acorn-globals@^1.0.0",null]
+1014 verbose parsed url { protocol: null,
+1014 verbose parsed url   slashes: null,
+1014 verbose parsed url   auth: null,
+1014 verbose parsed url   host: null,
+1014 verbose parsed url   port: null,
+1014 verbose parsed url   hostname: null,
+1014 verbose parsed url   hash: null,
+1014 verbose parsed url   search: null,
+1014 verbose parsed url   query: null,
+1014 verbose parsed url   pathname: 'acorn-globals@^1.0.0',
+1014 verbose parsed url   path: 'acorn-globals@^1.0.0',
+1014 verbose parsed url   href: 'acorn-globals@^1.0.0' }
+1015 verbose cache add name="acorn-globals" spec="^1.0.0" args=["acorn-globals","^1.0.0"]
+1016 verbose parsed url { protocol: null,
+1016 verbose parsed url   slashes: null,
+1016 verbose parsed url   auth: null,
+1016 verbose parsed url   host: null,
+1016 verbose parsed url   port: null,
+1016 verbose parsed url   hostname: null,
+1016 verbose parsed url   hash: null,
+1016 verbose parsed url   search: null,
+1016 verbose parsed url   query: null,
+1016 verbose parsed url   pathname: '^1.0.0',
+1016 verbose parsed url   path: '^1.0.0',
+1016 verbose parsed url   href: '^1.0.0' }
+1017 verbose addNamed [ 'acorn-globals', '^1.0.0' ]
+1018 verbose addNamed [ null, null ]
+1019 silly lockFile 81b38241-acorn-globals-1-0-0 acorn-globals@^1.0.0
+1020 verbose lock acorn-globals@^1.0.0 /home/vivek/.npm/81b38241-acorn-globals-1-0-0.lock
+1021 info addNameTag [ 'acorn-globals', '^1.0.0' ]
+1022 verbose linkBins void-elements@2.0.1
+1023 verbose linkMans void-elements@2.0.1
+1024 verbose rebuildBundles void-elements@2.0.1
+1025 info preinstall commander@2.6.0
+1026 verbose url raw acorn-globals
+1027 verbose url resolving [ 'https://registry.npmjs.org/', './acorn-globals' ]
+1028 verbose url resolved https://registry.npmjs.org/acorn-globals
+1029 info trying registry request attempt 1 at 19:22:53
+1030 http GET https://registry.npmjs.org/acorn-globals
+1031 info install void-elements@2.0.1
+1032 verbose from cache /usr/local/lib/node_modules/jade/node_modules/commander/package.json
+1033 info postinstall void-elements@2.0.1
+1034 verbose readDependencies using package.json deps
+1035 verbose from cache /usr/local/lib/node_modules/jade/node_modules/commander/package.json
+1036 verbose readDependencies using package.json deps
+1037 silly resolved []
+1038 verbose about to build /usr/local/lib/node_modules/jade/node_modules/commander
+1039 info build /usr/local/lib/node_modules/jade/node_modules/commander
+1040 verbose from cache /usr/local/lib/node_modules/jade/node_modules/commander/package.json
+1041 verbose linkStuff [ true,
+1041 verbose linkStuff   '/usr/local/lib/node_modules',
+1041 verbose linkStuff   false,
+1041 verbose linkStuff   '/usr/local/lib/node_modules/jade/node_modules' ]
+1042 info linkStuff commander@2.6.0
+1043 verbose read json /home/vivek/Desktop/chatApp/chatExample/package.json
+1044 verbose linkBins commander@2.6.0
+1045 verbose linkMans commander@2.6.0
+1046 verbose rebuildBundles commander@2.6.0
+1047 info install commander@2.6.0
+1048 info postinstall commander@2.6.0
+1049 verbose read json /usr/local/lib/node_modules/jade/node_modules/transformers/package.json
+1050 silly lockFile 860fc0f6-s-jade-node-modules-transformers /usr/local/lib/node_modules/jade/node_modules/transformers
+1051 silly lockFile 860fc0f6-s-jade-node-modules-transformers /usr/local/lib/node_modules/jade/node_modules/transformers
+1052 silly lockFile a6c4a1f6-m-transformers-2-1-0-package-tgz /home/vivek/.npm/transformers/2.1.0/package.tgz
+1053 silly lockFile a6c4a1f6-m-transformers-2-1-0-package-tgz /home/vivek/.npm/transformers/2.1.0/package.tgz
+1054 info preinstall transformers@2.1.0
+1055 verbose from cache /usr/local/lib/node_modules/jade/node_modules/transformers/package.json
+1056 verbose readDependencies using package.json deps
+1057 verbose from cache /usr/local/lib/node_modules/jade/node_modules/transformers/package.json
+1058 verbose readDependencies using package.json deps
+1059 verbose cache add [ 'promise@~2.0', null ]
+1060 verbose cache add name=undefined spec="promise@~2.0" args=["promise@~2.0",null]
+1061 verbose parsed url { protocol: null,
+1061 verbose parsed url   slashes: null,
+1061 verbose parsed url   auth: null,
+1061 verbose parsed url   host: null,
+1061 verbose parsed url   port: null,
+1061 verbose parsed url   hostname: null,
+1061 verbose parsed url   hash: null,
+1061 verbose parsed url   search: null,
+1061 verbose parsed url   query: null,
+1061 verbose parsed url   pathname: 'promise@~2.0',
+1061 verbose parsed url   path: 'promise@~2.0',
+1061 verbose parsed url   href: 'promise@~2.0' }
+1062 verbose cache add name="promise" spec="~2.0" args=["promise","~2.0"]
+1063 verbose parsed url { protocol: null,
+1063 verbose parsed url   slashes: null,
+1063 verbose parsed url   auth: null,
+1063 verbose parsed url   host: null,
+1063 verbose parsed url   port: null,
+1063 verbose parsed url   hostname: null,
+1063 verbose parsed url   hash: null,
+1063 verbose parsed url   search: null,
+1063 verbose parsed url   query: null,
+1063 verbose parsed url   pathname: '~2.0',
+1063 verbose parsed url   path: '~2.0',
+1063 verbose parsed url   href: '~2.0' }
+1064 verbose addNamed [ 'promise', '~2.0' ]
+1065 verbose addNamed [ null, '>=2.0.0- <2.1.0-' ]
+1066 silly lockFile 93701466-promise-2-0 promise@~2.0
+1067 verbose lock promise@~2.0 /home/vivek/.npm/93701466-promise-2-0.lock
+1068 verbose cache add [ 'css@~1.0.8', null ]
+1069 verbose cache add name=undefined spec="css@~1.0.8" args=["css@~1.0.8",null]
+1070 verbose parsed url { protocol: null,
+1070 verbose parsed url   slashes: null,
+1070 verbose parsed url   auth: null,
+1070 verbose parsed url   host: null,
+1070 verbose parsed url   port: null,
+1070 verbose parsed url   hostname: null,
+1070 verbose parsed url   hash: null,
+1070 verbose parsed url   search: null,
+1070 verbose parsed url   query: null,
+1070 verbose parsed url   pathname: 'css@~1.0.8',
+1070 verbose parsed url   path: 'css@~1.0.8',
+1070 verbose parsed url   href: 'css@~1.0.8' }
+1071 verbose cache add name="css" spec="~1.0.8" args=["css","~1.0.8"]
+1072 verbose parsed url { protocol: null,
+1072 verbose parsed url   slashes: null,
+1072 verbose parsed url   auth: null,
+1072 verbose parsed url   host: null,
+1072 verbose parsed url   port: null,
+1072 verbose parsed url   hostname: null,
+1072 verbose parsed url   hash: null,
+1072 verbose parsed url   search: null,
+1072 verbose parsed url   query: null,
+1072 verbose parsed url   pathname: '~1.0.8',
+1072 verbose parsed url   path: '~1.0.8',
+1072 verbose parsed url   href: '~1.0.8' }
+1073 verbose addNamed [ 'css', '~1.0.8' ]
+1074 verbose addNamed [ null, '>=1.0.8- <1.1.0-' ]
+1075 silly lockFile 6b217e40-css-1-0-8 css@~1.0.8
+1076 verbose lock css@~1.0.8 /home/vivek/.npm/6b217e40-css-1-0-8.lock
+1077 silly addNameRange { name: 'promise', range: '>=2.0.0- <2.1.0-', hasData: false }
+1078 verbose cache add [ 'uglify-js@~2.2.5', null ]
+1079 verbose cache add name=undefined spec="uglify-js@~2.2.5" args=["uglify-js@~2.2.5",null]
+1080 verbose parsed url { protocol: null,
+1080 verbose parsed url   slashes: null,
+1080 verbose parsed url   auth: null,
+1080 verbose parsed url   host: null,
+1080 verbose parsed url   port: null,
+1080 verbose parsed url   hostname: null,
+1080 verbose parsed url   hash: null,
+1080 verbose parsed url   search: null,
+1080 verbose parsed url   query: null,
+1080 verbose parsed url   pathname: 'uglify-js@~2.2.5',
+1080 verbose parsed url   path: 'uglify-js@~2.2.5',
+1080 verbose parsed url   href: 'uglify-js@~2.2.5' }
+1081 verbose cache add name="uglify-js" spec="~2.2.5" args=["uglify-js","~2.2.5"]
+1082 verbose parsed url { protocol: null,
+1082 verbose parsed url   slashes: null,
+1082 verbose parsed url   auth: null,
+1082 verbose parsed url   host: null,
+1082 verbose parsed url   port: null,
+1082 verbose parsed url   hostname: null,
+1082 verbose parsed url   hash: null,
+1082 verbose parsed url   search: null,
+1082 verbose parsed url   query: null,
+1082 verbose parsed url   pathname: '~2.2.5',
+1082 verbose parsed url   path: '~2.2.5',
+1082 verbose parsed url   href: '~2.2.5' }
+1083 verbose addNamed [ 'uglify-js', '~2.2.5' ]
+1084 verbose addNamed [ null, '>=2.2.5- <2.3.0-' ]
+1085 silly lockFile 24940452-uglify-js-2-2-5 uglify-js@~2.2.5
+1086 verbose lock uglify-js@~2.2.5 /home/vivek/.npm/24940452-uglify-js-2-2-5.lock
+1087 silly addNameRange { name: 'css', range: '>=1.0.8- <1.1.0-', hasData: false }
+1088 verbose read json /usr/local/lib/node_modules/jade/node_modules/mkdirp/package.json
+1089 silly lockFile 5fe7bdbc-modules-jade-node-modules-mkdirp /usr/local/lib/node_modules/jade/node_modules/mkdirp
+1090 silly lockFile 5fe7bdbc-modules-jade-node-modules-mkdirp /usr/local/lib/node_modules/jade/node_modules/mkdirp
+1091 silly addNameRange { name: 'uglify-js', range: '>=2.2.5- <2.3.0-', hasData: false }
+1092 silly lockFile 826b1506-vek-npm-mkdirp-0-5-0-package-tgz /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+1093 silly lockFile 826b1506-vek-npm-mkdirp-0-5-0-package-tgz /home/vivek/.npm/mkdirp/0.5.0/package.tgz
+1094 info preinstall mkdirp@0.5.0
+1095 verbose from cache /usr/local/lib/node_modules/jade/node_modules/mkdirp/package.json
+1096 verbose readDependencies using package.json deps
+1097 verbose from cache /usr/local/lib/node_modules/jade/node_modules/mkdirp/package.json
+1098 verbose readDependencies using package.json deps
+1099 verbose cache add [ 'minimist@0.0.8', null ]
+1100 verbose cache add name=undefined spec="minimist@0.0.8" args=["minimist@0.0.8",null]
+1101 verbose parsed url { protocol: null,
+1101 verbose parsed url   slashes: null,
+1101 verbose parsed url   auth: null,
+1101 verbose parsed url   host: null,
+1101 verbose parsed url   port: null,
+1101 verbose parsed url   hostname: null,
+1101 verbose parsed url   hash: null,
+1101 verbose parsed url   search: null,
+1101 verbose parsed url   query: null,
+1101 verbose parsed url   pathname: 'minimist@0.0.8',
+1101 verbose parsed url   path: 'minimist@0.0.8',
+1101 verbose parsed url   href: 'minimist@0.0.8' }
+1102 verbose cache add name="minimist" spec="0.0.8" args=["minimist","0.0.8"]
+1103 verbose parsed url { protocol: null,
+1103 verbose parsed url   slashes: null,
+1103 verbose parsed url   auth: null,
+1103 verbose parsed url   host: null,
+1103 verbose parsed url   port: null,
+1103 verbose parsed url   hostname: null,
+1103 verbose parsed url   hash: null,
+1103 verbose parsed url   search: null,
+1103 verbose parsed url   query: null,
+1103 verbose parsed url   pathname: '0.0.8',
+1103 verbose parsed url   path: '0.0.8',
+1103 verbose parsed url   href: '0.0.8' }
+1104 verbose addNamed [ 'minimist', '0.0.8' ]
+1105 verbose addNamed [ '0.0.8', '0.0.8' ]
+1106 silly lockFile 22c6b485-minimist-0-0-8 minimist@0.0.8
+1107 verbose lock minimist@0.0.8 /home/vivek/.npm/22c6b485-minimist-0-0-8.lock
+1108 verbose url raw minimist/0.0.8
+1109 verbose url resolving [ 'https://registry.npmjs.org/', './minimist/0.0.8' ]
+1110 verbose url resolved https://registry.npmjs.org/minimist/0.0.8
+1111 info trying registry request attempt 1 at 19:22:53
+1112 http GET https://registry.npmjs.org/minimist/0.0.8
+1113 verbose url raw css
+1114 verbose url resolving [ 'https://registry.npmjs.org/', './css' ]
+1115 verbose url resolved https://registry.npmjs.org/css
+1116 info trying registry request attempt 1 at 19:22:53
+1117 verbose etag "K2R3E5P2A0KIHX1U1TDST42S"
+1118 http GET https://registry.npmjs.org/css
+1119 verbose url raw promise
+1120 verbose url resolving [ 'https://registry.npmjs.org/', './promise' ]
+1121 verbose url resolved https://registry.npmjs.org/promise
+1122 info trying registry request attempt 1 at 19:22:53
+1123 verbose etag "6NF5D33MZMH9K06GL6RHPT0T3"
+1124 http GET https://registry.npmjs.org/promise
+1125 verbose url raw uglify-js
+1126 verbose url resolving [ 'https://registry.npmjs.org/', './uglify-js' ]
+1127 verbose url resolved https://registry.npmjs.org/uglify-js
+1128 info trying registry request attempt 1 at 19:22:53
+1129 verbose etag "C828IIQD9VF0S1V42JE947TYV"
+1130 http GET https://registry.npmjs.org/uglify-js
+1131 http 200 https://registry.npmjs.org/acorn-globals
+1132 silly registry.get cb [ 200,
+1132 silly registry.get   { date: 'Sat, 07 Feb 2015 13:54:09 GMT',
+1132 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+1132 silly registry.get     etag: '"BODLDRZOCELYT0GN4SNWCRG38"',
+1132 silly registry.get     'content-type': 'application/json',
+1132 silly registry.get     'cache-control': 'max-age=60',
+1132 silly registry.get     'content-length': '6437',
+1132 silly registry.get     'accept-ranges': 'bytes',
+1132 silly registry.get     via: '1.1 varnish',
+1132 silly registry.get     age: '54',
+1132 silly registry.get     'x-served-by': 'cache-fra1246-FRA',
+1132 silly registry.get     'x-cache': 'HIT',
+1132 silly registry.get     'x-cache-hits': '1',
+1132 silly registry.get     'x-timer': 'S1423317249.598838,VS0,VE0',
+1132 silly registry.get     vary: 'Accept',
+1132 silly registry.get     'keep-alive': 'timeout=10, max=50',
+1132 silly registry.get     connection: 'Keep-Alive' } ]
+1133 silly lockFile 0de8441d-acorn-globals-1-0-1 acorn-globals@^1.0.1
+1134 silly lockFile 0de8441d-acorn-globals-1-0-1 acorn-globals@^1.0.1
+1135 http 200 https://registry.npmjs.org/acorn-globals
+1136 silly registry.get cb [ 200,
+1136 silly registry.get   { date: 'Sat, 07 Feb 2015 13:54:09 GMT',
+1136 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+1136 silly registry.get     etag: '"BODLDRZOCELYT0GN4SNWCRG38"',
+1136 silly registry.get     'content-type': 'application/json',
+1136 silly registry.get     'cache-control': 'max-age=60',
+1136 silly registry.get     'content-length': '6437',
+1136 silly registry.get     'accept-ranges': 'bytes',
+1136 silly registry.get     via: '1.1 varnish',
+1136 silly registry.get     age: '54',
+1136 silly registry.get     'x-served-by': 'cache-fra1242-FRA',
+1136 silly registry.get     'x-cache': 'HIT',
+1136 silly registry.get     'x-cache-hits': '1',
+1136 silly registry.get     'x-timer': 'S1423317249.606902,VS0,VE0',
+1136 silly registry.get     vary: 'Accept',
+1136 silly registry.get     'keep-alive': 'timeout=10, max=50',
+1136 silly registry.get     connection: 'Keep-Alive' } ]
+1137 verbose about to build /usr/local/lib/node_modules/jade/node_modules/with
+1138 info /usr/local/lib/node_modules/jade/node_modules/with unbuild
+1139 verbose from cache /usr/local/lib/node_modules/jade/node_modules/with/package.json
+1140 info preuninstall with@4.0.0
+1141 info uninstall with@4.0.0
+1142 verbose false,/usr/local/lib/node_modules,/usr/local/lib/node_modules/jade/node_modules unbuild with@4.0.0
+1143 info postuninstall with@4.0.0
+1144 silly lockFile 81b38241-acorn-globals-1-0-0 acorn-globals@^1.0.0
+1145 silly lockFile 81b38241-acorn-globals-1-0-0 acorn-globals@^1.0.0
+1146 verbose about to build /usr/local/lib/node_modules/jade/node_modules/constantinople
+1147 info /usr/local/lib/node_modules/jade/node_modules/constantinople unbuild
+1148 verbose from cache /usr/local/lib/node_modules/jade/node_modules/constantinople/package.json
+1149 info preuninstall constantinople@3.0.1
+1150 info uninstall constantinople@3.0.1
+1151 verbose false,/usr/local/lib/node_modules,/usr/local/lib/node_modules/jade/node_modules unbuild constantinople@3.0.1
+1152 info postuninstall constantinople@3.0.1
+1153 verbose about to build /usr/local/lib/node_modules/jade
+1154 info /usr/local/lib/node_modules/jade unbuild
+1155 verbose from cache /usr/local/lib/node_modules/jade/package.json
+1156 info preuninstall jade@1.9.2
+1157 info uninstall jade@1.9.2
+1158 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild jade@1.9.2
+1159 verbose /usr/local/bin,[object Object] binRoot
+1160 info postuninstall jade@1.9.2
+1161 error Error: No compatible version found: acorn-globals@'^1.0.1'
+1161 error Valid install targets:
+1161 error ["1.0.0","1.0.1","1.0.2"]
+1161 error     at installTargetsError (/usr/local/lib/node_modules/npm/lib/cache.js:709:10)
+1161 error     at /usr/local/lib/node_modules/npm/lib/cache.js:631:10
+1161 error     at saved (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/get.js:138:7)
+1161 error     at Object.oncomplete (fs.js:107:15)
+1162 error If you need help, you may report this log at:
+1162 error     <http://github.com/isaacs/npm/issues>
+1162 error or email it to:
+1162 error     <npm-@googlegroups.com>
+1163 error System Linux 3.13.0-35-generic
+1164 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "jade" "-g"
+1165 error cwd /home/vivek/Desktop/chatApp/chatExample
+1166 error node -v v0.10.9
+1167 error npm -v 1.2.24
+1168 verbose exit [ 1, true ]
