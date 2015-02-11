@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>DoubtsApp</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.1/css/bootstrap-dialog.min.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/latest/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap3-dialog/1.34.1/js/bootstrap-dialog.min.js"></script>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+	<div id="main" class="container">
+		<div class="page-header">
+		   <h3 style="font-weight:bold;color:white">Doubts App</h3>
+		</div>
+		<div id="chatEntries"></div>
+		<div id="entries" class="row">
+			<div  style="margin:10px">
+  				<textarea id="messageInput" class="form-control" rows="5"></textarea>
+  				<br/>
+				<div class="btn-group">
+					<button id="submit" data-loading-text="Send" class="btn">Send</button>
+				</div>
+			</div>
+		</div>
+		<div id="nbUsersDiv">
+			<p style="color:white">There are <span id="nbUsers"></span> connected user(s).</p>
+		</div>
+	</div>
+</body>
+</html>

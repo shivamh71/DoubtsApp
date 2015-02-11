@@ -1,0 +1,51 @@
+/*
+	CSS for Doubts App
+*/
+
+.modal-backdrop {
+	z-index: -1 !important;
+}
+
+#main {
+	background-color: #3a5795;
+	border-radius: 5px;
+	margin-top: 1%;
+	margin-bottom: 1%;nod
+}
+
+.container {
+	width: 80% !important;
+}
+
+.form-control {
+	width: 80%;
+}
+
+#nbUsersDiv {
+	font-weight: bold;
+	color: black;
+}
+
+#chatEntries {
+	height: 350px;
+	padding: 5px;
+	border-radius: 5px;
+	overflow-y: scroll;
+	background-color: white;
+}
+
+.rowMessage {
+	margin: 5px;
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+	background-color: #ABBDDF;
+}
+
+.rowMessageSelf {
+	margin: 5px;
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0,0,0,.5);
+	background-color: #839BC7;
+}

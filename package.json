@@ -1,0 +1,15 @@
+{
+  "name": "DoubtsApp",
+  "node": "0.6.12",
+  "author": "shivamh71_and_vivek-a",
+  "dependencies": {
+    "socket.io": "~0.9.17",
+    "express": "3.x.x",
+    "jade": "~1.9.2",
+    "html": "*",
+    "ejs": "~2.2.4"
+  },
+  "scripts": {
+    "start": "nodejs server.js"
+  }
+}
