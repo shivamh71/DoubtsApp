@@ -5,7 +5,7 @@ $(function(){
 	messageContainer = $('#messageInput');
 	submitButton = $("#submit");
 	bindButton();
-	window.setInterval(time, 1000*10);
+	// window.setInterval(time, 1000*10);
 	$("#alertPseudo").hide();
 	BootstrapDialog.show({
 		id: "mymy",
@@ -43,11 +43,12 @@ socket.on('connect',function(){
 
 socket.on('nbUsers',function(msg){
 	$("#nbUsers").html(msg.nb);
+	// $("#nbUsers").html(msg.doubtsArray.length);
 });
 
 socket.on('message',function(data){
-	addMessage(data['message'], data['pseudo'], new Date().toISOString(), false);
-	console.log(data);
+	addMessage(data['message'], data['pseudo'], data.date, false);
+	console.log(data.message + data.pseudo + data.date);
 });
 
 // Helper Functions
@@ -70,9 +71,9 @@ function addMessage(msg,pseudo,date,self){
 		var classDiv = "rowMessageSelf";
 	else
 		var classDiv = "rowMessage ";
-	$("#chatEntries").prepend('<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time></p><p style="word-wrap:break-word">' + msg + '</p></div>');
+	$("#chatEntries").prepend('<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time> <button type="button" class="btn btn-default pull-right"><span class="glyphicon glyphicon-arrow-up"></span> text </button></p><p style="word-wrap:break-word">' + msg + '</p></div>');
 	$('#messageInput').val('');
-	time();
+	// time();
 }
 
 function bindButton(){
@@ -103,8 +104,8 @@ function setPseudo(dialogItself){
 	}
 }
 
-function time(){
-	$("time").each(function(){
-		$(this).text($.timeago($(this).attr('title')));
-	});
-}
+// function time(){
+// 	$("time").each(function(){
+// 		$(this).text($.timeago($(this).attr('title')));
+// 	});
+// }

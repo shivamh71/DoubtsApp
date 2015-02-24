@@ -27,7 +27,19 @@ app.get('/',function(req, res){
 	res.render('home.html');
 });
 server.listen(appPort);
-console.log("Server listening on port 4000");
+console.log("Server listening on port "+ appPort);
+
+var totalDoubts = 0; // Maintain count of the doubts
+
+// Data Doubt Class 
+var doubtsArray = [];
+function Doubt(user,content,timeStamp) {
+	this.id = totalDoubts;
+	this.user = user;
+    this.content = content;
+    this.timeStamp = timeStamp;
+    this.count = 0;
+}
 
 // Handing users
 
@@ -39,9 +51,15 @@ io.sockets.on('connection',function(socket){ // First connection
 	users += 1;
 	reloadUsers();
 
+	
+
 	// Broadcast the message to all
 	socket.on('message',function(data){
 		if(pseudoSet(socket)){
+			totalDoubts += 1;
+			var doubtObj  = new Doubt(returnPseudo(socket),data,new Date().toISOString());
+			doubtsArray.push(doubtObj);
+
 			var transmit = {date : new Date().toISOString(), pseudo : returnPseudo(socket), message : data};
 			socket.broadcast.emit('message', transmit);
 			console.log("user "+ transmit['pseudo'] +" said \""+data+"\"");
@@ -56,6 +74,13 @@ io.sockets.on('connection',function(socket){ // First connection
 				socket.emit('pseudoStatus','ok');
 				console.log("user " + data + " connected");
 			});
+
+			//Print all previous doubts to the newly connected User
+			for (var i=0; i < doubtsArray.length; i++) { 
+				var doubt = doubtsArray[i];
+				var transmit = {date : doubt.timeStamp , pseudo : doubt.user, message : doubt.content};
+				socket.emit('message', transmit);		
+			}
 		}
 		else{
 			socket.emit('pseudoStatus','error') // Send Error : 'Username Already Exists'
@@ -80,6 +105,8 @@ io.sockets.on('connection',function(socket){ // First connection
 // Broadcast the count of users
 function reloadUsers(){
 	io.sockets.emit('nbUsers',{"nb": users});
+	// io.sockets.emit('nbUsers',{"nb": users,"doubtsArray":doubtsArray});
+
 }
 
 // Test if the user has a name
