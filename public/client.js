@@ -41,14 +41,26 @@ socket.on('connect',function(){
 	console.log('connected');
 });
 
+
 socket.on('nbUsers',function(msg){
 	$("#nbUsers").html(msg.nb);
-	// $("#nbUsers").html(msg.doubtsArray.length);
 });
 
 socket.on('message',function(data){
-	addMessage(data['message'], data['pseudo'], data.date, false);
+	addMessage(data.doubtId ,data.upvotes ,  data['message'], data['pseudo'], data.date, false);
 	console.log(data.message + data.pseudo + data.date);
+});
+
+socket.on('updateVote',function(data){
+	var id = data.doubtId;
+	var count = data.count;
+	$('#'+id+'> .text').html(count);
+	// console.log("yahooooooooooooooo   ::: "+count);
+});
+
+socket.on('setDoubtId',function(data){
+	$("#Unknown").attr("onclick","upvoteFunction("+data+")");
+	$("#Unknown").attr("id",data);
 });
 
 // Helper Functions
@@ -57,21 +69,22 @@ function sentMessage(){
 		if(pseudo==""){
 			$('#modalPseudo').modal('show');
 		}
-		else{
+		else{			
 			socket.emit('message',messageContainer.val());
-			addMessage(messageContainer.val(),"ME",new Date().toISOString(),true);
+			addMessage("Unknown", 0 ,messageContainer.val(),"ME",new Date().toISOString(),true);
 			messageContainer.val('');
 			submitButton.button('loading');
 		}
 	}
 }
 
-function addMessage(msg,pseudo,date,self){
+
+function addMessage(doubtId,upvotes,msg,pseudo,date,self){
 	if(self)
 		var classDiv = "rowMessageSelf";
 	else
 		var classDiv = "rowMessage ";
-	$("#chatEntries").prepend('<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time> <button type="button" class="btn btn-default pull-right"><span class="glyphicon glyphicon-arrow-up"></span> text </button></p><p style="word-wrap:break-word">' + msg + '</p></div>');
+	$("#chatEntries").prepend('<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time> <button id="'+doubtId+'" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button></p><p style="word-wrap:break-word">' + msg + '</p></div>');
 	$('#messageInput').val('');
 	// time();
 }
@@ -102,6 +115,11 @@ function setPseudo(dialogItself){
 	else{
 		BootstrapDialog.alert('Username field is empty.');
 	}
+}
+
+function upvoteFunction(doubtId){
+	// console.log(doubtId);
+	socket.emit('upvote', doubtId);
 }
 
 // function time(){

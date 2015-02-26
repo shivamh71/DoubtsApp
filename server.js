@@ -41,6 +41,9 @@ function Doubt(user,content,timeStamp) {
     this.count = 0;
 }
 
+//handlling Upvotes
+var upvoteArray = [];
+
 // Handing users
 
 var users = 0; // Maintain count of the users
@@ -51,18 +54,39 @@ io.sockets.on('connection',function(socket){ // First connection
 	users += 1;
 	reloadUsers();
 
-	
+	//upvote listener
+	socket.on('upvote',function(data){
+		// console.log(data + " yahooooooooo " + doubtsArray[parseInt(data)]);		
+		var str = returnPseudo(socket)+data;
+		if(upvoteArray.indexOf(str) == -1){ 
+			upvoteArray.push(str);
+			console.log(data);
+			console.log(doubtsArray.length);
+			doubtsArray[parseInt(data)].count += 1;
+			io.sockets.emit('updateVote',{doubtId : data , count : doubtsArray[parseInt(data)].count });
+		}else{
+			delete upvoteArray[upvoteArray.indexOf(str)];
+			doubtsArray[parseInt(data)].count -= 1;
+			io.sockets.emit('updateVote',{doubtId : data , count : doubtsArray[parseInt(data)].count });
+		}
+	});
 
 	// Broadcast the message to all
 	socket.on('message',function(data){
 		if(pseudoSet(socket)){
-			totalDoubts += 1;
-			var doubtObj  = new Doubt(returnPseudo(socket),data,new Date().toISOString());
-			doubtsArray.push(doubtObj);
+			var userId = returnPseudo(socket);
+			socket.emit('setDoubtId',totalDoubts);
 
-			var transmit = {date : new Date().toISOString(), pseudo : returnPseudo(socket), message : data};
+			var doubt  = new Doubt(userId,data,new Date().toISOString());
+			// doubt.id = totalDoubts;
+			doubtsArray.push(doubt);
+
+			var transmit = {doubtID:doubt.id , upvotes : doubt.count , date : new Date().toISOString(), pseudo : userId, message : data};
 			socket.broadcast.emit('message', transmit);
 			console.log("user "+ transmit['pseudo'] +" said \""+data+"\"");
+
+			totalDoubts += 1;
+					
 		}
 	});
 
@@ -78,7 +102,7 @@ io.sockets.on('connection',function(socket){ // First connection
 			//Print all previous doubts to the newly connected User
 			for (var i=0; i < doubtsArray.length; i++) { 
 				var doubt = doubtsArray[i];
-				var transmit = {date : doubt.timeStamp , pseudo : doubt.user, message : doubt.content};
+				var transmit = {doubtId: doubt.id , upvotes : doubt.count , date : doubt.timeStamp , pseudo : doubt.user, message : doubt.content};
 				socket.emit('message', transmit);		
 			}
 		}
