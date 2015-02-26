@@ -47,7 +47,7 @@ socket.on('nbUsers',function(msg){
 });
 
 socket.on('message',function(data){
-	addMessage(data.doubtId ,data.upvotes ,  data['message'], data['pseudo'], data.date, false);
+	addMessage(data.doubtId ,data.upvotes ,  data.message, data.pseudo, data.date, false);
 	console.log(data.message + data.pseudo + data.date);
 });
 
@@ -65,13 +65,14 @@ socket.on('setDoubtId',function(data){
 
 // Helper Functions
 function sentMessage(){
-	if(messageContainer.val()!=""){
+	if(messageContainer.val().trim()!=""){
 		if(pseudo==""){
 			$('#modalPseudo').modal('show');
 		}
 		else{			
-			socket.emit('message',messageContainer.val());
-			addMessage("Unknown", 0 ,messageContainer.val(),"ME",new Date().toISOString(),true);
+			var doubt_content = messageContainer.val();
+			addMessage("Unknown", 0 ,doubt_content,"ME",new Date().toISOString(),true);
+			socket.emit('message',doubt_content);
 			messageContainer.val('');
 			submitButton.button('loading');
 		}
@@ -118,7 +119,7 @@ function setPseudo(dialogItself){
 }
 
 function upvoteFunction(doubtId){
-	// console.log(doubtId);
+	console.log("yahin hai vo ::::::::::::::: " + doubtId);
 	socket.emit('upvote', doubtId);
 }
 

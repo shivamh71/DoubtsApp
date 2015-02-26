@@ -4,6 +4,8 @@ var appPort = 4000;
 
 // Librairies
 
+var fs = require('fs');
+
 var express = require('express'), app = express();
 var http = require('http'),
 			server = http.createServer(app),
@@ -81,11 +83,15 @@ io.sockets.on('connection',function(socket){ // First connection
 			// doubt.id = totalDoubts;
 			doubtsArray.push(doubt);
 
-			var transmit = {doubtID:doubt.id , upvotes : doubt.count , date : new Date().toISOString(), pseudo : userId, message : data};
+			var transmit = {doubtId:doubt.id , upvotes : doubt.count , date : new Date().toISOString(), pseudo : userId, message : data};
 			socket.broadcast.emit('message', transmit);
 			console.log("user "+ transmit['pseudo'] +" said \""+data+"\"");
 
 			totalDoubts += 1;
+
+			//Write to FILE
+			fs.appendFile('data.txt', JSON.stringify(doubt)+ '\n' , function (err) {				
+			});
 					
 		}
 	});
