@@ -62,8 +62,6 @@ io.sockets.on('connection',function(socket){ // First connection
 		var str = returnPseudo(socket)+data;
 		if(upvoteArray.indexOf(str) == -1){ 
 			upvoteArray.push(str);
-			console.log(data);
-			console.log(doubtsArray.length);
 			doubtsArray[parseInt(data)].count += 1;
 			io.sockets.emit('updateVote',{doubtId : data , count : doubtsArray[parseInt(data)].count });
 		}else{
@@ -73,17 +71,29 @@ io.sockets.on('connection',function(socket){ // First connection
 		}
 	});
 
+	socket.on('deleteMessage',function(data){
+		for (var i=0; i < doubtsArray.length; i++) { 
+				var doubt = doubtsArray[i];
+				if(doubt.id == parseInt(data)){
+					doubtsArray.splice(i,1);
+					break;
+				}
+			}
+	});
+
 	// Broadcast the message to all
 	socket.on('message',function(data){
 		if(pseudoSet(socket)){
 			var userId = returnPseudo(socket);
 			socket.emit('setDoubtId',totalDoubts);
+			
+			var date = new Date();			
+			date = date.toDateString()+" "+date.toLocaleTimeString();
 
-			var doubt  = new Doubt(userId,data,new Date().toISOString());
-			// doubt.id = totalDoubts;
-			doubtsArray.push(doubt);
+			var doubt  = new Doubt(userId,data,date);
+			doubtsArray.push(doubt);			
 
-			var transmit = {doubtId:doubt.id , upvotes : doubt.count , date : new Date().toISOString(), pseudo : userId, message : data};
+			var transmit = {doubtId:doubt.id , upvotes : doubt.count , date : date , pseudo : userId, message : data};
 			socket.broadcast.emit('message', transmit);
 			console.log("user "+ transmit['pseudo'] +" said \""+data+"\"");
 

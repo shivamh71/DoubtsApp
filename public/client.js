@@ -54,13 +54,16 @@ socket.on('message',function(data){
 socket.on('updateVote',function(data){
 	var id = data.doubtId;
 	var count = data.count;
-	$('#'+id+'> .text').html(count);
+	$('#'+id+'> .text').html(count);	
 	// console.log("yahooooooooooooooo   ::: "+count);
 });
 
 socket.on('setDoubtId',function(data){
 	$("#Unknown").attr("onclick","upvoteFunction("+data+")");
 	$("#Unknown").attr("id",data);
+
+	$("#Unknown-delete").attr("onclick","deleteMessage("+data+")");
+	$("#Unknown-delete").attr("id",''+data+'-delete');
 });
 
 // Helper Functions
@@ -71,7 +74,9 @@ function sentMessage(){
 		}
 		else{			
 			var doubt_content = messageContainer.val();
-			addMessage("Unknown", 0 ,doubt_content,"ME",new Date().toISOString(),true);
+			var date = new Date();
+			date = date.toDateString()+" "+date.toLocaleTimeString();
+			addMessage("Unknown", 0 ,doubt_content,"ME",date,true);
 			socket.emit('message',doubt_content);
 			messageContainer.val('');
 			submitButton.button('loading');
@@ -79,13 +84,31 @@ function sentMessage(){
 	}
 }
 
+function deleteMessage(doubtId){
+	console.log('yahooooooooo   ::: '+doubtId);
+	socket.emit('deleteMessage',doubtId);	
+	document.getElementById(""+doubtId+"-delete").parentNode.parentNode.remove();
+}
 
 function addMessage(doubtId,upvotes,msg,pseudo,date,self){
-	if(self)
+
+	var text = "";		
+
+	if(self){
 		var classDiv = "rowMessageSelf";
-	else
+		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time>';
+		text += '<button id="'+doubtId+'-delete" type="button" class="btn btn-default pull-right" onclick="deleteMessage('+ doubtId +')" ><span class="glyphicon glyphicon-remove"></span></button>';
+	}
+	else{
 		var classDiv = "rowMessage ";
-	$("#chatEntries").prepend('<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time> <button id="'+doubtId+'" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button></p><p style="word-wrap:break-word">' + msg + '</p></div>');
+
+		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time>';
+	}
+
+	text += '<button id="'+doubtId+'" value="OFF" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button>    </p> <p style="word-wrap:break-word">' + msg + '</p></div>';
+
+	$("#chatEntries").prepend( text );
+
 	$('#messageInput').val('');
 	// time();
 }
@@ -121,6 +144,14 @@ function setPseudo(dialogItself){
 function upvoteFunction(doubtId){
 	console.log("yahin hai vo ::::::::::::::: " + doubtId);
 	socket.emit('upvote', doubtId);
+	if(  document.getElementById(doubtId).value == "OFF" ){		
+		document.getElementById(doubtId).value = "ON";
+		document.getElementById(doubtId).setAttribute("style","background-color:#AAA");
+
+	}else{
+		document.getElementById(doubtId).value = "OFF";
+		document.getElementById(doubtId).setAttribute("style","background-color:none");
+	}
 }
 
 // function time(){
