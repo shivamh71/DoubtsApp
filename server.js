@@ -62,23 +62,36 @@ io.sockets.on('connection',function(socket){ // First connection
 		var str = returnPseudo(socket)+data;
 		if(upvoteArray.indexOf(str) == -1){ 
 			upvoteArray.push(str);
-			doubtsArray[parseInt(data)].count += 1;
-			io.sockets.emit('updateVote',{doubtId : data , count : doubtsArray[parseInt(data)].count });
+
+			for (var i=0; i < doubtsArray.length; i++) { 
+				var doubt = doubtsArray[i];
+				if(doubt.id == parseInt(data)){
+					doubtsArray[i].count += 1;
+					io.sockets.emit('updateVote',{doubtId : data , count : doubtsArray[i].count });
+					break;
+				}
+			}
 		}else{
 			delete upvoteArray[upvoteArray.indexOf(str)];
-			doubtsArray[parseInt(data)].count -= 1;
-			io.sockets.emit('updateVote',{doubtId : data , count : doubtsArray[parseInt(data)].count });
+			for (var i=0; i < doubtsArray.length; i++) { 
+				var doubt = doubtsArray[i];
+				if(doubt.id == parseInt(data)){
+					doubtsArray[i].count -= 1;
+					io.sockets.emit('updateVote',{doubtId : data , count : doubtsArray[i].count });
+					break;
+				}
+			}
 		}
 	});
 
 	socket.on('deleteMessage',function(data){
 		for (var i=0; i < doubtsArray.length; i++) { 
-				var doubt = doubtsArray[i];
-				if(doubt.id == parseInt(data)){
-					doubtsArray.splice(i,1);
-					break;
-				}
+			var doubt = doubtsArray[i];
+			if(doubt.id == parseInt(data)){
+				doubtsArray.splice(i,1);
+				break;
 			}
+		}
 	});
 
 	// Broadcast the message to all
