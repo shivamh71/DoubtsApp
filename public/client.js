@@ -1,5 +1,5 @@
 var pseudo = "", messageContainer, submitButton;
-var upvoteSorted = true;
+var upvoteSorted = false;
 
 // Init Function
 $(function(){
@@ -180,11 +180,45 @@ function upvoteFunction(doubtId){
 function compareVote(a,b){
 	var count1 = parseInt( $(a).find(".btn .text").text() );
 	var count2 = parseInt( $(b).find(".btn .text").text() );
-	return count1 > count2;
+	return count1 < count2;
 }
 
 function compareTime(a,b){
 	var id1 = parseInt( $(a).find(".vote")[0].id );
 	var id2 = parseInt( $(b).find(".vote")[0].id );
 	return id1 < id2;
+}
+
+function sortClick(){
+	if(upvoteSorted){
+		upvoteSorted = false;
+	}else{
+		upvoteSorted = true;
+
+		var doubtList = $('#chatEntries > div');
+		if(doubtList.length > 5){
+			var randArray = new Array();
+			for(i=0;i<5;i++){
+				randNum = Math.floor((Math.random() * doubtList.length));
+				randArray.push(doubtList[randNum]);
+				doubtList.splice(randNum,1);
+			}
+			if(upvoteSorted){
+				randArray.sort(compareVote);
+				doubtList.sort(compareVote);
+			}
+			else{
+				randArray.sort(compareTime);
+				doubtList.sort(compareTime);
+			}
+			$('#chatEntries').empty();
+			for(i=0;i<5;i++){
+				$('#chatEntries').append(randArray[i].outerHTML);
+			}
+			for(i=0;i<doubtList.length;i++){
+				$('#chatEntries').append(doubtList[i].outerHTML);
+			}
+		}
+	}
+
 }

@@ -49,3 +49,8 @@
 	box-shadow: 0 0 10px rgba(0,0,0,.5);
 	background-color: #839BC7;
 }
+
+.btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+	background-image: none !important;
+	background-color: gray !important;
+}
