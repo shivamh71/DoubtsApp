@@ -1,11 +1,11 @@
 var pseudo = "", messageContainer, submitButton;
+var upvoteSorted = true;
 
 // Init Function
 $(function(){
 	messageContainer = $('#messageInput');
 	submitButton = $("#submit");
 	bindButton();
-	// window.setInterval(time, 1000*10);
 	$("#alertPseudo").hide();
 	BootstrapDialog.show({
 		id: "mymy",
@@ -23,34 +23,39 @@ $(function(){
 	$("#pseudoSubmit").click(function(){
 		setPseudo();
 	});
-	// ("#chatEntries").slimScroll({height:'60%'}); // height changed here
 	submitButton.click(function(){
 		sentMessage();
 	});
-	// setHeight();
 	$('#messageInput').keypress(function(e){
 		if(e.which==13)
 			sentMessage();
 	});
-	randStr = "";
+
 	setInterval(function(){
-		console.log(" call here");
-		var doubtList = $('#chatEntries > div');	
+		var doubtList = $('#chatEntries > div');
 		if(doubtList.length > 5){
-			var randArray = [];		
+			var randArray = new Array();
 			for(i=0;i<5;i++){
 				randNum = Math.floor((Math.random() * doubtList.length));
-				randStr += $(doubtList[randNum]).html();
+				randArray.push(doubtList[randNum]);
 				doubtList.splice(randNum,1);
 			}
-			$('#chatEntries').html(randStr);
-			// $('#chatEntries').html('');
-			// for(i=0;i<randArray.length;i++){
-			// 	// $('#chatEntries').append();
-			// }
-			// console.log($('#chatEntries > div'));
+			if(upvoteSorted){
+				randArray.sort(compareVote);
+				doubtList.sort(compareVote);
+			}
+			else{
+				randArray.sort(compareTime);
+				doubtList.sort(compareTime);
+			}
+			$('#chatEntries').empty();
+			for(i=0;i<5;i++){
+				$('#chatEntries').append(randArray[i].outerHTML);
+			}
+			for(i=0;i<doubtList.length;i++){
+				$('#chatEntries').append(doubtList[i].outerHTML);
+			}
 		}
-
 	},5000);
 
 });
@@ -75,14 +80,12 @@ socket.on('message',function(data){
 socket.on('updateVote',function(data){
 	var id = data.doubtId;
 	var count = data.count;
-	$('#'+id+'> .text').html(count);	
-	// console.log("yahooooooooooooooo   ::: "+count);
+	$('#'+id+'> .text').html(count);
 });
 
 socket.on('setDoubtId',function(data){
 	$("#Unknown").attr("onclick","upvoteFunction("+data+")");
 	$("#Unknown").attr("id",data);
-
 	$("#Unknown-delete").attr("onclick","deleteMessage("+data+")");
 	$("#Unknown-delete").attr("id",''+data+'-delete');
 });
@@ -93,7 +96,7 @@ function sentMessage(){
 		if(pseudo==""){
 			$('#modalPseudo').modal('show');
 		}
-		else{			
+		else{
 			var doubt_content = messageContainer.val();
 			var date = new Date();
 			date = date.toDateString()+" "+date.toLocaleTimeString();
@@ -106,14 +109,13 @@ function sentMessage(){
 }
 
 function deleteMessage(doubtId){
-	console.log('yahooooooooo   ::: '+doubtId);
-	socket.emit('deleteMessage',doubtId);	
-	document.getElementById(""+doubtId+"-delete").parentNode.parentNode.remove();
+	socket.emit('deleteMessage',doubtId);
+	document.getElementById("" + doubtId + "-delete").parentNode.parentNode.remove();
 }
 
 function addMessage(doubtId,upvotes,msg,pseudo,date,self){
 
-	var text = "";		
+	var text = "";
 
 	if(self){
 		var classDiv = "rowMessageSelf";
@@ -126,7 +128,7 @@ function addMessage(doubtId,upvotes,msg,pseudo,date,self){
 		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time>';
 	}
 
-	text += '<button id="'+doubtId+'" value="OFF" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button>    </p> <p style="word-wrap:break-word">' + msg + '</p></div>';
+	text += '<button id="'+doubtId+'" value="OFF" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right vote"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button>    </p> <p style="word-wrap:break-word">' + msg + '</p></div>';
 
 	$("#chatEntries").prepend( text );
 
@@ -165,7 +167,7 @@ function setPseudo(dialogItself){
 function upvoteFunction(doubtId){
 	console.log("yahin hai vo ::::::::::::::: " + doubtId);
 	socket.emit('upvote', doubtId);
-	if(  document.getElementById(doubtId).value == "OFF" ){		
+	if(  document.getElementById(doubtId).value == "OFF" ){
 		document.getElementById(doubtId).value = "ON";
 		document.getElementById(doubtId).setAttribute("style","background-color:#AAA");
 
@@ -175,11 +177,14 @@ function upvoteFunction(doubtId){
 	}
 }
 
+function compareVote(a,b){
+	var count1 = parseInt( $(a).find(".btn .text").text() );
+	var count2 = parseInt( $(b).find(".btn .text").text() );
+	return count1 > count2;
+}
 
-
-
-// function time(){
-// 	$("time").each(function(){
-// 		$(this).text($.timeago($(this).attr('title')));
-// 	});
-// }
+function compareTime(a,b){
+	var id1 = parseInt( $(a).find(".vote")[0].id );
+	var id2 = parseInt( $(b).find(".vote")[0].id );
+	return id1 < id2;
+}
