@@ -32,6 +32,27 @@ $(function(){
 		if(e.which==13)
 			sentMessage();
 	});
+	randStr = "";
+	setInterval(function(){
+		console.log(" call here");
+		var doubtList = $('#chatEntries > div');	
+		if(doubtList.length > 5){
+			var randArray = [];		
+			for(i=0;i<5;i++){
+				randNum = Math.floor((Math.random() * doubtList.length));
+				randStr += $(doubtList[randNum]).html();
+				doubtList.splice(randNum,1);
+			}
+			$('#chatEntries').html(randStr);
+			// $('#chatEntries').html('');
+			// for(i=0;i<randArray.length;i++){
+			// 	// $('#chatEntries').append();
+			// }
+			// console.log($('#chatEntries > div'));
+		}
+
+	},5000);
+
 });
 
 // Socket Functions
@@ -153,6 +174,9 @@ function upvoteFunction(doubtId){
 		document.getElementById(doubtId).setAttribute("style","background-color:none");
 	}
 }
+
+
+
 
 // function time(){
 // 	$("time").each(function(){
