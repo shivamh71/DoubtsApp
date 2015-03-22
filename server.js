@@ -85,6 +85,7 @@ io.sockets.on('connection',function(socket){ // First connection
 	});
 
 	socket.on('deleteMessage',function(data){
+		io.sockets.emit('deleteMessageFromServer',{"doubtId": data});
 		for (var i=0; i < doubtsArray.length; i++) { 
 			var doubt = doubtsArray[i];
 			if(doubt.id == parseInt(data)){

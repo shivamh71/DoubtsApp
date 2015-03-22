@@ -19,9 +19,14 @@
 <body>
 	<div id="main" class="container">
 		<div class="page-header">
-			<button type="button" class="btn btn-primary pull-right" data-toggle="button" onclick="sortClick()">
-			    Most Upvoted
-			</button>
+			<div style="width:17%" class="pull-right">
+				<select class="form-control" onchange="displaySorted()">
+				    <option value="0">Most Recent First</option>
+				    <option value="1">Most Recent Last</option>
+				    <option value="2">Most Upvoted First</option>
+				    <option value="3">Most Upvoted Last</option>
+				</select>
+			</div>
 		   <h3 style="font-weight:bold;color:white">Doubts App</h3>
 		</div>
 		<div id="chatEntries"></div>

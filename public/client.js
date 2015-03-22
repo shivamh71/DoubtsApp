@@ -1,5 +1,9 @@
 var pseudo = "", messageContainer, submitButton;
-var upvoteSorted = false;
+var sortState = 0;
+// 0 - Most Recent First
+// 1 - Most Recent Last
+// 2 - Most Upvoted First
+// 3 - Most Upvoted Last
 
 // Init Function
 $(function(){
@@ -40,13 +44,23 @@ $(function(){
 				randArray.push(doubtList[randNum]);
 				doubtList.splice(randNum,1);
 			}
-			if(upvoteSorted){
+			if(sortState == 0){
+				randArray.sort(compareTime);
+				doubtList.sort(compareTime);
+			}
+			else if(sortState == 1){
+				randArray.sort(compareTime).reverse();
+				doubtList.sort(compareTime).reverse();
+			}
+			else if(sortState == 2){
 				randArray.sort(compareVote);
 				doubtList.sort(compareVote);
 			}
-			else{
-				randArray.sort(compareTime);
-				doubtList.sort(compareTime);
+			else if(sortState == 3){
+				randArray.sort(compareVote).reverse();
+				doubtList.sort(compareVote).reverse();
+			}else{
+				console.log("Should not reach here !")
 			}
 			$('#chatEntries').empty();
 			for(i=0;i<5;i++){
@@ -56,7 +70,7 @@ $(function(){
 				$('#chatEntries').append(doubtList[i].outerHTML);
 			}
 		}
-	},5000);
+	},5000000);
 
 });
 
@@ -84,10 +98,13 @@ socket.on('updateVote',function(data){
 });
 
 socket.on('setDoubtId',function(data){
-	$("#Unknown").attr("onclick","upvoteFunction("+data+")");
-	$("#Unknown").attr("id",data);
-	$("#Unknown-delete").attr("onclick","deleteMessage("+data+")");
-	$("#Unknown-delete").attr("id",''+data+'-delete');
+	$("#Unknown").attr("onclick","deleteMessage("+data+")");
+	$("#Unknown").attr("id",''+data);
+});
+
+socket.on('deleteMessageFromServer',function(data){	
+	console.log("sakdkasdh "+data['doubtId']);
+	document.getElementById(data['doubtId']).parentNode.parentNode.remove();
 });
 
 // Helper Functions
@@ -110,7 +127,6 @@ function sentMessage(){
 
 function deleteMessage(doubtId){
 	socket.emit('deleteMessage',doubtId);
-	document.getElementById("" + doubtId + "-delete").parentNode.parentNode.remove();
 }
 
 function addMessage(doubtId,upvotes,msg,pseudo,date,self){
@@ -120,15 +136,16 @@ function addMessage(doubtId,upvotes,msg,pseudo,date,self){
 	if(self){
 		var classDiv = "rowMessageSelf";
 		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time>';
-		text += '<button id="'+doubtId+'-delete" type="button" class="btn btn-default pull-right" onclick="deleteMessage('+ doubtId +')" ><span class="glyphicon glyphicon-remove"></span></button>';
+		text += '<button id="'+ doubtId +  '" type="button" class="btn btn-default pull-right" onclick="deleteMessage('+ doubtId +')" ><span class="glyphicon glyphicon-remove"></span><span class="text">'+upvotes+'</span></button>';
 	}
 	else{
 		var classDiv = "rowMessage ";
 
 		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time>';
+		text += '<button id="'+doubtId+'" value="OFF" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right vote"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button>'; 
 	}
 
-	text += '<button id="'+doubtId+'" value="OFF" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right vote"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button>    </p> <p style="word-wrap:break-word">' + msg + '</p></div>';
+	text += '</p><p style="word-wrap:break-word">' + msg + '</p></div>';
 
 	$("#chatEntries").prepend( text );
 
@@ -177,48 +194,68 @@ function upvoteFunction(doubtId){
 	}
 }
 
-function compareVote(a,b){
+function compareVoteUp(a,b){
 	var count1 = parseInt( $(a).find(".btn .text").text() );
 	var count2 = parseInt( $(b).find(".btn .text").text() );
 	return count1 < count2;
 }
+function compareVoteDown(a,b){
+	var count1 = parseInt( $(a).find(".btn .text").text() );
+	var count2 = parseInt( $(b).find(".btn .text").text() );
+	return count1 > count2;
+}
 
-function compareTime(a,b){
+function compareTimeUp(a,b){
 	var id1 = parseInt( $(a).find(".vote")[0].id );
 	var id2 = parseInt( $(b).find(".vote")[0].id );
 	return id1 < id2;
 }
+function compareTimeDown(a,b){
+	var id1 = parseInt( $(a).find(".vote")[0].id );
+	var id2 = parseInt( $(b).find(".vote")[0].id );
+	return id1 > id2;
+}
 
-function sortClick(){
-	if(upvoteSorted){
-		upvoteSorted = false;
-	}else{
-		upvoteSorted = true;
-
-		var doubtList = $('#chatEntries > div');
-		if(doubtList.length > 5){
-			var randArray = new Array();
-			for(i=0;i<5;i++){
-				randNum = Math.floor((Math.random() * doubtList.length));
-				randArray.push(doubtList[randNum]);
-				doubtList.splice(randNum,1);
-			}
-			if(upvoteSorted){
-				randArray.sort(compareVote);
-				doubtList.sort(compareVote);
-			}
-			else{
-				randArray.sort(compareTime);
-				doubtList.sort(compareTime);
-			}
-			$('#chatEntries').empty();
-			for(i=0;i<5;i++){
-				$('#chatEntries').append(randArray[i].outerHTML);
-			}
-			for(i=0;i<doubtList.length;i++){
-				$('#chatEntries').append(doubtList[i].outerHTML);
-			}
+function displaySorted(){
+	sortState = $('.form-control :selected').index();
+	var doubtList = $('#chatEntries > div');
+	if(doubtList.length > 5){
+		var randArray = [];
+		for(i=0;i<5;i++){
+			randNum = Math.floor((Math.random() * doubtList.length));
+			randArray.push(doubtList[randNum]);
+			doubtList.splice(randNum,1);
+		}
+		if(sortState == 0){
+			randArray.sort(compareTimeUp);
+			doubtList.sort(compareTimeUp);
+		}
+		else if(sortState == 1){
+			randArray.sort(compareTimeDown);
+			doubtList.sort(compareTimeDown);
+		}		
+		else if(sortState == 2){
+			randArray.sort(compareVoteUp);
+			randArray = randArray.get.reverse();
+			doubtList.sort(compareVoteUp);
+			doubtList = doubtList.get.reverse();
+		}
+		else if(sortState == 3){
+			randArray.sort(compareVoteDown)
+			doubtList.sort(compareVoteDown);
+		}
+		$('#chatEntries').empty();
+		for(i=0;i<5;i++){
+			$('#chatEntries').append(randArray[i].outerHTML);
+		}
+		for(i=0;i<doubtList.length;i++){
+			$('#chatEntries').append(doubtList[i].outerHTML);
 		}
 	}
-
+		
+	console.log(sortState + ":: SORTSTATE");
 }
+
+$('.form-control').click(function(){
+	console.log( "YOLO" );
+});

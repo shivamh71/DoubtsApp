@@ -2,6 +2,8 @@
 	CSS for Doubts App
 */
 
+
+
 .modal-backdrop {
 	z-index: -1 !important;
 }
@@ -34,6 +36,7 @@
 	background-color: white;
 }
 
+
 .rowMessage {
 	margin: 5px;
 	padding: 5px;
@@ -42,15 +45,20 @@
 	background-color: #ABBDDF;
 }
 
+
 .rowMessageSelf {
 	margin: 5px;
 	padding: 5px;
 	border-radius: 5px;
 	box-shadow: 0 0 10px rgba(0,0,0,.5);
-	background-color: #839BC7;
+	background-color: #839BC7 !important;
 }
 
-.btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+#chatEntries div:nth-child(-n+5){
+	background-color: #9797F5;
+}
+
+/*.btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
 	background-image: none !important;
 	background-color: gray !important;
-}
+}*/
