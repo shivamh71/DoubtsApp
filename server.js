@@ -1,20 +1,15 @@
-//	App Customization
-
+//	Server Configurations
 var appPort = 4000;
+var logFileName = "data.txt";
 
 // Librairies
-
 var fs = require('fs');
-
 var express = require('express'), app = express();
-var http = require('http'),
-			server = http.createServer(app),
-			io = require('socket.io').listen(server);
-// var io = require('socket.io').listen(app);
+var http = require('http'), server = http.createServer(app);
+var io = require('socket.io').listen(server);
 var pseudoArray = ['admin']; // block following usernames
 
 // Views Options
-
 app.set('views',__dirname + '/views');
 app.engine('html',require('ejs').renderFile);
 app.set('view engine','html'); // jade changed to html
@@ -24,17 +19,21 @@ app.configure(function(){
 });
 
 // Rendering the Main Page
-
 app.get('/',function(req, res){
 	res.render('home.html');
 });
+
+// Server startup
 server.listen(appPort);
 console.log("Server listening on port "+ appPort);
 
+// Global Variables
 var totalDoubts = 0; // Maintain count of the doubts
-
-// Data Doubt Class 
 var doubtsArray = [];
+var upvoteArray = [];
+var users = 0; // Maintain count of the users
+
+// Data Doubt Class
 function Doubt(user,content,timeStamp) {
 	this.id = totalDoubts;
 	this.user = user;
@@ -43,27 +42,18 @@ function Doubt(user,content,timeStamp) {
     this.count = 0;
 }
 
-//handlling Upvotes
-var upvoteArray = [];
-
-// Handing users
-
-var users = 0; // Maintain count of the users
-
 // Handling socket connections
 io.sockets.on('connection',function(socket){ // First connection
 
 	users += 1;
 	reloadUsers();
 
-	//upvote listener
+	// Upvote listener
 	socket.on('upvote',function(data){
-		// console.log(data + " yahooooooooo " + doubtsArray[parseInt(data)]);		
 		var str = returnPseudo(socket)+data;
-		if(upvoteArray.indexOf(str) == -1){ 
+		if(upvoteArray.indexOf(str) == -1){
 			upvoteArray.push(str);
-
-			for (var i=0; i < doubtsArray.length; i++) { 
+			for (var i=0; i < doubtsArray.length; i++) {
 				var doubt = doubtsArray[i];
 				if(doubt.id == parseInt(data)){
 					doubtsArray[i].count += 1;
@@ -73,7 +63,7 @@ io.sockets.on('connection',function(socket){ // First connection
 			}
 		}else{
 			delete upvoteArray[upvoteArray.indexOf(str)];
-			for (var i=0; i < doubtsArray.length; i++) { 
+			for (var i=0; i < doubtsArray.length; i++) {
 				var doubt = doubtsArray[i];
 				if(doubt.id == parseInt(data)){
 					doubtsArray[i].count -= 1;
@@ -84,9 +74,10 @@ io.sockets.on('connection',function(socket){ // First connection
 		}
 	});
 
+	// Delete message listener
 	socket.on('deleteMessage',function(data){
 		io.sockets.emit('deleteMessageFromServer',{"doubtId": data});
-		for (var i=0; i < doubtsArray.length; i++) { 
+		for (var i=0; i < doubtsArray.length; i++) {
 			var doubt = doubtsArray[i];
 			if(doubt.id == parseInt(data)){
 				doubtsArray.splice(i,1);
@@ -100,23 +91,14 @@ io.sockets.on('connection',function(socket){ // First connection
 		if(pseudoSet(socket)){
 			var userId = returnPseudo(socket);
 			socket.emit('setDoubtId',totalDoubts);
-			
-			var date = new Date();			
-			date = date.toDateString()+" "+date.toLocaleTimeString();
-
+			var date = new Date();
+			date = date.toDateString() + " " + date.toLocaleTimeString();
 			var doubt  = new Doubt(userId,data,date);
-			doubtsArray.push(doubt);			
-
+			doubtsArray.push(doubt);
 			var transmit = {doubtId:doubt.id , upvotes : doubt.count , date : date , pseudo : userId, message : data};
 			socket.broadcast.emit('message', transmit);
-			console.log("user "+ transmit['pseudo'] +" said \""+data+"\"");
-
 			totalDoubts += 1;
-
-			//Write to FILE
-			fs.appendFile('data.txt', JSON.stringify(doubt)+ '\n' , function (err) {				
-			});
-					
+			fs.appendFile(logFileName,JSON.stringify(doubt)+'\n',function(err){}); // Dump to FILE
 		}
 	});
 
@@ -126,14 +108,12 @@ io.sockets.on('connection',function(socket){ // First connection
 			socket.set('pseudo',data,function(){
 				pseudoArray.push(data);
 				socket.emit('pseudoStatus','ok');
-				console.log("user " + data + " connected");
 			});
-
 			//Print all previous doubts to the newly connected User
-			for (var i=0; i < doubtsArray.length; i++) { 
+			for (var i=0; i < doubtsArray.length; i++) {
 				var doubt = doubtsArray[i];
 				var transmit = {doubtId: doubt.id , upvotes : doubt.count , date : doubt.timeStamp , pseudo : doubt.user, message : doubt.content};
-				socket.emit('message', transmit);		
+				socket.emit('message', transmit);
 			}
 		}
 		else{
@@ -159,8 +139,6 @@ io.sockets.on('connection',function(socket){ // First connection
 // Broadcast the count of users
 function reloadUsers(){
 	io.sockets.emit('nbUsers',{"nb": users});
-	// io.sockets.emit('nbUsers',{"nb": users,"doubtsArray":doubtsArray});
-
 }
 
 // Test if the user has a name
