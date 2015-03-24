@@ -92,10 +92,11 @@ io.sockets.on('connection',function(socket){ // First connection
 			var userId = returnPseudo(socket);
 			socket.emit('setDoubtId',totalDoubts);
 			var date = new Date();
-			date = date.toDateString() + " " + date.toLocaleTimeString();
+			date = date.toLocaleTimeString();
+			console.log(date);
 			var doubt  = new Doubt(userId,data,date);
 			doubtsArray.push(doubt);
-			var transmit = {doubtId:doubt.id , upvotes : doubt.count , date : date , pseudo : userId, message : data};
+			var transmit = {doubtId:doubt.id, upvotes:doubt.count, date:date, pseudo:userId, message:data};
 			socket.broadcast.emit('message', transmit);
 			totalDoubts += 1;
 			fs.appendFile(logFileName,JSON.stringify(doubt)+'\n',function(err){}); // Dump to FILE

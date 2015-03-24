@@ -1,6 +1,6 @@
 // Client Configurations
 var reloadTime = 5000000; // Miliseconds
-var numRandomDoubts = 5;
+var numRandomDoubts = 5; // Random number of doubts to be displayed at the top
 
 // GLobal Variables
 var pseudo = "", messageContainer, submitButton;
@@ -41,6 +41,7 @@ $(function(){
 			sentMessage();
 	});
 
+	// Function to select random doubts to be displayed at the top after set interval
 	setInterval(function(){
 		var doubtList = $('#chatEntries > div');
 		if(doubtList.length > numRandomDoubts){
@@ -92,7 +93,7 @@ socket.on('nbUsers',function(msg){
 });
 
 socket.on('message',function(data){
-	addMessage(data.doubtId ,data.upvotes ,  data.message, data.pseudo, data.date, false);
+	addMessage(data.doubtId ,data.upvotes, data.message, data.pseudo, data.date, false);
 });
 
 socket.on('updateVote',function(data){
@@ -111,6 +112,8 @@ socket.on('deleteMessageFromServer',function(data){
 });
 
 // Helper Functions
+
+// Sending a new doubt
 function sentMessage(){
 	if(messageContainer.val().trim()!=""){
 		if(pseudo==""){
@@ -119,7 +122,8 @@ function sentMessage(){
 		else{
 			var doubt_content = messageContainer.val();
 			var date = new Date();
-			date = date.toDateString()+" "+date.toLocaleTimeString();
+			date = date.toLocaleTimeString();
+			date = date.slice(0,-3);
 			addMessage("Unknown", 0 ,doubt_content,"ME",date,true);
 			socket.emit('message',doubt_content);
 			messageContainer.val('');
@@ -128,6 +132,7 @@ function sentMessage(){
 	}
 }
 
+// Deleting a message (User is allowed to delete only his doubt)
 function deleteMessage(doubtId){
 	socket.emit('deleteMessage',doubtId);
 }
@@ -136,12 +141,12 @@ function addMessage(doubtId,upvotes,msg,pseudo,date,self){
 	var text = "";
 	if(self){
 		var classDiv = "rowMessageSelf";
-		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time>';
+		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo"><b>' + pseudo + '</b></span>, <time class="date" title="'+ date +'"><b>' + date + '</b></time>';
 		text += '<button id="'+ doubtId +  '" type="button" class="btn btn-default pull-right" onclick="deleteMessage('+ doubtId +')" ><span class="glyphicon glyphicon-remove"></span><span class="text">'+upvotes+'</span></button>';
 	}
 	else{
 		var classDiv = "rowMessage ";
-		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo">' + pseudo + '</span>, <time class="date" title="'+ date +'">' + date + '</time>';
+		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo"><b>' + pseudo + '</b></span>, <time class="date" title="'+ date +'"><b>' + date + '</b></time>';
 		text += '<button id="'+doubtId+'" value="OFF" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right vote"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button>';
 	}
 	text += '</p><p style="word-wrap:break-word">' + msg + '</p></div>';
@@ -177,6 +182,7 @@ function setPseudo(dialogItself){
 	}
 }
 
+// Changing appearance of upvote button after it is clicked
 function upvoteFunction(doubtId){
 	socket.emit('upvote', doubtId);
 	if(document.getElementById(doubtId).value == "OFF"){
@@ -189,18 +195,23 @@ function upvoteFunction(doubtId){
 	}
 }
 
+// Comparator used to sort doubts by number of upvotes
 function compareVote(a,b){
 	var count1 = parseInt($(a).find(".btn .text").text());
 	var count2 = parseInt($(b).find(".btn .text").text());
 	return count1 < count2;
 }
 
+// Comparator used to sort doubts by time
 function compareTime(a,b){
 	var id1 = parseInt($(a).find(".vote")[0].id);
 	var id2 = parseInt($(b).find(".vote")[0].id);
 	return id1 < id2;
 }
 
+// Function to be called when user chooses to sort the doubts based on one of the provided options
+// Default sort state is Most Recent First
+// Randomly chosen doubts are sorted using the same criterion amongst themselves
 function displaySorted(){
 	sortState = $('.form-control :selected').index();
 	var doubtList = $('#chatEntries > div');
