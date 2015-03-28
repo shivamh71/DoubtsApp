@@ -123,7 +123,6 @@ function sentMessage(){
 			var doubt_content = messageContainer.val();
 			var date = new Date();
 			date = date.toLocaleTimeString();
-			date = date.slice(0,-3);
 			addMessage("Unknown", 0 ,doubt_content,"ME",date,true);
 			socket.emit('message',doubt_content);
 			messageContainer.val('');
@@ -139,17 +138,29 @@ function deleteMessage(doubtId){
 
 function addMessage(doubtId,upvotes,msg,pseudo,date,self){
 	var text = "";
-	if(self){
-		var classDiv = "rowMessageSelf";
-		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo"><b>' + pseudo + '</b></span>, <time class="date" title="'+ date +'"><b>' + date + '</b></time>';
+	/*if(self){
+		var classDiv = "rowMessageSelf row";
+		text += '<div class="' + classDiv + '"><p class="infos" style="margin-right:10px" ><span class="pseudo"><b>' + pseudo + '</b></span>, <time class="date" title="'+ date +'"><b>' + date + '</b></time>';
 		text += '<button id="'+ doubtId +  '" type="button" class="btn btn-default pull-right" onclick="deleteMessage('+ doubtId +')" ><span class="glyphicon glyphicon-remove"></span><span class="text">'+upvotes+'</span></button>';
 	}
 	else{
-		var classDiv = "rowMessage ";
+		var classDiv = "rowMessage row";
 		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo"><b>' + pseudo + '</b></span>, <time class="date" title="'+ date +'"><b>' + date + '</b></time>';
 		text += '<button id="'+doubtId+'" value="OFF" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right vote"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button>';
 	}
-	text += '</p><p style="word-wrap:break-word">' + msg + '</p></div>';
+	text += '</p><p style="word-wrap:break-word">' + msg + '</p></div>';*/
+
+	if(self){
+		var classDiv = "rowMessageSelf row";
+		text += '<div class="' + classDiv + '"><div class="col-md-11"><p style="word-wrap:break-word" > <b>' + pseudo + ' , '+ date + '</b>&nbsp&nbsp&nbsp' + msg +'</div>';
+		text += '<div class="col-md-1" ><button id="'+ doubtId +  '" type="button" class="btn btn-default pull-right" onclick="deleteMessage('+ doubtId +')" ><span class="glyphicon glyphicon-remove"></span><span class="text">'+upvotes+'</span></button></div>';
+	}
+	else{
+		var classDiv = "rowMessage row";
+		text += '<div class="' + classDiv + '"><div class="col-md-11"><p style="word-wrap:break-word" > <b>' + pseudo + ' , '+ date + '</b>&nbsp&nbsp&nbsp' + msg + '</div>';
+		text += '<div class="col-md-1"><button id="'+doubtId+'" value="OFF" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right vote"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button></div>';
+	}
+
 	$("#chatEntries").prepend(text);
 	$('#messageInput').val('');
 }
