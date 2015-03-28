@@ -134,7 +134,9 @@ function sentMessage(){
 
 // Deleting a message (User is allowed to delete only his doubt)
 function deleteMessage(doubtId){
-	socket.emit('deleteMessage',doubtId);
+	bootbox.confirm("Are you sure want to delete?", function(result) {
+    	if(result) socket.emit('deleteMessage',doubtId);
+    });
 }
 
 function addMessage(doubtId,upvotes,msg,pseudo,date,self){

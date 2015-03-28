@@ -12,7 +12,7 @@ var pseudoArray = ['admin']; // block following usernames
 // Views Options
 app.set('views',__dirname + '/views');
 app.engine('html',require('ejs').renderFile);
-app.set('view engine','html'); // jade changed to html
+app.set('view engine','html');
 app.set("view options",{ layout: false })
 app.configure(function(){
 	app.use(express.static(__dirname + '/public'));
