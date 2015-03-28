@@ -54,11 +54,6 @@
 	background-color: #839BC7 !important;
 }
 
-#chatEntries div:nth-child(-n+5){
+#chatEntries > div:nth-child(-n+5){
 	background-color: #9797F5;
 }
-
-/*.btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
-	background-image: none !important;
-	background-color: gray !important;
-}*/
