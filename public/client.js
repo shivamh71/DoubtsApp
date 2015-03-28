@@ -16,20 +16,25 @@ $(function(){
 	messageContainer = $('#messageInput');
 	submitButton = $("#submit");
 	bindButton();
-	$("#alertPseudo").hide();
-	BootstrapDialog.show({
-		id: "mymy",
-		title: 'Enter Username',
-		message: $('<input id="pseudoInput" type="text" class="form-control" placeholder="Username" />'),
-		buttons: [{
-			label: 'Submit',
-			cssClass: 'btn-primary',
-			hotkey: 13,
-			action: function(dialogItself){
-				setPseudo(dialogItself);
-			},
-		}]
-	});
+	if(window.name==""){
+		$("#alertPseudo").hide();
+		BootstrapDialog.show({
+			id: "mymy",
+			title: 'Enter Username',
+			message: $('<input id="pseudoInput" type="text" class="form-control" placeholder="Username" />'),
+			buttons: [{
+				label: 'Submit',
+				cssClass: 'btn-primary',
+				hotkey: 13,
+				action: function(dialogItself){
+					setPseudo(dialogItself);
+				},
+			}]
+		});
+	}else{
+		socket.emit('setPseudo',window.name+"`");
+		pseudo = window.name;
+	}
 	$("#pseudoSubmit").click(function(){
 		setPseudo();
 	});
@@ -108,6 +113,7 @@ socket.on('setDoubtId',function(data){
 });
 
 socket.on('deleteMessageFromServer',function(data){
+
 	document.getElementById(data['doubtId']).parentNode.parentNode.remove();
 });
 
@@ -152,7 +158,12 @@ function addMessage(doubtId,upvotes,msg,pseudo,date,self){
 	}
 	text += '</p><p style="word-wrap:break-word">' + msg + '</p></div>';*/
 
-	if(self){
+	if(window.name==pseudo){
+		var classDiv = "rowMessageSelf row";
+		text += '<div class="' + classDiv + '"><div class="col-md-11"><p style="word-wrap:break-word" > <b>' + "ME" + ' , '+ date + '</b>&nbsp&nbsp&nbsp' + msg +'</div>';
+		text += '<div class="col-md-1" ><button id="'+ doubtId +  '" type="button" class="btn btn-default pull-right" onclick="deleteMessage('+ doubtId +')" ><span class="glyphicon glyphicon-remove"></span><span class="text">'+upvotes+'</span></button></div>';
+	}
+	else if(self){
 		var classDiv = "rowMessageSelf row";
 		text += '<div class="' + classDiv + '"><div class="col-md-11"><p style="word-wrap:break-word" > <b>' + pseudo + ' , '+ date + '</b>&nbsp&nbsp&nbsp' + msg +'</div>';
 		text += '<div class="col-md-1" ><button id="'+ doubtId +  '" type="button" class="btn btn-default pull-right" onclick="deleteMessage('+ doubtId +')" ><span class="glyphicon glyphicon-remove"></span><span class="text">'+upvotes+'</span></button></div>';
@@ -178,12 +189,13 @@ function bindButton(){
 }
 
 function setPseudo(dialogItself){
-	if($("#pseudoInput").val()!=""){
+	if(window.name=="" && $("#pseudoInput").val()!=""){
 		socket.emit('setPseudo',$("#pseudoInput").val());
 		socket.on('pseudoStatus',function(data){
 			if(data == "ok"){
 				dialogItself.close();
 				pseudo = $("#pseudoInput").val();
+				window.name = pseudo;
 			}
 			else{
 				BootstrapDialog.alert('Username already taken.');

@@ -105,7 +105,14 @@ io.sockets.on('connection',function(socket){ // First connection
 
 	// Assign username
 	socket.on('setPseudo',function(data){
-		if (pseudoArray.indexOf(data) == -1){ // Check if username is already taken
+		if(data[-1]=='`'){
+			data = data.slice(0,-1);
+			for (var i=0; i < doubtsArray.length; i++) {
+				var doubt = doubtsArray[i];
+				var transmit = {doubtId: doubt.id , upvotes : doubt.count , date : doubt.timeStamp , pseudo : doubt.user, message : doubt.content};
+				socket.emit('message', transmit);
+			}
+		}else if (pseudoArray.indexOf(data) == -1){ // Check if username is already taken
 			socket.set('pseudo',data,function(){
 				pseudoArray.push(data);
 				socket.emit('pseudoStatus','ok');
@@ -116,8 +123,7 @@ io.sockets.on('connection',function(socket){ // First connection
 				var transmit = {doubtId: doubt.id , upvotes : doubt.count , date : doubt.timeStamp , pseudo : doubt.user, message : doubt.content};
 				socket.emit('message', transmit);
 			}
-		}
-		else{
+		}else{
 			socket.emit('pseudoStatus','error') // Send Error : 'Username Already Exists'
 		}
 	});
