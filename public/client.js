@@ -1,3 +1,23 @@
+//Cookie Functions
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+
 // Client Configurations
 var reloadTime = 5000000; // Miliseconds
 var numRandomDoubts = 5; // Random number of doubts to be displayed at the top
@@ -15,8 +35,8 @@ var sortState = 0; /*
 $(function(){
 	messageContainer = $('#messageInput');
 	submitButton = $("#submit");
-	bindButton();
-	if(window.name==""){
+	bindButton();	
+	if(getCookie('userName')==""){
 		$("#alertPseudo").hide();
 		BootstrapDialog.show({
 			id: "mymy",
@@ -32,8 +52,9 @@ $(function(){
 			}]
 		});
 	}else{
-		socket.emit('setPseudo',window.name+"`");
-		pseudo = window.name;
+		console.log(" COoooooooooooooooookie  is " + getCookie('userName'));
+		socket.emit('setPseudo',getCookie("userName")+'!');
+		pseudo = getCookie('userName');
 	}
 	$("#pseudoSubmit").click(function(){
 		setPseudo();
@@ -113,7 +134,6 @@ socket.on('setDoubtId',function(data){
 });
 
 socket.on('deleteMessageFromServer',function(data){
-
 	document.getElementById(data['doubtId']).parentNode.parentNode.remove();
 });
 
@@ -146,19 +166,7 @@ function deleteMessage(doubtId){
 
 function addMessage(doubtId,upvotes,msg,pseudo,date,self){
 	var text = "";
-	/*if(self){
-		var classDiv = "rowMessageSelf row";
-		text += '<div class="' + classDiv + '"><p class="infos" style="margin-right:10px" ><span class="pseudo"><b>' + pseudo + '</b></span>, <time class="date" title="'+ date +'"><b>' + date + '</b></time>';
-		text += '<button id="'+ doubtId +  '" type="button" class="btn btn-default pull-right" onclick="deleteMessage('+ doubtId +')" ><span class="glyphicon glyphicon-remove"></span><span class="text">'+upvotes+'</span></button>';
-	}
-	else{
-		var classDiv = "rowMessage row";
-		text += '<div class="' + classDiv + '"><p class="infos"><span class="pseudo"><b>' + pseudo + '</b></span>, <time class="date" title="'+ date +'"><b>' + date + '</b></time>';
-		text += '<button id="'+doubtId+'" value="OFF" type="button" onclick="upvoteFunction('+ doubtId +')" class="btn btn-default pull-right vote"><span class="glyphicon glyphicon-arrow-up"></span><span class="text">'+upvotes+'</span></button>';
-	}
-	text += '</p><p style="word-wrap:break-word">' + msg + '</p></div>';*/
-
-	if(window.name==pseudo){
+	if(getCookie('userName')==pseudo){
 		var classDiv = "rowMessageSelf row";
 		text += '<div class="' + classDiv + '"><div class="col-md-11"><p style="word-wrap:break-word" > <b>' + "ME" + ' , '+ date + '</b>&nbsp&nbsp&nbsp' + msg +'</div>';
 		text += '<div class="col-md-1" ><button id="'+ doubtId +  '" type="button" class="btn btn-default pull-right" onclick="deleteMessage('+ doubtId +')" ><span class="glyphicon glyphicon-remove"></span><span class="text">'+upvotes+'</span></button></div>';
@@ -189,13 +197,13 @@ function bindButton(){
 }
 
 function setPseudo(dialogItself){
-	if(window.name=="" && $("#pseudoInput").val()!=""){
+	if(getCookie('userName')=="" && $("#pseudoInput").val()!=""){
 		socket.emit('setPseudo',$("#pseudoInput").val());
 		socket.on('pseudoStatus',function(data){
 			if(data == "ok"){
 				dialogItself.close();
 				pseudo = $("#pseudoInput").val();
-				window.name = pseudo;
+				setCookie( "userName", pseudo, 1 );
 			}
 			else{
 				BootstrapDialog.alert('Username already taken.');

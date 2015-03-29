@@ -105,14 +105,20 @@ io.sockets.on('connection',function(socket){ // First connection
 
 	// Assign username
 	socket.on('setPseudo',function(data){
-		if(data[-1]=='`'){
+		console.log("-------------------------------------------------------------::   "+data);
+		if(data[data.length-1]=='!'){
+			console.log("---------------Refreshed--------------");			
 			data = data.slice(0,-1);
-			for (var i=0; i < doubtsArray.length; i++) {
+			socket.set('pseudo',data,function(){
+				socket.emit('pseudoStatus','ok');
+			});
+			for (var i=0; i < doubtsArray.length; i++) {				
 				var doubt = doubtsArray[i];
 				var transmit = {doubtId: doubt.id , upvotes : doubt.count , date : doubt.timeStamp , pseudo : doubt.user, message : doubt.content};
 				socket.emit('message', transmit);
 			}
 		}else if (pseudoArray.indexOf(data) == -1){ // Check if username is already taken
+			console.log("---------------New User--------------");
 			socket.set('pseudo',data,function(){
 				pseudoArray.push(data);
 				socket.emit('pseudoStatus','ok');
@@ -124,6 +130,7 @@ io.sockets.on('connection',function(socket){ // First connection
 				socket.emit('message', transmit);
 			}
 		}else{
+			console.log("---------------Error--------------");
 			socket.emit('pseudoStatus','error') // Send Error : 'Username Already Exists'
 		}
 	});
