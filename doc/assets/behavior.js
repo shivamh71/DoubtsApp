@@ -6,25 +6,35 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
 
   tableOfContents = [
     {
-      "type": "file",
+      "type": "folder",
       "data": {
-        "language": {
-          "nameMatchers": [".js"],
-          "pygmentsLexer": "javascript",
-          "multiLineComment": ["/*", "*", "*/"],
-          "singleLineComment": ["//"],
-          "ignorePrefix": "}",
-          "foldPrefix": "^",
-          "name": "JavaScript"
-        },
-        "sourcePath": "/home/shivam/Coding/DoubtsApp/server.js",
-        "projectPath": "server.js",
-        "targetPath": "server",
-        "pageTitle": "server",
-        "title": "server"
+        "path": "public",
+        "title": "public"
       },
       "depth": 1,
-      "outline": []
+      "children": [
+        {
+          "type": "file",
+          "data": {
+            "language": {
+              "nameMatchers": [".js"],
+              "pygmentsLexer": "javascript",
+              "multiLineComment": ["/*", "*", "*/"],
+              "singleLineComment": ["//"],
+              "ignorePrefix": "}",
+              "foldPrefix": "^",
+              "name": "JavaScript"
+            },
+            "sourcePath": "/home/shivam/Coding/DoubtsApp/public/client.js",
+            "projectPath": "public/client.js",
+            "targetPath": "public/client",
+            "pageTitle": "public/client",
+            "title": "client"
+          },
+          "depth": 2,
+          "outline": []
+        }
+      ]
     }
   ];
 
