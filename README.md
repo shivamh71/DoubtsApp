@@ -17,7 +17,7 @@ To use it, you need Node.js and some nodejs modules.
 
 ## Documentation :
 #### [server.js](http://shivamh71.github.io/DoubtsApp/server.html)
-#### [client.js](http://shivamh71.github.io/DoubtsApp/client.html)
+#### [client.js](http://shivamh71.github.io/DoubtsApp/public/client.html)
 
 ### Credits
 
