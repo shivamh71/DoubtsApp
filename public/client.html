@@ -1,0 +1,273 @@
+<!DOCTYPE html><html lang="en"><head><title>public/client</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content="../"><meta name="groc-document-path" content="public/client"><meta name="groc-project-path" content="public/client.js"><link rel="stylesheet" type="text/css" media="all" href="../assets/style.css"><script type="text/javascript" src="../assets/behavior.js"></script><body><div id="meta"><div class="file-path">public/client.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Client Configurations
+    reloadTime : Time in miliseconds after which client screen
+        refreshes
+    numRandomDoubts : Number of randomly chosen doubts to be
+        displayed to client after each refresh
+    cookieExpiryTime : Expiry time in miliseconds to be used
+        for the cookie</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> reloadTime = <span class="hljs-number">5000000</span>;
+<span class="hljs-keyword">var</span> numRandomDoubts = <span class="hljs-number">5</span>;
+<span class="hljs-keyword">var</span> cookieExpiryTime = <span class="hljs-number">24</span>*<span class="hljs-number">60</span>*<span class="hljs-number">60</span>*<span class="hljs-number">1000</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>GLobal Variables
+    pseudo : Username of this client
+    messageContainer : binding variable to get text contained in
+        new doubt from the HTML form
+    submitButton : binding variable for submit button of new
+        doubt HTML form
+    sortState : Sorting criteria being used to sort doubts
+        0 - Most Recent First
+        1 - Most Recent Last
+        2 - Most Upvoted First
+        3 - Most Upvoted Last
+        Default sort state is Most Recent First</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> pseudo = <span class="hljs-string">""</span>, messageContainer, submitButton;
+<span class="hljs-keyword">var</span> sortState = <span class="hljs-number">0</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Function to intialize new client connection</code></pre></div></div><div class="code"><div class="wrapper">$(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Bind the global variables to their corresponding HTML elements</code></pre></div></div><div class="code"><div class="wrapper">	messageContainer = $(<span class="hljs-string">'#messageInput'</span>);
+	submitButton = $(<span class="hljs-string">"#submit"</span>);
+	bindButton();</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>On getting a new client connection request first cookie is
+    checked to see if there exists a user session. If a session
+    exists then username saved in the cookie is alloted to
+    requesting client. If cookie doesn&#39;t exist a dialog box
+    asking for a username is shown. Once username is decided
+    it is saved in the cookie</code></pre></div></div><div class="code"><div class="wrapper">	<span class="hljs-keyword">if</span>(getCookie(<span class="hljs-string">'userName'</span>)==<span class="hljs-string">""</span>){
+		$(<span class="hljs-string">"#alertPseudo"</span>).hide();
+		BootstrapDialog.show({
+			id: <span class="hljs-string">"mymy"</span>,
+			title: <span class="hljs-string">'Enter Username'</span>,
+			message: $(<span class="hljs-string">'&lt;input id="pseudoInput" type="text" class="form-control" placeholder="Username" /&gt;'</span>),
+			buttons: [{
+				label: <span class="hljs-string">'Submit'</span>,
+				cssClass: <span class="hljs-string">'btn-primary'</span>,
+				hotkey: <span class="hljs-number">13</span>,
+				action: <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(dialogItself)</span></span>{
+					setPseudo(dialogItself);
+				},
+			}]
+		});
+	}<span class="hljs-keyword">else</span>{
+		socket.emit(<span class="hljs-string">'setPseudo'</span>,getCookie(<span class="hljs-string">"userName"</span>)+<span class="hljs-string">'!'</span>);
+		pseudo = getCookie(<span class="hljs-string">'userName'</span>);
+	}
+	$(<span class="hljs-string">"#pseudoSubmit"</span>).click(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+		setPseudo();
+	});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Both Sumbit button and Enter key on keybooard are binded to
+    the function to send new doubt</code></pre></div></div><div class="code"><div class="wrapper">	submitButton.click(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+		sentMessage();
+	});
+	$(<span class="hljs-string">'#messageInput'</span>).keypress(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(e)</span></span>{
+		<span class="hljs-keyword">if</span>(e.which==<span class="hljs-number">13</span>)
+			sentMessage();
+	});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Function to select random doubts to be displayed to the client
+    This function gets called after every &quot;reloadTime&quot;
+    miliseconds. &quot;numRandomDoubts&quot; doubts are chosen randomly
+    from &quot;doubtList&quot;, pushed &quot;randArray&quot; and removed from
+    &quot;doubtList&quot;. Both randArray and doubtList are sorted as per
+    the sort state. The new &quot;doubtList&quot; is then &quot;randArray&quot;
+    concatenated with old &quot;doubtList&quot;</code></pre></div></div><div class="code"><div class="wrapper">	setInterval(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+		<span class="hljs-keyword">var</span> doubtList = $(<span class="hljs-string">'#chatEntries &gt; div'</span>);
+		<span class="hljs-keyword">if</span>(doubtList.length &gt; numRandomDoubts){
+			<span class="hljs-keyword">var</span> randArray = [];
+			<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;numRandomDoubts;i++){
+				randNum = <span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * doubtList.length));
+				randArray.push(doubtList[randNum]);
+				doubtList.splice(randNum,<span class="hljs-number">1</span>);
+			}
+			<span class="hljs-keyword">if</span>(sortState == <span class="hljs-number">0</span>){
+				randArray.sort(compareTime);
+				doubtList.sort(compareTime);
+			}
+			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(sortState == <span class="hljs-number">1</span>){
+				randArray.sort(compareTime).reverse();
+				doubtList.sort(compareTime).get().reverse();
+			}
+			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(sortState == <span class="hljs-number">2</span>){
+				randArray.sort(compareVote);
+				doubtList.sort(compareVote);
+			}
+			<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(sortState == <span class="hljs-number">3</span>){
+				randArray.sort(compareVote).reverse();
+				doubtList.sort(compareVote).get().reverse();
+			}<span class="hljs-keyword">else</span>{
+				<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Should not reach here !"</span>)
+			}
+			$(<span class="hljs-string">'#chatEntries'</span>).empty();
+			<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;numRandomDoubts;i++){
+				$(<span class="hljs-string">'#chatEntries'</span>).append(randArray[i].outerHTML);
+			}
+			<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;doubtList.length;i++){
+				$(<span class="hljs-string">'#chatEntries'</span>).append(doubtList[i].outerHTML);
+			}
+		}
+	},reloadTime);
+});
+<span class="hljs-keyword">var</span> socket = io.connect();</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Listener for successfull connection status message from server</code></pre></div></div><div class="code"><div class="wrapper">socket.on(<span class="hljs-string">'connect'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+	<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'connected'</span>);
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Listener for number of connected users message from server
+    msg : New count of connected clients</code></pre></div></div><div class="code"><div class="wrapper">socket.on(<span class="hljs-string">'nbUsers'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(msg)</span></span>{
+	$(<span class="hljs-string">"#nbUsers"</span>).html(msg.nb);
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Listener for new doubt message from server
+    data : JSON object containing new message information</code></pre></div></div><div class="code"><div class="wrapper">socket.on(<span class="hljs-string">'message'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+	addMessage(data.doubtId ,data.upvotes, data.message, data.pseudo, data.date, <span class="hljs-literal">false</span>);
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Listener for upvote message from server
+    data : JSON object containing Id and updated upvote count
+        of the concerned doubt</code></pre></div></div><div class="code"><div class="wrapper">socket.on(<span class="hljs-string">'updateVote'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+	<span class="hljs-keyword">var</span> id = data.doubtId;
+	<span class="hljs-keyword">var</span> count = data.count;
+	$(<span class="hljs-string">'#'</span>+id+<span class="hljs-string">'&gt; .text'</span>).html(count);
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Listener for setDoubtId message from server
+    data : Id allocated to the new doubt
+Once user enters a new doubt this doubt goes to server where it
+    is allocated a unique Id which is then sent to all clients</code></pre></div></div><div class="code"><div class="wrapper">socket.on(<span class="hljs-string">'setDoubtId'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+	$(<span class="hljs-string">"#Unknown"</span>).attr(<span class="hljs-string">"onclick"</span>,<span class="hljs-string">"deleteMessage("</span>+data+<span class="hljs-string">")"</span>);
+	$(<span class="hljs-string">"#Unknown"</span>).attr(<span class="hljs-string">"id"</span>,<span class="hljs-string">''</span>+data);
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Listener for delete doubt message from server
+    data : JSON object containing Id of the doubt to be deleted</code></pre></div></div><div class="code"><div class="wrapper">socket.on(<span class="hljs-string">'deleteMessageFromServer'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+	<span class="hljs-built_in">document</span>.getElementById(data[<span class="hljs-string">'doubtId'</span>]).parentNode.parentNode.remove();
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Function to send a new doubt
+    Doubt content is extracted from &quot;messageContainer&quot; which is
+    binded to text field for entering new doubt. After adding
+    username and timestamp this doubt is sent to server to be
+    broadcasted to all users</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sentMessage</span><span class="hljs-params">()</span></span>{
+	<span class="hljs-keyword">if</span>(messageContainer.val().trim()!=<span class="hljs-string">""</span>){
+		<span class="hljs-keyword">if</span>(pseudo==<span class="hljs-string">""</span>){
+			$(<span class="hljs-string">'#modalPseudo'</span>).modal(<span class="hljs-string">'show'</span>);
+		}
+		<span class="hljs-keyword">else</span>{
+			<span class="hljs-keyword">var</span> doubt_content = messageContainer.val();
+			<span class="hljs-keyword">var</span> date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+			date = date.toLocaleTimeString();
+			addMessage(<span class="hljs-string">"Unknown"</span>, <span class="hljs-number">0</span> ,doubt_content,<span class="hljs-string">"ME"</span>,date,<span class="hljs-literal">true</span>);
+			socket.emit(<span class="hljs-string">'message'</span>,doubt_content);
+			messageContainer.val(<span class="hljs-string">''</span>);
+			submitButton.button(<span class="hljs-string">'loading'</span>);
+		}
+	}
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Function to delete a doubt
+    doubtId : Id of the doubt to be deleted
+User is allowed to delete only his doubts</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">deleteMessage</span><span class="hljs-params">(doubtId)</span></span>{
+	bootbox.confirm(<span class="hljs-string">"Are you sure want to delete?"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(result)</span> </span>{
+    	<span class="hljs-keyword">if</span>(result) socket.emit(<span class="hljs-string">'deleteMessage'</span>,doubtId);
+    });
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Function to add a new doubt in client&#39;s html
+    Username shown in the doubt deoends on whether the
+    concerned doubt belongs to this user or some other.
+    This function is also used when populating the data from
+    existing user session i.e. the case when username was
+    picked up from the cookie</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addMessage</span><span class="hljs-params">(doubtId,upvotes,msg,pseudo,date,self)</span></span>{
+	<span class="hljs-keyword">var</span> text = <span class="hljs-string">""</span>;
+	<span class="hljs-keyword">if</span>(getCookie(<span class="hljs-string">'userName'</span>)==pseudo){
+		<span class="hljs-keyword">var</span> classDiv = <span class="hljs-string">"rowMessageSelf row"</span>;
+		text += <span class="hljs-string">'&lt;div class="'</span> + classDiv + <span class="hljs-string">'"&gt;&lt;div class="col-md-11"&gt;&lt;p style="word-wrap:break-word" &gt; &lt;b&gt;'</span> + <span class="hljs-string">"ME"</span> + <span class="hljs-string">' , '</span>+ date + <span class="hljs-string">'&lt;/b&gt;&amp;nbsp&amp;nbsp&amp;nbsp'</span> + msg +<span class="hljs-string">'&lt;/div&gt;'</span>;
+		text += <span class="hljs-string">'&lt;div class="col-md-1" &gt;&lt;button id="'</span>+ doubtId +  <span class="hljs-string">'" type="button" class="btn btn-default pull-right" onclick="deleteMessage('</span>+ doubtId +<span class="hljs-string">')" &gt;&lt;span class="glyphicon glyphicon-remove"&gt;&lt;/span&gt;&lt;span class="text"&gt;'</span>+upvotes+<span class="hljs-string">'&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;'</span>;
+	}
+	<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(self){
+		<span class="hljs-keyword">var</span> classDiv = <span class="hljs-string">"rowMessageSelf row"</span>;
+		text += <span class="hljs-string">'&lt;div class="'</span> + classDiv + <span class="hljs-string">'"&gt;&lt;div class="col-md-11"&gt;&lt;p style="word-wrap:break-word" &gt; &lt;b&gt;'</span> + pseudo + <span class="hljs-string">' , '</span>+ date + <span class="hljs-string">'&lt;/b&gt;&amp;nbsp&amp;nbsp&amp;nbsp'</span> + msg +<span class="hljs-string">'&lt;/div&gt;'</span>;
+		text += <span class="hljs-string">'&lt;div class="col-md-1" &gt;&lt;button id="'</span>+ doubtId +  <span class="hljs-string">'" type="button" class="btn btn-default pull-right" onclick="deleteMessage('</span>+ doubtId +<span class="hljs-string">')" &gt;&lt;span class="glyphicon glyphicon-remove"&gt;&lt;/span&gt;&lt;span class="text"&gt;'</span>+upvotes+<span class="hljs-string">'&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;'</span>;
+	}
+	<span class="hljs-keyword">else</span>{
+		<span class="hljs-keyword">var</span> classDiv = <span class="hljs-string">"rowMessage row"</span>;
+		text += <span class="hljs-string">'&lt;div class="'</span> + classDiv + <span class="hljs-string">'"&gt;&lt;div class="col-md-11"&gt;&lt;p style="word-wrap:break-word" &gt; &lt;b&gt;'</span> + pseudo + <span class="hljs-string">' , '</span>+ date + <span class="hljs-string">'&lt;/b&gt;&amp;nbsp&amp;nbsp&amp;nbsp'</span> + msg + <span class="hljs-string">'&lt;/div&gt;'</span>;
+		text += <span class="hljs-string">'&lt;div class="col-md-1"&gt;&lt;button id="'</span>+doubtId+<span class="hljs-string">'" value="OFF" type="button" onclick="upvoteFunction('</span>+ doubtId +<span class="hljs-string">')" class="btn btn-default pull-right vote"&gt;&lt;span class="glyphicon glyphicon-arrow-up"&gt;&lt;/span&gt;&lt;span class="text"&gt;'</span>+upvotes+<span class="hljs-string">'&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;'</span>;
+	}
+	$(<span class="hljs-string">"#chatEntries"</span>).prepend(text);
+	$(<span class="hljs-string">'#messageInput'</span>).val(<span class="hljs-string">''</span>);
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Binding submit button of new doubt form</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bindButton</span><span class="hljs-params">()</span></span>{
+	submitButton.button(<span class="hljs-string">'loading'</span>);
+	messageContainer.on(<span class="hljs-string">'input'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+		<span class="hljs-keyword">if</span>(messageContainer.val()==<span class="hljs-string">""</span>) submitButton.button(<span class="hljs-string">'loading'</span>);
+		<span class="hljs-keyword">else</span> submitButton.button(<span class="hljs-string">'reset'</span>);
+	});
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Function to set username of this client
+    If there doesn&#39;t exist a user session and new username is
+    asked through dialog box the chosen username is sent to
+    server for verification. If server allocates the username
+    then &quot;pseudo&quot; is set to requested username otherwise the
+    dialogbox reappears saying that request username is taken</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setPseudo</span><span class="hljs-params">(dialogItself)</span></span>{
+	<span class="hljs-keyword">if</span>(getCookie(<span class="hljs-string">'userName'</span>)==<span class="hljs-string">""</span> &amp;&amp; $(<span class="hljs-string">"#pseudoInput"</span>).val()!=<span class="hljs-string">""</span>){
+		socket.emit(<span class="hljs-string">'setPseudo'</span>,$(<span class="hljs-string">"#pseudoInput"</span>).val());
+		socket.on(<span class="hljs-string">'pseudoStatus'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+			<span class="hljs-keyword">if</span>(data == <span class="hljs-string">"ok"</span>){
+				dialogItself.close();
+				pseudo = $(<span class="hljs-string">"#pseudoInput"</span>).val();
+				setCookie( <span class="hljs-string">"userName"</span>, pseudo);
+			}
+			<span class="hljs-keyword">else</span> BootstrapDialog.alert(<span class="hljs-string">'Username already taken.'</span>);
+		});
+	}
+	<span class="hljs-keyword">else</span> BootstrapDialog.alert(<span class="hljs-string">'Username field is empty.'</span>);
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Function to change appearance of upvote button after clicked
+    Upvote button toggles between being upvote button and
+    downvote button</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">upvoteFunction</span><span class="hljs-params">(doubtId)</span></span>{
+	socket.emit(<span class="hljs-string">'upvote'</span>, doubtId);
+	<span class="hljs-keyword">if</span>(<span class="hljs-built_in">document</span>.getElementById(doubtId).value == <span class="hljs-string">"OFF"</span>){
+		<span class="hljs-built_in">document</span>.getElementById(doubtId).value = <span class="hljs-string">"ON"</span>;
+		<span class="hljs-built_in">document</span>.getElementById(doubtId).setAttribute(<span class="hljs-string">"style"</span>,<span class="hljs-string">"background-color:#AAA"</span>);
+
+	}<span class="hljs-keyword">else</span>{
+		<span class="hljs-built_in">document</span>.getElementById(doubtId).value = <span class="hljs-string">"OFF"</span>;
+		<span class="hljs-built_in">document</span>.getElementById(doubtId).setAttribute(<span class="hljs-string">"style"</span>,<span class="hljs-string">"background-color:none"</span>);
+	}
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Comparator used for sorting votes by number of upvotes</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compareVote</span><span class="hljs-params">(a,b)</span></span>{
+	<span class="hljs-keyword">var</span> count1 = <span class="hljs-built_in">parseInt</span>($(a).find(<span class="hljs-string">".btn .text"</span>).text());
+	<span class="hljs-keyword">var</span> count2 = <span class="hljs-built_in">parseInt</span>($(b).find(<span class="hljs-string">".btn .text"</span>).text());
+	<span class="hljs-keyword">return</span> count1 &lt; count2;
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Comparator used for sorting votes by time</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">compareTime</span><span class="hljs-params">(a,b)</span></span>{
+	<span class="hljs-keyword">var</span> id1 = <span class="hljs-built_in">parseInt</span>($(a).find(<span class="hljs-string">".vote"</span>)[<span class="hljs-number">0</span>].id);
+	<span class="hljs-keyword">var</span> id2 = <span class="hljs-built_in">parseInt</span>($(b).find(<span class="hljs-string">".vote"</span>)[<span class="hljs-number">0</span>].id);
+	<span class="hljs-keyword">return</span> id1 &lt; id2;
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Function to be called when user chooses to sort the doubts
+    based on one of the provided options
+Sort state is extracted from its HTML element. Sort functions
+    are called on both randomly chosen doubts and rest of the
+    doubtList. After that new doubtList is randArray
+    concatenated with old doubtList</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">displaySorted</span><span class="hljs-params">()</span></span>{
+	sortState = $(<span class="hljs-string">'.form-control :selected'</span>).index();
+	<span class="hljs-keyword">var</span> doubtList = $(<span class="hljs-string">'#chatEntries &gt; div'</span>);
+	<span class="hljs-keyword">if</span>(doubtList.length &gt; numRandomDoubts){
+		<span class="hljs-keyword">var</span> randArray = [];
+		<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;numRandomDoubts;i++){
+			randNum = <span class="hljs-built_in">Math</span>.floor((<span class="hljs-built_in">Math</span>.random() * doubtList.length));
+			randArray.push(doubtList[randNum]);
+			doubtList.splice(randNum,<span class="hljs-number">1</span>);
+		}
+		<span class="hljs-keyword">if</span>(sortState == <span class="hljs-number">0</span>){
+			randArray.sort(compareTime);
+			doubtList.sort(compareTime);
+		}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(sortState == <span class="hljs-number">1</span>){
+			randArray.sort(compareTime).reverse();
+			doubtList.sort(compareTime).get().reverse();
+		}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(sortState == <span class="hljs-number">2</span>){
+			randArray.sort(compareVote);
+			doubtList.sort(compareVote);
+		}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(sortState == <span class="hljs-number">3</span>){
+			randArray.sort(compareVote).reverse();
+			doubtList.sort(compareVote).get().reverse();
+		}<span class="hljs-keyword">else</span>{
+			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Should not reach here"</span>);
+		}
+		$(<span class="hljs-string">'#chatEntries'</span>).empty();
+		<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;numRandomDoubts;i++){
+			$(<span class="hljs-string">'#chatEntries'</span>).append(randArray[i].outerHTML);
+		}
+		<span class="hljs-keyword">for</span>(i=<span class="hljs-number">0</span>;i&lt;doubtList.length;i++){
+			$(<span class="hljs-string">'#chatEntries'</span>).append(doubtList[i].outerHTML);
+		}
+	}
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Function to get a parameter value from the cookie if it exists
+    cname : key for which value is desired
+This function is used to get username stored in cookie by passing
+    &quot;cname&quot; as &quot;username&quot;</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getCookie</span><span class="hljs-params">(cname)</span> </span>{
+    <span class="hljs-keyword">var</span> name = cname + <span class="hljs-string">"="</span>;
+    <span class="hljs-keyword">var</span> ca = <span class="hljs-built_in">document</span>.cookie.split(<span class="hljs-string">';'</span>);
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i&lt;ca.length; i++) {
+        <span class="hljs-keyword">var</span> c = ca[i];
+        <span class="hljs-keyword">while</span> (c.charAt(<span class="hljs-number">0</span>)==<span class="hljs-string">' '</span>) c = c.substring(<span class="hljs-number">1</span>);
+        <span class="hljs-keyword">if</span> (c.indexOf(name) == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> c.substring(name.length,c.length);
+    }
+    <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><pre><code>Function to set a key value pair in the cookie
+    cname : key
+    cvalue : value
+    exdays : expiry time of the cookie in number in miliseconds</code></pre></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setCookie</span><span class="hljs-params">(cname, cvalue)</span> </span>{
+    <span class="hljs-keyword">var</span> d = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+    d.setTime(d.getTime() + cookieExpiryTime);
+    <span class="hljs-keyword">var</span> expires = <span class="hljs-string">"expires="</span> + d.toUTCString();
+    <span class="hljs-built_in">document</span>.cookie = cname + <span class="hljs-string">"="</span> + cvalue + <span class="hljs-string">"; "</span> + expires;
+}</div></div></div></div></body></html>
