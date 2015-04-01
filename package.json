@@ -7,7 +7,8 @@
     "express": "3.x.x",
     "jade": "~1.9.2",
     "html": "*",
-    "ejs": "~2.2.4"
+    "ejs": "~2.2.4",
+    "groc": "~0.8.0"
   },
   "scripts": {
     "start": "nodejs server.js"

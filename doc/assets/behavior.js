@@ -6,35 +6,25 @@ f.event={add:function(a,c,d,e,g){var h,i,j,k,l,m,n,o,p,q,r,s;if(!(a.nodeType===3
 
   tableOfContents = [
     {
-      "type": "folder",
+      "type": "file",
       "data": {
-        "path": "public",
-        "title": "public"
+        "language": {
+          "nameMatchers": [".js"],
+          "pygmentsLexer": "javascript",
+          "multiLineComment": ["/*", "*", "*/"],
+          "singleLineComment": ["//"],
+          "ignorePrefix": "}",
+          "foldPrefix": "^",
+          "name": "JavaScript"
+        },
+        "sourcePath": "/home/shivam/Coding/DoubtsApp/server.js",
+        "projectPath": "server.js",
+        "targetPath": "server",
+        "pageTitle": "server",
+        "title": "server"
       },
       "depth": 1,
-      "children": [
-        {
-          "type": "file",
-          "data": {
-            "language": {
-              "nameMatchers": [".js"],
-              "pygmentsLexer": "javascript",
-              "multiLineComment": ["/*", "*", "*/"],
-              "singleLineComment": ["//"],
-              "ignorePrefix": "}",
-              "foldPrefix": "^",
-              "name": "JavaScript"
-            },
-            "sourcePath": "/home/vivek/git/DoubtsApp/public/client.js",
-            "projectPath": "public/client.js",
-            "targetPath": "public/client",
-            "pageTitle": "public/client",
-            "title": "client"
-          },
-          "depth": 2,
-          "outline": []
-        }
-      ]
+      "outline": []
     }
   ];
 
