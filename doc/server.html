@@ -1,0 +1,134 @@
+<!DOCTYPE html><html lang="en"><head><title>server</title></head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"><meta name="groc-relative-root" content=""><meta name="groc-document-path" content="server"><meta name="groc-project-path" content="server.js"><link rel="stylesheet" type="text/css" media="all" href="assets/style.css"><script type="text/javascript" src="assets/behavior.js"></script><body><div id="meta"><div class="file-path">server.js</div></div><div id="document"><div class="segment"><div class="comments "><div class="wrapper"><p>Server Configurations</p></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> appPort = <span class="hljs-number">4000</span>;
+<span class="hljs-keyword">var</span> logFileName = <span class="hljs-string">"data.txt"</span>;</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Librairies</p></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">'fs'</span>);
+<span class="hljs-keyword">var</span> express = <span class="hljs-built_in">require</span>(<span class="hljs-string">'express'</span>), app = express();
+<span class="hljs-keyword">var</span> http = <span class="hljs-built_in">require</span>(<span class="hljs-string">'http'</span>), server = http.createServer(app);
+<span class="hljs-keyword">var</span> io = <span class="hljs-built_in">require</span>(<span class="hljs-string">'socket.io'</span>).listen(server);
+<span class="hljs-keyword">var</span> pseudoArray = [<span class="hljs-string">'admin'</span>]; <span class="hljs-comment">// block following usernames</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Views Options</p></div></div><div class="code"><div class="wrapper">app.set(<span class="hljs-string">'views'</span>,__dirname + <span class="hljs-string">'/views'</span>);
+app.engine(<span class="hljs-string">'html'</span>,<span class="hljs-built_in">require</span>(<span class="hljs-string">'ejs'</span>).renderFile);
+app.set(<span class="hljs-string">'view engine'</span>,<span class="hljs-string">'html'</span>);
+app.set(<span class="hljs-string">"view options"</span>,{ layout: <span class="hljs-literal">false</span> })
+app.configure(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+	app.use(express.static(__dirname + <span class="hljs-string">'/public'</span>));
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Rendering the Main Page</p></div></div><div class="code"><div class="wrapper">app.get(<span class="hljs-string">'/'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span></span>{
+	res.render(<span class="hljs-string">'home.html'</span>);
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Server startup</p></div></div><div class="code"><div class="wrapper">server.listen(appPort);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"Server listening on port "</span>+ appPort);</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Global Variables</p></div></div><div class="code"><div class="wrapper"><span class="hljs-keyword">var</span> totalDoubts = <span class="hljs-number">0</span>; <span class="hljs-comment">// Maintain count of the doubts</span>
+<span class="hljs-keyword">var</span> doubtsArray = [];
+<span class="hljs-keyword">var</span> upvoteArray = [];
+<span class="hljs-keyword">var</span> users = <span class="hljs-number">0</span>; <span class="hljs-comment">// Maintain count of the users</span></div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Data Doubt Class</p></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Doubt</span><span class="hljs-params">(user,content,timeStamp)</span> </span>{
+	<span class="hljs-keyword">this</span>.id = totalDoubts;
+	<span class="hljs-keyword">this</span>.user = user;
+    <span class="hljs-keyword">this</span>.content = content;
+    <span class="hljs-keyword">this</span>.timeStamp = timeStamp;
+    <span class="hljs-keyword">this</span>.count = <span class="hljs-number">0</span>;
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Handling socket connections</p></div></div><div class="code"><div class="wrapper">io.sockets.on(<span class="hljs-string">'connection'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(socket)</span></span>{ <span class="hljs-comment">// First connection</span>
+
+	users += <span class="hljs-number">1</span>;
+	reloadUsers();</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Upvote listener</p></div></div><div class="code"><div class="wrapper">	socket.on(<span class="hljs-string">'upvote'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+		<span class="hljs-keyword">var</span> str = returnPseudo(socket)+data;
+		<span class="hljs-keyword">if</span>(upvoteArray.indexOf(str) == -<span class="hljs-number">1</span>){
+			upvoteArray.push(str);
+			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i &lt; doubtsArray.length; i++) {
+				<span class="hljs-keyword">var</span> doubt = doubtsArray[i];
+				<span class="hljs-keyword">if</span>(doubt.id == <span class="hljs-built_in">parseInt</span>(data)){
+					doubtsArray[i].count += <span class="hljs-number">1</span>;
+					io.sockets.emit(<span class="hljs-string">'updateVote'</span>,{doubtId : data , count : doubtsArray[i].count });
+					<span class="hljs-keyword">break</span>;
+				}
+			}
+		}<span class="hljs-keyword">else</span>{
+			<span class="hljs-keyword">delete</span> upvoteArray[upvoteArray.indexOf(str)];
+			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i &lt; doubtsArray.length; i++) {
+				<span class="hljs-keyword">var</span> doubt = doubtsArray[i];
+				<span class="hljs-keyword">if</span>(doubt.id == <span class="hljs-built_in">parseInt</span>(data)){
+					doubtsArray[i].count -= <span class="hljs-number">1</span>;
+					io.sockets.emit(<span class="hljs-string">'updateVote'</span>,{doubtId : data , count : doubtsArray[i].count });
+					<span class="hljs-keyword">break</span>;
+				}
+			}
+		}
+	});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Delete message listener</p></div></div><div class="code"><div class="wrapper">	socket.on(<span class="hljs-string">'deleteMessage'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+		io.sockets.emit(<span class="hljs-string">'deleteMessageFromServer'</span>,{<span class="hljs-string">"doubtId"</span>: data});
+		<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i &lt; doubtsArray.length; i++) {
+			<span class="hljs-keyword">var</span> doubt = doubtsArray[i];
+			<span class="hljs-keyword">if</span>(doubt.id == <span class="hljs-built_in">parseInt</span>(data)){
+				doubtsArray.splice(i,<span class="hljs-number">1</span>);
+				<span class="hljs-keyword">break</span>;
+			}
+		}
+	});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Broadcast the message to all</p></div></div><div class="code"><div class="wrapper">	socket.on(<span class="hljs-string">'message'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+		<span class="hljs-keyword">if</span>(pseudoSet(socket)){
+			<span class="hljs-keyword">var</span> userId = returnPseudo(socket);
+			socket.emit(<span class="hljs-string">'setDoubtId'</span>,totalDoubts);
+			<span class="hljs-keyword">var</span> date = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>();
+			date = date.toLocaleTimeString();
+			<span class="hljs-built_in">console</span>.log(date);
+			<span class="hljs-keyword">var</span> doubt  = <span class="hljs-keyword">new</span> Doubt(userId,data,date);
+			doubtsArray.push(doubt);
+			<span class="hljs-keyword">var</span> transmit = {doubtId:doubt.id, upvotes:doubt.count, date:date, pseudo:userId, message:data};
+			socket.broadcast.emit(<span class="hljs-string">'message'</span>, transmit);
+			totalDoubts += <span class="hljs-number">1</span>;
+			fs.appendFile(logFileName,<span class="hljs-built_in">JSON</span>.stringify(doubt)+<span class="hljs-string">'\n'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err)</span></span>{}); <span class="hljs-comment">// Dump to FILE</span>
+		}
+	});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Assign username</p></div></div><div class="code"><div class="wrapper">	socket.on(<span class="hljs-string">'setPseudo'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(data)</span></span>{
+		<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"-------------------------------------------------------------::   "</span>+data);
+		<span class="hljs-keyword">if</span>(data[data.length-<span class="hljs-number">1</span>]==<span class="hljs-string">'!'</span>){
+			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"---------------Refreshed--------------"</span>);			
+			data = data.slice(<span class="hljs-number">0</span>,-<span class="hljs-number">1</span>);
+			socket.set(<span class="hljs-string">'pseudo'</span>,data,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+				socket.emit(<span class="hljs-string">'pseudoStatus'</span>,<span class="hljs-string">'ok'</span>);
+			});
+			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i &lt; doubtsArray.length; i++) {				
+				<span class="hljs-keyword">var</span> doubt = doubtsArray[i];
+				<span class="hljs-keyword">var</span> transmit = {doubtId: doubt.id , upvotes : doubt.count , date : doubt.timeStamp , pseudo : doubt.user, message : doubt.content};
+				socket.emit(<span class="hljs-string">'message'</span>, transmit);
+			}
+		}<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (pseudoArray.indexOf(data) == -<span class="hljs-number">1</span>){ <span class="hljs-comment">// Check if username is already taken</span>
+			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"---------------New User--------------"</span>);
+			socket.set(<span class="hljs-string">'pseudo'</span>,data,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+				pseudoArray.push(data);
+				socket.emit(<span class="hljs-string">'pseudoStatus'</span>,<span class="hljs-string">'ok'</span>);
+			});
+			<span class="hljs-comment">//Print all previous doubts to the newly connected User</span>
+			<span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> i=<span class="hljs-number">0</span>; i &lt; doubtsArray.length; i++) {
+				<span class="hljs-keyword">var</span> doubt = doubtsArray[i];
+				<span class="hljs-keyword">var</span> transmit = {doubtId: doubt.id , upvotes : doubt.count , date : doubt.timeStamp , pseudo : doubt.user, message : doubt.content};
+				socket.emit(<span class="hljs-string">'message'</span>, transmit);
+			}
+		}<span class="hljs-keyword">else</span>{
+			<span class="hljs-built_in">console</span>.log(<span class="hljs-string">"---------------Error--------------"</span>);
+			socket.emit(<span class="hljs-string">'pseudoStatus'</span>,<span class="hljs-string">'error'</span>) <span class="hljs-comment">// Send Error : 'Username Already Exists'</span>
+		}
+	});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Disconnect a client</p></div></div><div class="code"><div class="wrapper">	socket.on(<span class="hljs-string">'disconnect'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+		users -= <span class="hljs-number">1</span>;
+		reloadUsers();
+		<span class="hljs-keyword">if</span> (pseudoSet(socket)){
+			<span class="hljs-keyword">var</span> pseudo;
+			socket.get(<span class="hljs-string">'pseudo'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err,name)</span></span>{
+				pseudo = name;
+			});
+			<span class="hljs-keyword">var</span> index = pseudoArray.indexOf(pseudo);
+			pseudo.slice(index - <span class="hljs-number">1</span>, <span class="hljs-number">1</span>);
+		}
+	});
+});</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Broadcast the count of users</p></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">reloadUsers</span><span class="hljs-params">()</span></span>{
+	io.sockets.emit(<span class="hljs-string">'nbUsers'</span>,{<span class="hljs-string">"nb"</span>: users});
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Test if the user has a name</p></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">pseudoSet</span><span class="hljs-params">(socket)</span></span>{
+	<span class="hljs-keyword">var</span> test;
+	socket.get(<span class="hljs-string">'pseudo'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, name)</span></span>{
+		<span class="hljs-keyword">if</span>(name==<span class="hljs-literal">null</span>)
+			test = <span class="hljs-literal">false</span>;
+		<span class="hljs-keyword">else</span>
+			test = <span class="hljs-literal">true</span>;
+	});
+	<span class="hljs-keyword">return</span> test;
+}</div></div></div><div class="segment"><div class="comments "><div class="wrapper"><p>Get name of the user</p></div></div><div class="code"><div class="wrapper"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">returnPseudo</span><span class="hljs-params">(socket)</span></span>{
+	<span class="hljs-keyword">var</span> pseudo;
+	socket.get(<span class="hljs-string">'pseudo'</span>,<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(err, name)</span> </span>{
+		<span class="hljs-keyword">if</span>(name==<span class="hljs-literal">null</span>)
+			pseudo = <span class="hljs-literal">false</span>;
+		<span class="hljs-keyword">else</span>
+			pseudo = name;
+	});
+	<span class="hljs-keyword">return</span> pseudo;
+}</div></div></div></div></body></html>
