@@ -8,11 +8,12 @@ To use it, you need Node.js and some nodejs modules.
 ## Install the following modules :
 
 	- Go to the DoubtsApp directory and use this command
-	- npm install express socket.io html jade ejs groc
+	- sudo apt-get install nodejs npm
+	- sudo npm install
 
 ## How to use :
 
-	- node server.js or nodejs server.js
+	- nodejs server.js
 	- Go to IP:port from any (recent) navigator
 
 ## Documentation :
