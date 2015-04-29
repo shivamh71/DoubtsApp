@@ -185,8 +185,7 @@ function sentMessage(){
 		}
 		else{
 			var doubt_content = messageContainer.val();
-			var date = new Date();
-			date = date.toLocaleTimeString();
+			var date = Date().toString().split(' ')[4];
 			addMessage("Unknown", 0 ,doubt_content,"ME",date,true);
 			socket.emit('message',doubt_content);
 			messageContainer.val('');

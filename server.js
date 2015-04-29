@@ -142,8 +142,7 @@ io.sockets.on('connection',function(socket){ // First connection
 		if(pseudoSet(socket)){
 			var userId = returnPseudo(socket);
 			socket.emit('setDoubtId',totalDoubts);
-			var date = new Date();
-			date = date.toLocaleTimeString();
+			var date = Date().toString().split(' ')[4];
 			var doubt  = new Doubt(userId,data,date);
 			doubtsArray.push(doubt);
 			var transmit = {doubtId:doubt.id, upvotes:doubt.count, date:date, pseudo:userId, message:data};
