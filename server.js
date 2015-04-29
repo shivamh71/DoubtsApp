@@ -41,6 +41,7 @@ server.listen(appPort);
 console.log("Server listening on port " + appPort);
 /*
 	Global Variables
+		courseName : Name of the course. Obviously (>_<)
 		logFileName : Name of dump file created at end of session
 		totalDoubts : Total number of doubts currently present
 		doubtsArray : Array of all doubt objects
@@ -48,7 +49,8 @@ console.log("Server listening on port " + appPort);
 		users : Number of connected users
 		pseudoArray : Array of taken usernames
 */
-var logFileName = "data.txt";
+var courseName = "Test";
+var logFileName = courseName + "_" + new Date().toLocaleDateString().replace('/','_').replace('/','_') + ".txt";
 var totalDoubts = 0;
 var doubtsArray = [];
 var upvoteArray = [];
